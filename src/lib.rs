@@ -12,11 +12,11 @@ use crate::pages::home::Home;
 /// An app router which renders the homepage and handles 404's
 #[component]
 pub fn App() -> impl IntoView {
-    // Provides context that manages stylesheets, titles, meta tags, etc.
     provide_meta_context();
 
     view! {
         <Html attr:lang="en" attr:dir="ltr" attr:data-theme="light" />
+        <Stylesheet id="leptos" href="/style/output.css" />
 
         // sets the document title
         <Title text="Open Device Partnership" />

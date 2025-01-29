@@ -1,4 +1,4 @@
-use crate::components::hello_world::HelloWorld;
+use crate::components::coming_soon::ComingSoon;
 use leptos::prelude::*;
 
 /// Default Home Page
@@ -24,9 +24,9 @@ pub fn Home() -> impl IntoView {
             }
         }>
 
-            <div class="container">
-                <HelloWorld />
-            </div>
+            <main>
+                <ComingSoon />
+            </main>
         </ErrorBoundary>
     }
 }
