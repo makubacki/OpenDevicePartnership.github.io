@@ -5,3 +5,37 @@
 @theme {
   --font-sans: "Segoe UI", "sans-serif";
 }
+
+.navbar {
+    background-color: white;
+    color: white;
+    padding: 1rem;
+}
+
+.navbar-title {
+    color: #262626;
+    padding: 0.5rem 1rem;
+    font-size: 25px;
+}
+
+.navbar-item {
+    color: #262626;
+    padding: 0.5rem 1rem;
+    font-size: 15px;
+}
+
+.navbar-burger {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-menu.is-active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+    }
+}
