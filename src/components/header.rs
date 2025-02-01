@@ -4,22 +4,16 @@ use leptos::prelude::*;
 pub fn Navbar() -> impl IntoView {
     view! {
         <nav class="navbar">
-            <div class="container">
-                <div>
-                    <img src="/images/odplogo.png" />
+            <div class="navbar-container" style="height: 30px; position: relative;">
+                <div style="float: left;">
+                    <img src="/images/odplogo.jpg" />
                 </div>
-                <div class="navbar-brand">
-                    <a class="navbar-title" href="/">
+                <div class="navbar-brand" style="float: left;">
+                    <a class="navbar-title">
                         "Open Device Partnership"
                     </a>
-                    <button class="navbar-burger" aria-label="menu" aria-expanded="true">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </button>
                 </div>
-
-                <div class={format!("navbar-menu {}", "is-active")}>
+                <div class="navbar-menu {}" style="float: right;">
                     <div class="navbar-start">
                         <a class="navbar-item" href="/about">
                             "About"

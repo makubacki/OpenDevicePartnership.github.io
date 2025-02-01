@@ -10,6 +10,9 @@
     background-color: white;
     color: white;
     padding: 1rem;
+    position: fixed;
+    top: 0px;
+    width: 100%;
 }
 
 .navbar-title {
@@ -21,17 +24,7 @@
 .navbar-item {
     color: #262626;
     padding: 0.5rem 1rem;
-    font-size: 15px;
-}
-
-.navbar-burger {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.navbar-menu.is-active {
-    display: block;
+    font-size: 13px;
 }
 
 @media (max-width: 768px) {
