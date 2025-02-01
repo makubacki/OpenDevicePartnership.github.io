@@ -1,2 +1,2 @@
-pub mod coming_soon;
+pub mod welcome;
 pub mod header;

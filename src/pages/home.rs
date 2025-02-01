@@ -1,4 +1,4 @@
-use crate::components::coming_soon::ComingSoon;
+use crate::components::welcome::Welcome;
 use crate::components::header::Navbar;
 use leptos::prelude::*;
 
@@ -27,7 +27,7 @@ pub fn Home() -> impl IntoView {
 
             <main>
                 <Navbar />
-                <ComingSoon />
+                <Welcome />
             </main>
         </ErrorBoundary>
     }

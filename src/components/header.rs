@@ -6,7 +6,7 @@ pub fn Navbar() -> impl IntoView {
         <nav class="navbar">
             <div class="navbar-container" style="height: 30px; position: relative;">
                 <div style="float: left;">
-                    <img src="/images/odplogo.jpg" />
+                    <img src="/images/odplogo.png" style="width: 40px; height: 40px;" />
                 </div>
                 <div class="navbar-brand" style="float: left;">
                     <a class="navbar-title">
