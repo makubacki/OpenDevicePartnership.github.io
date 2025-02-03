@@ -14,19 +14,19 @@ pub fn Welcome() -> impl IntoView {
             </div>
             <div class="bg-white h-2"> </div>
             <div>
-                <div class="grid grid-cols-4 bg-white gap-4">
-                    <div class="place-content-center ...">
-                        <p class="place-self-center font-bold p-4 bg-blue-200">Boot Firmware</p>
-                    </div>
-                    <div class="place-content-center ...">
-                        <p class="place-self-center font-bold p-4 bg-blue-200">Embedded Controller</p>
-                    </div>
-                    <div class="place-content-center ...">
-                        <p class="place-self-center font-bold p-4 bg-blue-200">Windows-EC Services</p>
-                    </div>
-                    <div class="place-content-center ...">
-                        <p class="place-self-center font-bold p-4 bg-blue-200">Modern Power&Thermal</p>
-                    </div>
+                <div class="grid grid-cols-4 bg-white gap-10 h-24 pl-24 pr-24">
+                    <a class="place-content-center bg-blue-200 rounded-md ring-4 ring-indigo-300" href="/boot-firmware">
+                        <p class="text-center font-bold p-4">Boot Firmware</p>
+                    </a>
+                    <a class="place-content-center bg-blue-200 rounded-md ring-4 ring-indigo-300" href="/embedded-controller">
+                        <p class="text-center font-bold p-4">Embedded Controller</p>
+                    </a>
+                    <a class="place-content-center bg-blue-200 rounded-md ring-4 ring-indigo-300" href="/windows-ec-services">
+                        <p class="text-center font-bold p-4">Windows-EC Services</p>
+                    </a>
+                    <a class="place-content-center bg-blue-200 rounded-md ring-4 ring-indigo-300" href="/mptf">
+                        <p class="text-center font-bold p-4">Modern Power&Thermal</p>
+                    </a>
                 </div>
             </div>
             <div class="bg-white h-2"> </div>
@@ -68,15 +68,15 @@ pub fn Welcome() -> impl IntoView {
             </div>
             <div>
                 <div class="grid grid-cols-3 bg-gray-100 h-32">
-                    <div class="place-content-center ...">
-                        <p class="place-self-center">What is New</p>
-                    </div>
-                    <div class="place-content-center ...">
-                        <p class="place-self-center">About</p>
-                    </div>
-                    <div class="place-content-center ...">
-                        <p class="place-self-center">Contact Us</p>
-                    </div>
+                    <a class="place-content-center" href="/news-and-blogs">
+                        <p class="text-center font-bold">What is New</p>
+                    </a>
+                    <a class="place-content-center" href="/about">
+                        <p class="text-center font-bold">About</p>
+                    </a>
+                    <a class="place-content-center" href="/contact">
+                        <p class="text-center font-bold">Contact Us</p>
+                    </a>
                 </div>
             </div>
         </div>
