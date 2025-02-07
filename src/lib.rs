@@ -9,12 +9,13 @@ mod pages;
 // Top-Level pages
 use crate::pages::home::Home;
 use crate::pages::about::About;
-use crate::pages::contact::Contact;
-use crate::pages::news_and_blogs::NewsAndBlogs;
 use crate::pages::boot_firmware::BootFirmware;
+use crate::pages::contact::Contact;
+use crate::pages::documentation::Documentation;
 use crate::pages::embedded_controller::EmbeddedController;
-use crate::pages::windows_ec_services::WindowsEcServices;
 use crate::pages::mptf::Mptf;
+use crate::pages::news_and_blogs::NewsAndBlogs;
+use crate::pages::windows_ec_services::WindowsEcServices;
 
 /// An app router which renders the homepage and handles 404's
 #[component]
@@ -36,12 +37,13 @@ pub fn App() -> impl IntoView {
             <Routes fallback=|| view! { NotFound }>
                 <Route path=path!("/") view=Home />
                 <Route path=path!("/about") view=About />
-                <Route path=path!("/contact") view=Contact />
-                <Route path=path!("/news-and-blogs") view=NewsAndBlogs />
                 <Route path=path!("/boot-firmware") view=BootFirmware />
+                <Route path=path!("/contact") view=Contact />
+                <Route path=path!("/documentation") view=Documentation />
                 <Route path=path!("/embedded-controller") view=EmbeddedController />
-                <Route path=path!("/windows-ec-services") view=WindowsEcServices />
                 <Route path=path!("/mptf") view=Mptf />
+                <Route path=path!("/news-and-blogs") view=NewsAndBlogs />
+                <Route path=path!("/windows-ec-services") view=WindowsEcServices />
             </Routes>
         </Router>
     }

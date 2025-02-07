@@ -20,6 +20,12 @@ pub fn Navbar() -> impl IntoView {
                     <a href="/news-and-blogs">
                         <p class="text-center p-4">News & Blogs</p>
                     </a>
+                    <a href="/documentation">
+                        <p class="text-center p-4">Documentation</p>
+                    </a>
+                    <a href="https://github.com/OpenDevicePartnership">
+                        <p class="text-center p-4">Repositories</p>
+                    </a>
                     <a href="/contact">
                         <p class="text-center p-4">Contact</p>
                     </a>

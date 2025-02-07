@@ -1,5 +1,6 @@
 use crate::components::welcome::Welcome;
 use crate::components::header::Navbar;
+
 use leptos::prelude::*;
 
 /// Default Home Page
