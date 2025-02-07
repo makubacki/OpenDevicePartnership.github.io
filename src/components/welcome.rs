@@ -6,7 +6,7 @@ pub fn Welcome() -> impl IntoView {
         <div class="pt-16 grid grid-cols-1 gap-4 bg-white">
             <div class="grid grid-cols-2 bg-gray-100">
                 <div class="place-content-center ...">
-                    <p class="text-4xl place-self-center p-20 ...">Enhancing device security, strengthening fundamentals, and accelerating the delivery of high-quality devices</p>
+                    <p class="text-4xl place-self-center p-20">Enhancing device security, strengthening fundamentals, and accelerating the delivery of high quality devices</p>
                 </div>
                 <div>
                     <img src="/images/laptop.jpg" class="p-9" />
@@ -19,57 +19,54 @@ pub fn Welcome() -> impl IntoView {
                         <p class="text-center font-bold p-4">Boot Firmware</p>
                     </a>
                     <a class="place-content-center bg-blue-200 rounded-md ring-4 ring-indigo-300" href="/embedded-controller">
-                        <p class="text-center font-bold p-4">Embedded Controller</p>
+                        <p class="text-center font-bold p-4">Embedded Controller Firmware</p>
                     </a>
                     <a class="place-content-center bg-blue-200 rounded-md ring-4 ring-indigo-300" href="/windows-ec-services">
                         <p class="text-center font-bold p-4">Windows-EC Services</p>
                     </a>
                     <a class="place-content-center bg-blue-200 rounded-md ring-4 ring-indigo-300" href="/mptf">
-                        <p class="text-center font-bold p-4">Modern Power&Thermal</p>
+                        <p class="text-center font-bold p-4">Modern Power&Thermal Framework</p>
                     </a>
                 </div>
             </div>
             <div class="bg-white h-2"> </div>
             <div class="bg-white">
                 <div class="text-base px-28">
-                    <p class="font-bold pb-4">Introducing the Open Device Partnership (ODP) Project</p>
+                    <p class="pb-4"><span class="font-bold text-xl whitespace-normal">Introducing the Open Device Partnership Project</span></p>
 
-                    <p class="pb-4">The ODP project is a groundbreaking initiative designed to transform the Windows device 
-                    ecosystem. By focusing on robust security, superior device fundamentals, and accelerated 
-                    product development, the ODP project sets a new standard for security, performance, battery life, 
-                    and reliability.</p>
+                    <p class="pb-4 text-lg">ODP is a groundbreaking initiative designed to transform the Windows device ecosystem. By focusing on 
+                    robust security, superior device fundamentals, and accelerated product development, ODP sets a new standard for security, 
+                    performance, battery life, and reliability. </p>
 
-
-                    <p class="font-bold pb-4">Key Components</p>
-                    <ul class="pb-4">
-                        <li>* Fast Boot Firmware - Ensures a secure and efficient boot process for Windows devices.</li>
-                        <li>* Secure Embedded Controller (EC) - Standardizes and secures the embedded controller firmware across the Windows ecosystem.</li>
-                        <li>* Modern Power & Thermal Framework (MPTF) - Addresses performance and thermal management to improve battery life.</li>
+                    <p class="pb-4"><span class="font-bold text-xl whitespace-normal">Key Components</span></p>
+                    <ul class="pb-4 text-lg">
+                        <li class="list-disc list-inside"><i>Fast Boot Firmware</i>: ensures a secure and efficient boot process for Windows devices</li>
+                        <li class="list-disc list-inside"><i>Secure Embedded Controller (EC)</i>: standardizes and secures the embeddedcontroller firmware across x86 and ARM</li>
+                        <li class="list-disc list-inside"><i>Modern Power & Thermal Framework (MPTF)</i>: addresses performance and thermal management challenges to improve battery life across x86 and ARM</li>
                     </ul>
 
-                    <p class="font-bold pb-4">Value Proposition</p>
-
-                    <ul class="pb-4">
-                        <li>* Enhanced Security - ensures a secure boot process and hardened EC firmware, protecting devices from vulnerabilities.</li>
-                        <li>* Improved Performance - optimizing performance and thermal management, MPTF addresses inconsistent battery life</li>
-                        <li>* Accelerated Development - opensource collaboration with partners, enabling faster and more efficient product development.</li>
+                    <p class="pb-4"><span class="font-bold text-xl whitespace-normal">Value Proposition</span></p>
+                    <ul class="pb-4 text-lg">
+                        <li class="list-disc list-inside"><i>Enhanced Security</i>: secure boot process and hardened firmware, protecting devices from vulnerabilities</li>
+                        <li class="list-disc list-inside"><i>Improved Performance</i>: optimizes performance and thermal management, MPTF enables top notch fundamentals</li>
+                        <li class="list-disc list-inside"><i>Accelerated Development</i>: open-source collaboration with partners, enables faster and more efficient product development</li>
                     </ul> 
 
-                    <p class="font-bold pb-4">Partner-Oriented Vision</p>
+                    <p class="pb-4"><span class="font-bold text-xl whitespace-normal">Partner-Oriented Vision</span></p>
+                    <p class="pb-4 text-lg">ODP is built on a foundation of collaboration and innovation. We are committed to working closely with our ecosystem partners,
+                    including OEMs, IHVs, IBVs, and developers, to build a secure and hardened Windows device with solid fundamentals. We invite partners to 
+                    contribute to and benefit from a marketplace of options.</p>
 
-                    <p class="pb-4">ODP project is built on a foundation of collaboration and innovation. We are committed to working closely with our ecosystem partners, including OEMs, silicon providers, 
-                    and developers, to build a secure and innovative Windows platform. We invite partners to contribute to and benefit from a marketplace of options for building secure CoPilot+ PCs with strong fundamentals.</p>
-
-                    <p class="font-bold pb-4">Get Involved</p>
-                    
-                    <p class="pb-4">Our goal is to create a foundation that not only meets but exceeds market needs, driving innovation and raising the bar for Windows devices.
-                    For more information about the ODP project and partnership opportunities, please [TBD]</p>
+                    <p class="pb-4"><span class="font-bold text-xl whitespace-normal">Get Involved</span></p>
+                    <p class="pb-4 text-lg">Our goal is to create a foundation that not only meets but exceeds current state of the art, driving innovation and raising 
+                    the bar for Windows devices. For more information about the ODP project and partnership opportunities, please consult the documentation and 
+                    issue your first pull request.</p>
                 </div>
             </div>
             <div>
                 <div class="grid grid-cols-3 bg-gray-100 h-32">
                     <a class="place-content-center" href="/news-and-blogs">
-                        <p class="text-center font-bold">What is New</p>
+                        <p class="text-center font-bold">What is New?</p>
                     </a>
                     <a class="place-content-center" href="/about">
                         <p class="text-center font-bold">About</p>
