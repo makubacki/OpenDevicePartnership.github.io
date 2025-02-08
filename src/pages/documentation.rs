@@ -1,5 +1,5 @@
 use crate::components::header::Navbar;
-use crate::components::subprojects::SubProjects;
+use crate::components::projects::Projects;
 
 use leptos::prelude::*;
 
@@ -29,7 +29,7 @@ pub fn Documentation() -> impl IntoView {
             <main>
                 <Navbar />
                 <div class="h-36 bg-white" />
-                <SubProjects />
+                <Projects />
                 <div class="bg-gradient-to-tl bg_white text-black font-mono flex flex-col min-h-screen">
                     <div class="flex flex-row-reverse flex-wrap m-auto">
                         <h1 class="text-9xl font-bold font-sans">Coming soon...</h1>

@@ -17,9 +17,6 @@ pub fn Navbar() -> impl IntoView {
                     <a href="/about">
                         <p class="text-center p-4">About</p>
                     </a>
-                    <a href="/news-and-blogs">
-                        <p class="text-center p-4">News & Blogs</p>
-                    </a>
                     <a href="/documentation">
                         <p class="text-center p-4">Documentation</p>
                     </a>

@@ -13,8 +13,6 @@ use crate::pages::boot_firmware::BootFirmware;
 use crate::pages::contact::Contact;
 use crate::pages::documentation::Documentation;
 use crate::pages::embedded_controller::EmbeddedController;
-use crate::pages::mptf::Mptf;
-use crate::pages::news_and_blogs::NewsAndBlogs;
 use crate::pages::windows_ec_services::WindowsEcServices;
 
 /// An app router which renders the homepage and handles 404's
@@ -41,8 +39,6 @@ pub fn App() -> impl IntoView {
                 <Route path=path!("/contact") view=Contact />
                 <Route path=path!("/documentation") view=Documentation />
                 <Route path=path!("/embedded-controller") view=EmbeddedController />
-                <Route path=path!("/mptf") view=Mptf />
-                <Route path=path!("/news-and-blogs") view=NewsAndBlogs />
                 <Route path=path!("/windows-ec-services") view=WindowsEcServices />
             </Routes>
         </Router>
