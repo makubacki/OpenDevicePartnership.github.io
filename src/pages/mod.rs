@@ -2,9 +2,9 @@ pub mod home;
 pub mod not_found;
 
 pub mod about;
-pub mod documentation;
 pub mod contact;
+pub mod documentation;
 
-pub mod embedded_controller;
 pub mod boot_firmware;
+pub mod embedded_controller;
 pub mod windows_ec_services;
