@@ -7,12 +7,12 @@ mod components;
 mod pages;
 
 // Top-Level pages
-use crate::pages::home::Home;
 use crate::pages::about::About;
 use crate::pages::boot_firmware::BootFirmware;
 use crate::pages::contact::Contact;
 use crate::pages::documentation::Documentation;
 use crate::pages::embedded_controller::EmbeddedController;
+use crate::pages::home::Home;
 use crate::pages::windows_ec_services::WindowsEcServices;
 
 /// An app router which renders the homepage and handles 404's

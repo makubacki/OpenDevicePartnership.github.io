@@ -10,6 +10,6 @@ pub fn Footer() -> impl IntoView {
             <a class="place-content-center" href="/contact">
                 <p class="text-center font-bold">"Contact Us"</p>
             </a>
-        </div>    
+        </div>
     }
 }

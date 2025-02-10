@@ -1,6 +1,6 @@
-use crate::components::projects::Projects;
-use crate::components::intro_message::IntroMessage;
 use crate::components::footer::Footer;
+use crate::components::intro_message::IntroMessage;
+use crate::components::projects::Projects;
 
 use leptos::prelude::*;
 
