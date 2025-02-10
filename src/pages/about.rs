@@ -1,11 +1,11 @@
-use crate::components::welcome::Welcome;
 use crate::components::header::Navbar;
+use crate::components::intro_message::IntroMessage;
 
 use leptos::prelude::*;
 
 /// Default Home Page
 #[component]
-pub fn Home() -> impl IntoView {
+pub fn About() -> impl IntoView {
     view! {
         <ErrorBoundary fallback=|errors| {
             view! {
@@ -28,7 +28,8 @@ pub fn Home() -> impl IntoView {
 
             <main>
                 <Navbar />
-                <Welcome />
+                <div class="bg-white h-32"> </div>
+                <IntroMessage />
             </main>
         </ErrorBoundary>
     }

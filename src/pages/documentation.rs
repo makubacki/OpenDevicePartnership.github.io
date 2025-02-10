@@ -1,11 +1,11 @@
-use crate::components::welcome::Welcome;
 use crate::components::header::Navbar;
+use crate::components::projects::Projects;
 
 use leptos::prelude::*;
 
 /// Default Home Page
 #[component]
-pub fn Home() -> impl IntoView {
+pub fn Documentation() -> impl IntoView {
     view! {
         <ErrorBoundary fallback=|errors| {
             view! {
@@ -28,7 +28,13 @@ pub fn Home() -> impl IntoView {
 
             <main>
                 <Navbar />
-                <Welcome />
+                <div class="h-36 bg-white" />
+                <Projects />
+                <div class="bg-gradient-to-tl bg_white text-black font-mono flex flex-col min-h-screen">
+                    <div class="flex flex-row-reverse flex-wrap m-auto">
+                        <h1 class="text-9xl font-bold font-sans">Coming soon...</h1>
+                    </div>
+                </div>
             </main>
         </ErrorBoundary>
     }
