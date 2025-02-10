@@ -1,4 +1,3 @@
-use crate::components::footer::Footer;
 use crate::components::intro_message::IntroMessage;
 use crate::components::projects::Projects;
 
@@ -23,9 +22,6 @@ pub fn Welcome() -> impl IntoView {
             <div class="bg-white h-2"></div>
             <div class="bg-white">
                 <IntroMessage />
-            </div>
-            <div>
-                <Footer />
             </div>
         </div>
     }

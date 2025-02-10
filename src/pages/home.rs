@@ -1,5 +1,6 @@
+use crate::components::footer::Footer;
 use crate::components::header::Navbar;
-use crate::components::welcome::Welcome;
+use crate::components::main::Main;
 
 use leptos::prelude::*;
 
@@ -26,10 +27,9 @@ pub fn Home() -> impl IntoView {
             }
         }>
 
-            <main>
-                <Navbar />
-                <Welcome />
-            </main>
+            <Navbar />
+            <Main />
+            <Footer />
         </ErrorBoundary>
     }
 }
