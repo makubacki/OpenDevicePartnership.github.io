@@ -10,21 +10,21 @@ pub fn Navbar() -> impl IntoView {
                         <img src="/images/odplogo.jpg" class="h-14 w-14" />
                     </div>
                     <div class="place-content-center">
-                        <p class="text-3xl text-left pl-4">Open Device Partnership</p>
+                        <p class="text-3xl text-left pl-4">"Open Device Partnership"</p>
                     </div>
                 </a>
                 <div class="flex flex-row place-content-center">
                     <a href="/about">
-                        <p class="text-center p-4">About</p>
+                        <p class="text-center p-4">"About"</p>
                     </a>
                     <a href="/documentation">
-                        <p class="text-center p-4">Documentation</p>
+                        <p class="text-center p-4">"Documentation"</p>
                     </a>
                     <a href="https://github.com/OpenDevicePartnership">
-                        <p class="text-center p-4">Repositories</p>
+                        <p class="text-center p-4">"Repositories"</p>
                     </a>
                     <a href="/contact">
-                        <p class="text-center p-4">Contact</p>
+                        <p class="text-center p-4">"Contact"</p>
                     </a>
                 </div>
             </div>
