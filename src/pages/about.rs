@@ -28,7 +28,7 @@ pub fn About() -> impl IntoView {
 
             <main>
                 <Navbar />
-                <div class="bg-white h-32"> </div>
+                <div class="bg-white h-32"></div>
                 <IntroMessage />
             </main>
         </ErrorBoundary>
