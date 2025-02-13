@@ -7,4 +7,5 @@ pub mod documentation;
 
 pub mod boot_firmware;
 pub mod embedded_controller;
+pub mod uefi;
 pub mod windows_ec_services;
