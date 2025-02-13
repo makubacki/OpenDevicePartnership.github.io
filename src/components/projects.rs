@@ -3,28 +3,28 @@ use leptos::prelude::*;
 #[component]
 pub fn Projects() -> impl IntoView {
     view! {
-        <div>
-            <p class="pb-8 pl-28">
-                <span class="font-bold text-2xl">"Current Projects"</span>
+        <div class="p-4 bg-white dark:bg-gray-800">
+            <p class="pb-8 pl-24">
+                <span class="font-bold text-3xl text-black dark:text-white">Current Projects</span>
             </p>
-            <div class="grid grid-cols-3 bg-white gap-20 h-24 pl-32 pr-32">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pl-28">
                 <a
-                    class="place-content-center bg-blue-200 rounded-md ring-4 ring-blue-300"
+                    class="btn-custom"
                     href="/boot-firmware"
                 >
-                    <p class="text-xl text-center font-bold p-4">"Boot Firmware"</p>
+                    <p class="text-xl text-center">Boot Firmware</p>
                 </a>
                 <a
-                    class="place-content-center bg-blue-200 rounded-md ring-4 ring-blue-300"
+                    class="btn-custom"
                     href="/embedded-controller"
                 >
-                    <p class="text-xl text-center font-bold p-4">"Embedded Controller Firmware"</p>
+                    <p class="text-xl text-center">Embedded Controller Firmware</p>
                 </a>
                 <a
-                    class="place-content-center bg-blue-200 rounded-md ring-4 ring-blue-300"
+                    class="btn-custom"
                     href="/windows-ec-services"
                 >
-                    <p class="text-xl text-center font-bold p-4">"Standard Windows-EC Services"</p>
+                    <p class="text-xl text-center">Standard Windows-EC Services</p>
                 </a>
             </div>
         </div>
