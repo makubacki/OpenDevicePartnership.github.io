@@ -10,7 +10,7 @@ pub fn Navbar() -> impl IntoView {
                     <p class="text-2xl md:text-3xl custom-text-gray-800 pl-4">Open Device Partnership</p>
                 </a>
                 <div class="flex-grow md:hidden"></div>
-                <div class="flex space-x-8 ml-4">
+                <div class="flex space-x-8 ml-4 mr-4">
                     <a href="/about" class="custom-text-gray-800 hover:custom-text-blue-600 transition duration-300">
                         About
                     </a>
