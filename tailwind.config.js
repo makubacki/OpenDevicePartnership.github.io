@@ -6,6 +6,7 @@ module.exports = {
       rs: (content) => content.replace(/(?:^|\s)class:/g, ' '),
     },
   },
+  darkMode: 'media', // or 'class' if you prefer manual control
   theme: {
     extend: {},
   },

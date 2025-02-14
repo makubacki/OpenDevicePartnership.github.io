@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-@theme {
-  --font-sans: "Segoe UI", "sans-serif";
+@layer base {
+  :root {
+    --font-sans: "Segoe UI", "sans-serif";
+  }
 }
+
+@layer components {
+  .btn-custom {
+    @apply bg-blue-500 text-white font-bold py-4 px-4 rounded-lg shadow-md relative z-10 transition duration-300 ease-in-out transform hover:bg-blue-600 hover:scale-105 dark:bg-blue-700 dark:hover:bg-blue-800;
+  }
+  .nav-container {
+    @apply flex flex-col md:flex-row justify-between items-center p-4 border-b-4 border-gray-300;
+  }
+  .nav-link {
+    @apply custom-text-gray-800 hover:custom-text-blue-600 transition duration-300;
+  }
+}
+
+@layer utilities {
+  .custom-bg-white {
+    @apply bg-white dark:bg-gray-900;
+  }
+  .custom-text-gray-800 {
+    @apply text-gray-800 dark:text-gray-200;
+  }
+  .custom-bg-gray-100 {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  .custom-text-gray-400 {
+    @apply text-gray-800 dark:text-gray-300;
+  }
+  .custom-text-blue-600 {
+    @apply text-blue-600 dark:text-blue-400;
+  }
+}
+
