@@ -1,4 +1,4 @@
-use crate::components::header::Navbar;
+use crate::components::header::Header;
 use crate::components::intro_message::IntroMessage;
 
 use leptos::prelude::*;
@@ -27,7 +27,7 @@ pub fn About() -> impl IntoView {
         }>
 
             <main>
-                <Navbar />
+                <Header />
                 <div class="bg-white h-32"></div>
                 <IntroMessage />
             </main>

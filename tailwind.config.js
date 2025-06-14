@@ -8,7 +8,11 @@ module.exports = {
   },
   darkMode: 'media', // or 'class' if you prefer manual control
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Geist: ['Geist', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

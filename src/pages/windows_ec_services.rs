@@ -1,4 +1,4 @@
-use crate::components::header::Navbar;
+use crate::components::header::Header;
 
 use leptos::prelude::*;
 
@@ -26,7 +26,7 @@ pub fn WindowsEcServices() -> impl IntoView {
         }>
 
             <main>
-                <Navbar />
+                <Header />
                 <div class="bg-gradient-to-tl from-pink-500 to-pink-500 text-white font-mono flex flex-col min-h-screen">
                     <div class="flex flex-row-reverse flex-wrap m-auto">
                         <h1 class="text-9xl font-bold font-sans">Coming soon...</h1>

@@ -1,4 +1,4 @@
-use crate::components::header::Navbar;
+use crate::components::header::Header;
 use crate::components::projects::Projects;
 
 use leptos::prelude::*;
@@ -27,7 +27,7 @@ pub fn Documentation() -> impl IntoView {
         }>
 
             <main>
-                <Navbar />
+                <Header />
                 <div class="h-36 bg-white" />
                 <Projects />
                 <div class="bg-gradient-to-tl bg_white text-black font-mono flex flex-col min-h-screen">

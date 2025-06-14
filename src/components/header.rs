@@ -1,30 +1,42 @@
 use leptos::prelude::*;
+use leptos::*;
 
 #[component]
-pub fn Navbar() -> impl IntoView {
+pub fn Header() -> impl IntoView {
     view! {
-        <nav class="fixed w-screen custom-bg-white shadow-md z-50">
-            <div class="flex flex-col md:flex-row justify-between items-center p-4 border-b-4 border-gray-300">
-                <a class="flex items-center mb-4 md:mb-0" href="/">
-                    <img src="/images/odplogo.png" class="h-14 w-14" alt="ODP Logo" />
-                    <p class="text-2xl md:text-3xl custom-text-gray-800 pl-4">Open Device Partnership</p>
-                </a>
-                <div class="flex-grow md:hidden"></div>
-                <div class="flex space-x-8 ml-4 mr-4">
-                    <a href="/about" class="custom-text-gray-800 hover:custom-text-blue-600 transition duration-300">
-                        About
-                    </a>
-                    <a href="/documentation" class="custom-text-gray-800 hover:custom-text-blue-600 transition duration-300">
-                        Documentation
-                    </a>
-                    <a href="https://github.com/OpenDevicePartnership" class="custom-text-gray-800 hover:custom-text-blue-600 transition duration-300">
-                        Repositories
-                    </a>
-                    <a href="/contact" class="custom-text-gray-800 hover:custom-text-blue-600 transition duration-300">
-                        Contact
-                    </a>
-                </div>
+        <header class="w-full h-[160px] px-[120px] bg-white flex items-center justify-between">
+            <div class="flex items-center space-x-6">
+                <img
+                    src="/images/odplogo.svg"
+                    alt="ODP Logo"
+                    class="w-[149px] h-[51.43px] object-contain"
+                />
+
             </div>
-        </nav>
+
+            <nav class="flex [column-gap:25px]">
+                <NavButton href="/getting-started" label="Getting Started"/>
+                <NavButton href="/projects" label="Projects"/>
+                <NavButton href="/library" label="Library"/>
+                <NavButton href="/governance" label="Governance"/>
+                <NavButton href="/non-technical" label="Non-Technical"/>
+                <NavButton href="/team" label="Team"/>
+            </nav>
+        </header>
+    }
+}
+
+#[component]
+fn NavButton(href: &'static str, label: &'static str) -> impl IntoView {
+    view! {
+        <a
+            href=href
+            class="px-[24px] py-[19px] h-[62px] flex items-center justify-center bg-white 
+            border-2 border-black rounded-[10px] opacity-100 
+            hover:bg-gray-100 transition 
+            font-geist text-[20px] font-semibold not-italic"
+        >
+            {label}
+        </a>
     }
 }

@@ -1,5 +1,5 @@
 use crate::components::footer::Footer;
-use crate::components::header::Navbar;
+use crate::components::header::Header;
 use crate::components::main::Main;
 
 use leptos::prelude::*;
@@ -27,7 +27,7 @@ pub fn Home() -> impl IntoView {
             }
         }>
 
-            <Navbar />
+            <Header />
             <Main />
             <Footer />
         </ErrorBoundary>
