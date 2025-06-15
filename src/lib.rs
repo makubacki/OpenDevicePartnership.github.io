@@ -16,6 +16,8 @@ use crate::pages::projects::Projects;
 use crate::pages::governance::Governance;
 use crate::pages::team_ec::TeamEC;
 use crate::pages::team_patina::TeamPatina;
+use crate::pages::team_ec_services::TeamECServices;
+use crate::pages::library::Library;
 
 /// An app router which renders the homepage and handles 404's
 #[component]
@@ -39,11 +41,14 @@ pub fn App() -> impl IntoView {
                 <Route path=path!("/getting-started") view=GettingStarted />
                 <Route path=path!("/boot-firmware") view=BootFirmware />
                 <Route path=path!("/governance") view=Governance />
-                <Route path=path!("/teamEC") view=TeamEC />
-                <Route path=path!("/teamPatina") view=TeamPatina />
+                <Route path=path!("/team-ec") view=TeamEC />
+                <Route path=path!("/team-patina") view=TeamPatina />
                 <Route path=path!("/embedded-controller") view=EmbeddedController />
                 <Route path=path!("/windows-ec-services") view=WindowsEcServices />
                 <Route path=path!("/projects") view=Projects />
+                <Route path=path!("/library") view=Library />
+                <Route path=path!("/") view=Home />
+                <Route path=path!("/team-ec-services") view=TeamECServices />
             </Routes>
         </Router>
     }

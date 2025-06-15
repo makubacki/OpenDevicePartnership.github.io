@@ -6,3 +6,4 @@ pub mod projectscomponent;
 pub mod landingpage;
 pub mod documentation_training;
 pub mod image_button;
+pub mod governance_teams;

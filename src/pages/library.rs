@@ -1,12 +1,11 @@
 use crate::components::header::Header;
 use crate::components::footer::Footer;
-use crate::components::governance_teams::GovernanceTeams;
 
 use leptos::prelude::*;
 
 /// Default Home Page
 #[component]
-pub fn Governance() -> impl IntoView {
+pub fn Library() -> impl IntoView {
     view! {
         <ErrorBoundary fallback=|errors| {
             view! {
@@ -26,13 +25,16 @@ pub fn Governance() -> impl IntoView {
                 </ul>
             }
         }>
-        
-            <div class="w-full min-h-screen overflow-x-hidden">
+
+            <main>
                 <Header />
-                <GovernanceTeams />
+                <div class="bg-gradient-to-tl from-purple-500 to-purple-500 text-white font-mono flex flex-col min-h-screen">
+                    <div class="flex flex-row-reverse flex-wrap m-auto">
+                        <h1 class="text-9xl font-bold font-sans">Coming soon...</h1>
+                    </div>
+                </div>
                 <Footer />
-            </div>
-            
+            </main>
         </ErrorBoundary>
     }
 }

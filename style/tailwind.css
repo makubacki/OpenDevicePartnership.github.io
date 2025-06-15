@@ -7,33 +7,59 @@
   .btn-custom {
     @apply bg-blue-500 text-white font-bold py-4 px-4 rounded-lg shadow-md relative z-10 transition duration-300 ease-in-out transform hover:bg-blue-600 hover:scale-105 dark:bg-blue-700 dark:hover:bg-blue-800;
   }
-  .nav-container {
-    @apply flex flex-col md:flex-row justify-between items-center p-4 border-b-4 border-gray-300;
-  }
-  .nav-link {
-    @apply custom-text-gray-800 hover:custom-text-blue-600 transition duration-300;
-  }
-  .btn-fixed {
-  @apply bg-white text-black font-medium px-4 rounded-[10px] h-[62px] inline-flex items-center justify-center transition duration-300 ease-in-out;
-  }
 
 }
 
 @layer utilities {
-  .custom-bg-white {
-    @apply bg-white dark:bg-gray-900;
+  .h1 {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 140px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 95%;
+    letter-spacing: -2.8px;
   }
-  .custom-text-gray-800 {
-    @apply text-gray-800 dark:text-gray-200;
+
+  .h2 {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%; /* 66px */
+    letter-spacing: -1.2px;
   }
-  .custom-bg-gray-100 {
-    @apply bg-gray-100 dark:bg-gray-800;
+
+  .h3 {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 42px */
+    letter-spacing: -0.7px;
   }
-  .custom-text-gray-400 {
-    @apply text-gray-800 dark:text-gray-300;
+
+  .p1 {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 49px */
+    letter-spacing: -0.7px;
   }
-  .custom-text-blue-600 {
-    @apply text-blue-600 dark:text-blue-400;
+
+  .p2 {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.25px;
   }
+  
 }
 

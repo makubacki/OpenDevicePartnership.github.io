@@ -10,14 +10,14 @@ pub fn Main() -> impl IntoView {
             >
                 <div class="pl-[20px] md:pl-[120px] flex flex-col gap-6">
                     <h1
-                        class="py-4 font-geist text-[120px] font-normal"
-                        style="line-height: 133px; letter-spacing: -2.8px;"
+                        class="h1 py-4"
+                        style="text-align: left;"
                     >
                         "Building the Future of Trusted System Software Together"
                     </h1>
                     <p
-                        class="text-[35px] font-geist"
-                        style="width: 900px; height: auto; letter-spacing: -0.7px; line-height: 49px"
+                        class="p1"
+                        style="width: 900px; height: auto;"
                     >
                         "Leading technology partners creating secure, reusable, and reliable firmware for modern client devices."
                     </p>
@@ -30,12 +30,10 @@ pub fn Main() -> impl IntoView {
                         on:click=move |_| window().location().set_href("/getting-started").unwrap()
                     >
                         <div class="flex flex-row items-center justify-center gap-4">
-                            <span class="font-geist text-[35px] font-semibold"
-                                  style="line-height: 42px; letter-spacing: -0.7px;">
+                            <span class="h3">
                                 "Getting Started"
                             </span>
-                            <span class="font-geist text-[35px] font-semibold"
-                                  style="line-height: 42px; letter-spacing: -0.7px;">
+                            <span class="h3">
                                 r"→"
                             </span>
                         </div>
@@ -44,14 +42,13 @@ pub fn Main() -> impl IntoView {
                     <button
                         class="bg-[#E2E2E2] w-[478px] h-[176px] flex items-center justify-center px-[60px]"
                         style="border: none;"
+                        on:click=move |_| window().location().set_href("/projects").unwrap()
                     >
                         <div class="flex flex-row items-center justify-center gap-4">
-                            <span class="font-geist text-[35px] font-semibold"
-                                  style="line-height: 42px; letter-spacing: -0.7px;">
-                                "Non-technical"
+                            <span class="h3">
+                                "Projects"
                             </span>
-                            <span class="font-geist text-[35px] font-semibold"
-                                  style="line-height: 42px; letter-spacing: -0.7px;">
+                            <span class="h3">
                                 r"→"
                             </span>
                         </div>
@@ -78,24 +75,16 @@ pub fn Main() -> impl IntoView {
                                 margin-bottom: 16px;
                             "
                         />
-                        <span class="font-geist"
+                        <span class="h2"
                               style="
-                                  font-size: 60px;
-                                  font-weight: 500;
-                                  line-height: 66px;
-                                  letter-spacing: -1.2px;
                                   display: block;
                                   text-align: left;
                               ">
                             "Training Videos"
                         </span>
                         <div style="height: 10px;"></div>
-                        <span class="font-geist"
+                        <span class="p1"
                               style="
-                                  font-size: 35px;
-                                  font-weight: 400;
-                                  line-height: 42px;
-                                  letter-spacing: -0.7px;
                                   display: block;
                                   text-align: left;
                               ">

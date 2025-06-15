@@ -14,14 +14,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                 {/* Left Column */}
                 <div class="flex flex-col items-start" style="width: 700px;">
                     <span
+                        class="h1"
                         style="
-                            color: #171717;
-                            font-family: Geist, sans-serif;
-                            font-size: 140px;
-                            font-style: normal;
-                            font-weight: 400;
-                            line-height: 95%;
-                            letter-spacing: -2.8px;
                             margin-bottom: 32px;
                             display: block;
                             text-align: left;

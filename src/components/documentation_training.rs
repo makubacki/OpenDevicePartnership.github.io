@@ -29,12 +29,8 @@ pub fn DocumentationTraining(
                     "
                 />
                 <span
-                    class="font-geist"
+                    class="h2"
                     style="
-                        font-size: 60px;
-                        font-weight: 500;
-                        line-height: 66px;
-                        letter-spacing: -1.2px;
                         text-align: left;
                         display: block;
                     "
@@ -43,12 +39,8 @@ pub fn DocumentationTraining(
                 </span>
                 <div style="height: 10px;"></div>
                 <span
-                    class="font-geist"
+                    class="p1"
                     style="
-                        font-size: 25px;
-                        font-weight: 400;
-                        line-height: 36px;
-                        letter-spacing: -0.7px;
                         text-align: left;
                         display: block;
                     "
