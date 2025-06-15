@@ -7,7 +7,7 @@ mod components;
 mod pages;
 
 // Top-Level pages
-use crate::pages::about::About;
+use crate::pages::gettingstarted::GettingStarted;
 use crate::pages::boot_firmware::BootFirmware;
 use crate::pages::contact::Contact;
 use crate::pages::documentation::Documentation;
@@ -34,7 +34,7 @@ pub fn App() -> impl IntoView {
         <Router>
             <Routes fallback=|| view! { NotFound }>
                 <Route path=path!("/") view=Home />
-                <Route path=path!("/about") view=About />
+                <Route path=path!("/gettingstarted") view=GettingStarted />
                 <Route path=path!("/boot-firmware") view=BootFirmware />
                 <Route path=path!("/contact") view=Contact />
                 <Route path=path!("/documentation") view=Documentation />

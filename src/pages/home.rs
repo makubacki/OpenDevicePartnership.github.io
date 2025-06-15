@@ -11,9 +11,7 @@ pub fn Home() -> impl IntoView {
         <ErrorBoundary fallback=|errors| {
             view! {
                 <h1>"Uh oh! Something went wrong!"</h1>
-
                 <p>"Errors: "</p>
-                // Render a list of errors as strings - good for development purposes
                 <ul>
                     {move || {
                         errors
@@ -22,14 +20,14 @@ pub fn Home() -> impl IntoView {
                             .map(|(_, e)| view! { <li>{e.to_string()}</li> })
                             .collect_view()
                     }}
-
                 </ul>
             }
         }>
-
-            <Header />
-            <Main />
-            <Footer />
+            <div class="w-full min-h-screen overflow-x-hidden">
+                <Header />
+                <Main />
+                <Footer />
+            </div>
         </ErrorBoundary>
     }
 }
