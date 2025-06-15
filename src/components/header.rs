@@ -17,8 +17,7 @@ pub fn Header() -> impl IntoView {
                 <NavButton href="/projects" label="Projects"/>
                 <NavButton href="/library" label="Library"/>
                 <NavButton href="/governance" label="Governance"/>
-                <NavButton href="/non-technical" label="Non-Technical"/>
-                <NavButton href="/team" label="Team"/>
+                <NavButton href="/home" label="Home"/>
             </nav>
         </header>
     }
