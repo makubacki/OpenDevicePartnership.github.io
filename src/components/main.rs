@@ -1,7 +1,16 @@
+use crate::components::documentation_training::{DocumentationTraining, DocLink};
 use leptos::prelude::*;
 
 #[component]
 pub fn Main() -> impl IntoView {
+    // Documentation links for the DocumentationTraining section
+    let links = vec![
+        DocLink { href: "https://docs.odp.example.com/getting-started", title: "Getting Started with ODP" },
+        DocLink { href: "https://docs.odp.example.com/api", title: "ODP Firmware Development Guide" },
+        DocLink { href: "https://docs.odp.example.com/tutorials", title: "Embedded Controller Services Specifications" },
+        DocLink { href: "https://docs.odp.example.com/faq", title: "Contributing to ODP" },
+    ];
+
     view! {
         <main class="bg-white">
             <div
@@ -26,6 +35,7 @@ pub fn Main() -> impl IntoView {
                     <button
                         class="bg-[#F1F1F1] w-[478px] h-[176px] flex items-center justify-center px-[60px]"
                         style="border: none;"
+                        on:click=move |_| window().location().set_href("/getting-started").unwrap()
                     >
                         <div class="flex flex-row items-center justify-center gap-4">
                             <span class="font-geist text-[35px] font-semibold"
@@ -141,79 +151,7 @@ pub fn Main() -> impl IntoView {
             </div>
 
             // Documentation Training Section
-            <section
-                class="flex flex-row items-start"
-                style="padding: 120px;"
-            >
-                {/* Left: Image and text box */}
-                <div class="flex flex-col items-start" style="min-width: 420px; align-items: flex-start;">
-                    <img
-                        src="/images/documentation.svg"
-                        alt="Documentation Icon"
-                        style="
-                            width: 150px;
-                            height: 150px;
-                            object-fit: contain;
-                            display: block;
-                            margin-bottom: 16px;
-                        "
-                    />
-                    <span
-                        class="font-geist"
-                        style="
-                            font-size: 60px;
-                            font-weight: 500;
-                            line-height: 66px;
-                            letter-spacing: -1.2px;
-                            text-align: left;
-                            display: block;
-                        "
-                    >
-                        "Documentation Training"
-                    </span>
-                    <div style="height: 10px;"></div>
-                    <span
-                        class="font-geist"
-                        style="
-                            font-size: 25px;
-                            font-weight: 400;
-                            line-height: 36px;
-                            letter-spacing: -0.7px;
-                            text-align: left;
-                            display: block;
-                        "
-                    >
-                        "Start Developing with ODP Standards"
-                    </span>
-                </div>
-
-                {/* Spacer between left and right */}
-                <div style="width: 200px;"></div>
-
-                {/* Right: List of hyperlinks */}
-                <ul class="flex flex-col pt-4">
-                    <li>
-                        <a href="https://docs.odp.example.com/getting-started" class="flex items-center text-[35px] font-geist font-medium underline">
-                            r"→ Getting Started with ODP"
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://docs.odp.example.com/api" class="flex items-center text-[35px] font-geist font-medium underline">
-                            r"→ ODP Firmware Development Guide"
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://docs.odp.example.com/tutorials" class="flex items-center text-[35px] font-geist font-medium underline">
-                            r"→ Embedded Controller Services Specifications"
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://docs.odp.example.com/faq" class="flex items-center text-[35px] font-geist font-medium underline">
-                            r"→ Contributing to ODP"
-                        </a>
-                    </li>
-                </ul>
-            </section>
+            <DocumentationTraining links=links />
         </main>
     }
 }

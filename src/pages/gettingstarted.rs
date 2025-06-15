@@ -1,5 +1,6 @@
 use crate::components::header::Header;
 use crate::components::footer::Footer;
+use crate::components::landingpage::LandingPage;
 
 
 use leptos::prelude::*;
@@ -27,8 +28,9 @@ pub fn GettingStarted() -> impl IntoView {
             }
         }>
 
-            <div class="w-full min-h-screen overflow-x-hidden">
+            <div class="w-full min-h-screen" style="overflow-x: auto;">
                 <Header />
+                <LandingPage />
                 <Footer />
             </div>
         </ErrorBoundary>

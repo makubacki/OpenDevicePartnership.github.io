@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Geist: ['Geist', 'sans-serif'],
+        Geist: ['Geist', 'sans-serif', 'mono'],
       },
     },
   },
