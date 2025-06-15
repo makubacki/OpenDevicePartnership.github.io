@@ -14,6 +14,7 @@ use crate::pages::documentation::Documentation;
 use crate::pages::embedded_controller::EmbeddedController;
 use crate::pages::home::Home;
 use crate::pages::windows_ec_services::WindowsEcServices;
+use crate::pages::projects::Projects;
 
 /// An app router which renders the homepage and handles 404's
 #[component]
@@ -40,6 +41,7 @@ pub fn App() -> impl IntoView {
                 <Route path=path!("/documentation") view=Documentation />
                 <Route path=path!("/embedded-controller") view=EmbeddedController />
                 <Route path=path!("/windows-ec-services") view=WindowsEcServices />
+                <Route path=path!("/projects") view=Projects />
             </Routes>
         </Router>
     }

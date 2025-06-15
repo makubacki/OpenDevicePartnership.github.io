@@ -4,7 +4,9 @@ pub mod not_found;
 pub mod gettingstarted;
 pub mod contact;
 pub mod documentation;
+pub mod projects;
 
 pub mod boot_firmware;
 pub mod embedded_controller;
 pub mod windows_ec_services;
+

@@ -1,6 +1,6 @@
 use crate::components::header::Header;
 use crate::components::footer::Footer;
-use crate::components::landingpage::LandingPage;
+use crate::components::projectscomponent::ProjectsComponent;
 use crate::components::documentation_training::{DocLink, DocumentationTraining};
 
 
@@ -8,8 +8,7 @@ use leptos::prelude::*;
 
 /// Default Home Page
 #[component]
-pub fn GettingStarted() -> impl IntoView {
-    // Documentation links for the DocumentationTraining section
+pub fn Projects() -> impl IntoView {
     let links = vec![
         DocLink { href: "https://docs.odp.example.com/getting-started", title: "Getting Started with ODP" },
         DocLink { href: "https://docs.odp.example.com/api", title: "ODP Firmware Development Guide" },
@@ -39,7 +38,7 @@ pub fn GettingStarted() -> impl IntoView {
 
             <div class="w-full min-h-screen" style="overflow-x: auto;">
                 <Header />
-                <LandingPage />
+                <ProjectsComponent />
                 <DocumentationTraining links=links />
                 <Footer />
             </div>

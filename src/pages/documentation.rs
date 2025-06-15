@@ -1,5 +1,4 @@
 use crate::components::header::Header;
-use crate::components::projects::Projects;
 
 use leptos::prelude::*;
 
@@ -29,7 +28,6 @@ pub fn Documentation() -> impl IntoView {
             <main>
                 <Header />
                 <div class="h-36 bg-white" />
-                <Projects />
                 <div class="bg-gradient-to-tl bg_white text-black font-mono flex flex-col min-h-screen">
                     <div class="flex flex-row-reverse flex-wrap m-auto">
                         <h1 class="text-9xl font-bold font-sans">Coming soon...</h1>
