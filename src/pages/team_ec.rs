@@ -1,10 +1,11 @@
 use crate::components::header::Header;
+use crate::components::footer::Footer;
 
 use leptos::prelude::*;
 
 /// Default Home Page
 #[component]
-pub fn Documentation() -> impl IntoView {
+pub fn TeamEC() -> impl IntoView {
     view! {
         <ErrorBoundary fallback=|errors| {
             view! {
@@ -24,16 +25,12 @@ pub fn Documentation() -> impl IntoView {
                 </ul>
             }
         }>
-
-            <main>
+        
+            <div class="w-full min-h-screen overflow-x-hidden">
                 <Header />
-                <div class="h-36 bg-white" />
-                <div class="bg-gradient-to-tl bg_white text-black font-mono flex flex-col min-h-screen">
-                    <div class="flex flex-row-reverse flex-wrap m-auto">
-                        <h1 class="text-9xl font-bold font-sans">Coming soon...</h1>
-                    </div>
-                </div>
-            </main>
+                <Footer />
+            </div>
+            
         </ErrorBoundary>
     }
 }

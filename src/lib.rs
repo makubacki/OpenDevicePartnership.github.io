@@ -9,12 +9,13 @@ mod pages;
 // Top-Level pages
 use crate::pages::gettingstarted::GettingStarted;
 use crate::pages::boot_firmware::BootFirmware;
-use crate::pages::contact::Contact;
-use crate::pages::documentation::Documentation;
 use crate::pages::embedded_controller::EmbeddedController;
 use crate::pages::home::Home;
 use crate::pages::windows_ec_services::WindowsEcServices;
 use crate::pages::projects::Projects;
+use crate::pages::governance::Governance;
+use crate::pages::team_ec::TeamEC;
+use crate::pages::team_patina::TeamPatina;
 
 /// An app router which renders the homepage and handles 404's
 #[component]
@@ -37,8 +38,9 @@ pub fn App() -> impl IntoView {
                 <Route path=path!("/home") view=Home />
                 <Route path=path!("/getting-started") view=GettingStarted />
                 <Route path=path!("/boot-firmware") view=BootFirmware />
-                <Route path=path!("/contact") view=Contact />
-                <Route path=path!("/documentation") view=Documentation />
+                <Route path=path!("/governance") view=Governance />
+                <Route path=path!("/teamEC") view=TeamEC />
+                <Route path=path!("/teamPatina") view=TeamPatina />
                 <Route path=path!("/embedded-controller") view=EmbeddedController />
                 <Route path=path!("/windows-ec-services") view=WindowsEcServices />
                 <Route path=path!("/projects") view=Projects />

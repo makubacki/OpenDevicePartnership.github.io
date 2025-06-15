@@ -292,6 +292,85 @@ pub fn LandingPage() -> impl IntoView {
             </div>
         </section>
 
+        // Training Videos Section (left aligned with bottom iframe)
+        <section
+            style="
+                padding: 80px 120px 0 120px;
+                background: #fff;
+            "
+        >
+            <div style="width: 100%; max-width: 920px;">
+                <div class="flex flex-row items-start gap-[40px]">
+                    <div class="flex flex-col items-start" style="width: 320px;">
+                        <img
+                            src="/images/video.svg"
+                            alt="Video Icon"
+                            style="
+                                width: 150px;
+                                height: 150px;
+                                object-fit: contain;
+                                display: block;
+                                margin-bottom: 16px;
+                            "
+                        />
+                        <span
+                            style="
+                                font-family: Geist, sans-serif;
+                                font-size: 60px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 110%;
+                                letter-spacing: -1.2px;
+                                color: #171717;
+                                display: block;
+                                text-align: left;
+                            "
+                        >
+                            {"Training Videos"}
+                        </span>
+                        <span
+                            style="
+                                font-family: Geist, sans-serif;
+                                font-size: 25px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 130%;
+                                letter-spacing: -0.25px;
+                                color: #171717;
+                                display: block;
+                                text-align: left;
+                                margin-top: 12px;
+                            "
+                        >
+                            {"Learn how ODP projects help build secure, modern devices"}
+                        </span>
+                    </div>
+                    <iframe
+                        width="600"
+                        height="338"
+                        style="border-radius: 10px;"
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                        title="YouTube Video of the Open Device Partnership"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <div style="margin-top: 40px;">
+                    <iframe
+                        width="920"
+                        height="518"
+                        style="border-radius: 10px; display: block;"
+                        src="https://www.youtube.com/embed/SECOND_VIDEO_ID"
+                        title="Additional Training Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </section>
+
         // Two Columns Section
         <section
             style="
