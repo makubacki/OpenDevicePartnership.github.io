@@ -1,6 +1,6 @@
 use crate::components::header::Header;
 use crate::components::footer::Footer;
-use crate::components::projectscomponent::ProjectsComponent;
+use crate::components::projects_component::ProjectsComponent;
 use crate::components::documentation_training::{DocLink, DocumentationTraining};
 
 
