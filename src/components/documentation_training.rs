@@ -12,22 +12,25 @@ pub fn DocumentationTraining(
 ) -> impl IntoView {
     view! {
         <section
-            class="flex flex-row items-start"
+            class="flex flex-row items-start background_primary"
             style="padding: 120px;"
         >
             {/* Left: Image and text box */}
             <div class="flex flex-col items-start" style="min-width: 420px; align-items: flex-start;">
-                <img
-                    src="/images/documentation.svg"
-                    alt="Documentation Icon"
-                    style="
-                        width: 150px;
-                        height: 150px;
-                        object-fit: contain;
-                        display: block;
-                        margin-bottom: 16px;
-                    "
-                />
+                <picture>
+                    <source srcset="/images/dark/documentation.svg" media="(prefers-color-scheme: dark)" />
+                    <img
+                        src="/images/light/documentation.svg"
+                        alt="Documentation Icon"
+                        style="
+                            width: 150px;
+                            height: 150px;
+                            object-fit: contain;
+                            display: block;
+                            margin-bottom: 16px;
+                        "
+                    />
+                </picture>
                 <span
                     class="h2"
                     style="
@@ -56,7 +59,7 @@ pub fn DocumentationTraining(
             <ul class="flex flex-col pt-4">
                 {links.into_iter().map(|link| view! {
                     <li>
-                        <a href=link.href class="flex items-center text-[35px] font-geist font-medium underline">
+                        <a href=link.href class="link_large">
                             {format!("→ {}", link.title)}
                         </a>
                     </li>

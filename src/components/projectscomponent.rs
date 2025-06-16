@@ -5,9 +5,9 @@ use crate::components::image_button::ImageButton;
 pub fn ProjectsComponent() -> impl IntoView {
     view! {
         <section
+            class="background_primary"
             style="
                 padding: 120px;
-                background: #fff;
             "
         >
             <div class="flex flex-row gap-[80px]">
@@ -16,7 +16,6 @@ pub fn ProjectsComponent() -> impl IntoView {
                     <span
                         class="h1"
                         style="
-                            margin-bottom: 32px;
                             display: block;
                             text-align: left;
                         "
@@ -24,14 +23,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                         {"System Firmware Domains"}
                     </span>
                     <span
+                        class="h2"
                         style="
-                            color: #171717;
-                            font-family: Geist, sans-serif;
-                            font-size: 60px;
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: 110%;
-                            letter-spacing: -1.2px;
                             display: block;
                             text-align: left;
                         "
@@ -43,16 +36,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                 <div class="flex flex-col items-start" style="width: 600px;">
                     {/* WHAT label */}
                     <span
+                        class="mono"
                         style="
-                            color: #171717;
-                            font-family: 'Geist Mono', monospace;
-                            font-size: 20px;
-                            font-style: normal;
-                            font-weight: 600;
-                            line-height: 130%;
-                            letter-spacing: 0.4px;
-                            text-transform: uppercase;
-                            margin-bottom: 12px;
                             display: block;
                             text-align: left;
                         "
@@ -61,15 +46,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                     </span>
                     {/* WHAT description */}
                     <span
+                        class="p1"
                         style="
-                            color: #171717;
-                            font-family: Geist, sans-serif;
-                            font-size: 35px;
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: 140%;
-                            letter-spacing: -0.7px;
-                            margin-bottom: 32px;
                             display: block;
                             text-align: left;
                         "
@@ -78,16 +56,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                     </span>
                     {/* WHY label */}
                     <span
+                        class="mono"
                         style="
-                            color: #171717;
-                            font-family: 'Geist Mono', monospace;
-                            font-size: 20px;
-                            font-style: normal;
-                            font-weight: 600;
-                            line-height: 130%;
-                            letter-spacing: 0.4px;
-                            text-transform: uppercase;
-                            margin-bottom: 12px;
                             display: block;
                             text-align: left;
                         "
@@ -96,15 +66,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                     </span>
                     {/* WHY description */}
                     <span
+                        class="p1"
                         style="
-                            color: #171717;
-                            font-family: Geist, sans-serif;
-                            font-size: 35px;
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: 140%;
-                            letter-spacing: -0.7px;
-                            margin-bottom: 32px;
                             display: block;
                             text-align: left;
                         "
@@ -117,9 +80,9 @@ pub fn ProjectsComponent() -> impl IntoView {
 
         // Projects Details Section
         <section
+            class="background_primary"
             style="
                 padding: 120px;
-                background: #fff;
             "
         >
             <div class="flex flex-col gap-[60px]">
@@ -132,15 +95,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                     {/* Text Content */}
                     <div class="flex flex-col items-start" style="flex: 1;">
                         <span
+                            class="h2"
                             style="
-                                color: #171717;
-                                font-family: Geist, sans-serif;
-                                font-size: 60px;
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: 110%;
-                                letter-spacing: -1.2px;
-                                margin-bottom: 18px;
                                 display: block;
                                 text-align: left;
                             "
@@ -148,15 +104,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                             {"Boot Firmware (Patina)"}
                         </span>
                         <span
+                            class="p1"
                             style="
-                                color: #171717;
-                                font-family: Geist, sans-serif;
-                                font-size: 35px;
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: 140%;
-                                letter-spacing: -0.7px;
-                                margin-bottom: 18px;
                                 display: block;
                                 text-align: left;
                             "
@@ -164,15 +113,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                             {"A secure Rust-based UEFI implementation"}
                         </span>
                         <span
+                            class="p2"
                             style="
-                                color: #171717;
-                                font-family: Geist, sans-serif;
-                                font-size: 25px;
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: 130%;
-                                letter-spacing: -0.25px;
-                                margin-bottom: 18px;
                                 display: block;
                                 text-align: left;
                             "
@@ -182,20 +124,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                         <div class="flex flex-col gap-[8px]">
                             <a
                                 href="https://docs.odp.example.com/boot-firmware"
+                                class="link"
                                 style="
-                                    color: #171717;
-                                    font-family: Geist, sans-serif;
-                                    font-size: 25px;
-                                    font-style: normal;
-                                    font-weight: 500;
-                                    line-height: 130%;
-                                    letter-spacing: -0.25px;
-                                    text-decoration-line: underline;
-                                    text-decoration-style: solid;
-                                    text-decoration-skip-ink: auto;
-                                    text-decoration-thickness: auto;
-                                    text-underline-offset: auto;
-                                    text-underline-position: from-font;
                                     display: block;
                                 "
                                 target="_blank"
@@ -204,20 +134,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                             </a>
                             <a
                                 href="https://github.com/microsoft/patina"
+                                class="link"
                                 style="
-                                    color: #171717;
-                                    font-family: Geist, sans-serif;
-                                    font-size: 25px;
-                                    font-style: normal;
-                                    font-weight: 500;
-                                    line-height: 130%;
-                                    letter-spacing: -0.25px;
-                                    text-decoration-line: underline;
-                                    text-decoration-style: solid;
-                                    text-decoration-skip-ink: auto;
-                                    text-decoration-thickness: auto;
-                                    text-underline-offset: auto;
-                                    text-underline-position: from-font;
                                     display: block;
                                 "
                                 target="_blank"
@@ -234,15 +152,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                     </div>
                     <div class="flex flex-col items-start" style="flex: 1;">
                         <span
+                            class="h2"
                             style="
-                                color: #171717;
-                                font-family: Geist, sans-serif;
-                                font-size: 60px;
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: 110%;
-                                letter-spacing: -1.2px;
-                                margin-bottom: 18px;
                                 display: block;
                                 text-align: left;
                             "
@@ -250,15 +161,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                             {"Embedded Controller"}
                         </span>
                         <span
+                            class="p1"
                             style="
-                                color: #171717;
-                                font-family: Geist, sans-serif;
-                                font-size: 35px;
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: 140%;
-                                letter-spacing: -0.7px;
-                                margin-bottom: 18px;
                                 display: block;
                                 text-align: left;
                             "
@@ -266,15 +170,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                             {"A secure Rust-based EC implementation"}
                         </span>
                         <span
+                            class="p2"
                             style="
-                                color: #171717;
-                                font-family: Geist, sans-serif;
-                                font-size: 25px;
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: 130%;
-                                letter-spacing: -0.25px;
-                                margin-bottom: 18px;
                                 display: block;
                                 text-align: left;
                             "
@@ -284,20 +181,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                         <div class="flex flex-col gap-[8px]">
                             <a
                                 href="https://docs.odp.example.com/embedded-controller"
+                                class="link"
                                 style="
-                                    color: #171717;
-                                    font-family: Geist, sans-serif;
-                                    font-size: 25px;
-                                    font-style: normal;
-                                    font-weight: 500;
-                                    line-height: 130%;
-                                    letter-spacing: -0.25px;
-                                    text-decoration-line: underline;
-                                    text-decoration-style: solid;
-                                    text-decoration-skip-ink: auto;
-                                    text-decoration-thickness: auto;
-                                    text-underline-offset: auto;
-                                    text-underline-position: from-font;
                                     display: block;
                                 "
                                 target="_blank"
@@ -306,20 +191,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                             </a>
                             <a
                                 href="https://github.com/microsoft/ec"
+                                class="link"
                                 style="
-                                    color: #171717;
-                                    font-family: Geist, sans-serif;
-                                    font-size: 25px;
-                                    font-style: normal;
-                                    font-weight: 500;
-                                    line-height: 130%;
-                                    letter-spacing: -0.25px;
-                                    text-decoration-line: underline;
-                                    text-decoration-style: solid;
-                                    text-decoration-skip-ink: auto;
-                                    text-decoration-thickness: auto;
-                                    text-underline-offset: auto;
-                                    text-underline-position: from-font;
                                     display: block;
                                 "
                                 target="_blank"
@@ -336,15 +209,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                     </div>
                     <div class="flex flex-col items-start" style="flex: 1;">
                         <span
+                            class="h2"
                             style="
-                                color: #171717;
-                                font-family: Geist, sans-serif;
-                                font-size: 60px;
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: 110%;
-                                letter-spacing: -1.2px;
-                                margin-bottom: 18px;
                                 display: block;
                                 text-align: left;
                             "
@@ -352,15 +218,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                             {"Windows EC Services"}
                         </span>
                         <span
+                            class="p1"
                             style="
-                                color: #171717;
-                                font-family: Geist, sans-serif;
-                                font-size: 35px;
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: 140%;
-                                letter-spacing: -0.7px;
-                                margin-bottom: 18px;
                                 display: block;
                                 text-align: left;
                             "
@@ -368,15 +227,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                             {"A secure Rust-based EC services implementation"}
                         </span>
                         <span
+                            class="p2"
                             style="
-                                color: #171717;
-                                font-family: Geist, sans-serif;
-                                font-size: 25px;
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: 130%;
-                                letter-spacing: -0.25px;
-                                margin-bottom: 18px;
                                 display: block;
                                 text-align: left;
                             "
@@ -386,20 +238,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                         <div class="flex flex-col gap-[8px]">
                             <a
                                 href="https://docs.odp.example.com/windows-ec-services"
+                                class="link"
                                 style="
-                                    color: #171717;
-                                    font-family: Geist, sans-serif;
-                                    font-size: 25px;
-                                    font-style: normal;
-                                    font-weight: 500;
-                                    line-height: 130%;
-                                    letter-spacing: -0.25px;
-                                    text-decoration-line: underline;
-                                    text-decoration-style: solid;
-                                    text-decoration-skip-ink: auto;
-                                    text-decoration-thickness: auto;
-                                    text-underline-offset: auto;
-                                    text-underline-position: from-font;
                                     display: block;
                                 "
                                 target="_blank"
@@ -408,20 +248,8 @@ pub fn ProjectsComponent() -> impl IntoView {
                             </a>
                             <a
                                 href="https://github.com/microsoft/ecservices"
+                                class="link"
                                 style="
-                                    color: #171717;
-                                    font-family: Geist, sans-serif;
-                                    font-size: 25px;
-                                    font-style: normal;
-                                    font-weight: 500;
-                                    line-height: 130%;
-                                    letter-spacing: -0.25px;
-                                    text-decoration-line: underline;
-                                    text-decoration-style: solid;
-                                    text-decoration-skip-ink: auto;
-                                    text-decoration-thickness: auto;
-                                    text-underline-offset: auto;
-                                    text-underline-position: from-font;
                                     display: block;
                                 "
                                 target="_blank"

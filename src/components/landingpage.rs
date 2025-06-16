@@ -5,6 +5,7 @@ use crate::components::image_button::ImageButton;
 pub fn LandingPage() -> impl IntoView {
     view! {
         <div
+            class="background_primary"
             style="
                 width: auto;
                 height: auto;
@@ -54,16 +55,15 @@ pub fn LandingPage() -> impl IntoView {
 
         // Value Proposition Section
         <section
+            class="background_secondary"
             style="
                 padding: 80px 120px;
-                background: #F1F1F1;
             "
         >
             <div>
                 <h2
                     class="h2"
                     style="
-                        margin-bottom: 56px;
                         text-align: left;
                     "
                 >
@@ -72,24 +72,17 @@ pub fn LandingPage() -> impl IntoView {
                 <div class="flex flex-row gap-[60px]">
                     {/* Column 1 */}
                     <div class="flex flex-col items-start" style="width: 400px;">
-                        <img
-                            src="/images/lock.svg"
-                            alt="Security Icon"
-                            style="
-                                display: flex;
-                                width: 150px;
-                                height: 150px;
-                                padding: 12.5px 18.75px;
-                                justify-content: center;
-                                align-items: center;
-                                aspect-ratio: 1/1;
-                                margin-bottom: 24px;
-                            "
-                        />
+                        <picture>
+                            <source srcset="/images/dark/lock.svg" media="(prefers-color-scheme: dark)" />
+                            <img
+                                src="/images/light/lock.svg"
+                                alt="Security Icon"
+                                class="icon"
+                            />
+                        </picture>
                         <span
                             class="h3"
                             style="
-                                margin-bottom: 12px;
                                 display: block;
                                 text-align: left;
                             "
@@ -108,24 +101,17 @@ pub fn LandingPage() -> impl IntoView {
                     </div>
                     {/* Column 2 */}
                     <div class="flex flex-col items-start" style="width: 400px;">
-                        <img
-                            src="/images/checkcircle.svg"
-                            alt="Interoperability Icon"
-                            style="
-                                display: flex;
-                                width: 150px;
-                                height: 150px;
-                                padding: 12.5px 18.75px;
-                                justify-content: center;
-                                align-items: center;
-                                aspect-ratio: 1/1;
-                                margin-bottom: 24px;
-                            "
-                        />
+                        <picture>
+                            <source srcset="/images/dark/checkcircle.svg" media="(prefers-color-scheme: dark)" />
+                            <img
+                                src="/images/light/checkcircle.svg"
+                                alt="Interoperability Icon"
+                                class="icon"
+                            />
+                        </picture>
                         <span
                             class="h3"
                             style="
-                                margin-bottom: 12px;
                                 display: block;
                                 text-align: left;
                             "
@@ -144,24 +130,17 @@ pub fn LandingPage() -> impl IntoView {
                     </div>
                     {/* Column 3 */}
                     <div class="flex flex-col items-start" style="width: 400px;">
-                        <img
-                            src="/images/fastforward.svg"
-                            alt="Innovation Icon"
-                            style="
-                                display: flex;
-                                width: 150px;
-                                height: 150px;
-                                padding: 12.5px 18.75px;
-                                justify-content: center;
-                                align-items: center;
-                                aspect-ratio: 1/1;
-                                margin-bottom: 24px;
-                            "
-                        />
+                        <picture>
+                            <source srcset="/images/dark/fastforward.svg" media="(prefers-color-scheme: dark)" />
+                            <img
+                                src="/images/light/fastforward.svg"
+                                alt="Innovation Icon"
+                                class="icon"
+                            />
+                        </picture>
                         <span
                             class="h3"
                             style="
-                                margin-bottom: 12px;
                                 display: block;
                                 text-align: left;
                             "
@@ -184,9 +163,9 @@ pub fn LandingPage() -> impl IntoView {
 
         // ODP Projects Section
         <section
+            class="background_primary"
             style="
                 padding: 120px 0;
-                background: white;
             "
         >
             <div style="max-width: 960px; margin-left: 120px;">
@@ -194,7 +173,6 @@ pub fn LandingPage() -> impl IntoView {
                     class="h2"
                     style="
                         text-align: left;
-                        margin-bottom: 32px;
                     "
                 >
                     {"ODP Projects"}
@@ -203,7 +181,6 @@ pub fn LandingPage() -> impl IntoView {
                     class="p2"
                     style="
                         text-align: left;
-                        margin-bottom: 0;
                         max-width: 100%;
                     "
                 >
@@ -216,9 +193,9 @@ pub fn LandingPage() -> impl IntoView {
 
         // Boot Firmware Buttons Section
         <section
+            class="background_primary"
             style="
                 padding: 0 120px 120px 120px;
-                background: white;
             "
         >
             <div class="flex flex-row gap-[60px] justify-start">
@@ -230,9 +207,9 @@ pub fn LandingPage() -> impl IntoView {
 
         // Two Columns Section
         <section
+            class="background_primary"
             style="
                 padding: 80px 120px;
-                background: #fff;
             "
         >
             <div class="flex flex-row gap-[60px]">
@@ -241,7 +218,6 @@ pub fn LandingPage() -> impl IntoView {
                     <span
                         class="h3"
                         style="
-                            margin-bottom: 24px;
                             display: block;
                             text-align: left;
                         "
@@ -263,7 +239,6 @@ pub fn LandingPage() -> impl IntoView {
                     <span
                         class="h3"
                         style="
-                            margin-bottom: 24px;
                             display: block;
                             text-align: left;
                         "

@@ -4,23 +4,16 @@ use leptos::prelude::*;
 pub fn GovernanceTeams() -> impl IntoView {
     view! {
         <section
+            class="background_primary"
             style="
                 padding: 120px;
-                background: #fff;
             "
         >
             {/* Row 1: Header */}
             <div style="margin-bottom: 56px;">
                 <span
+                    class="p_mono"
                     style="
-                        color: #171717;
-                        font-family: 'Geist Mono', monospace;
-                        font-size: 60px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 110%;
-                        letter-spacing: 4.8px;
-                        text-transform: uppercase;
                         display: block;
                     "
                 >
@@ -37,14 +30,8 @@ pub fn GovernanceTeams() -> impl IntoView {
                 </div>
                 <div class="flex flex-col justify-start" style="flex: 1; min-width: 600px; max-width: 900px;">
                     <span
+                        class="p2"
                         style="
-                            color: #171717;
-                            font-family: Geist, sans-serif;
-                            font-size: 25px;
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: 130%;
-                            letter-spacing: -0.25px;
                             display: block;
                             text-align: left;
                         "
@@ -56,29 +43,17 @@ pub fn GovernanceTeams() -> impl IntoView {
 
             {/* Row 3: Teams Image and Label */}
             <div class="flex flex-col items-left" style="margin-bottom: 80px;">
-                <img
-                    src="/images/Teams.svg"
-                    alt="Teams"
-                    style="
-                        display: flex;
-                        width: 150px;
-                        height: 150px;
-                        padding: 18.75px 6.25px;
-                        justify-content: left;
-                        align-items: left;
-                        aspect-ratio: 1/1;
-                        margin-bottom: 24px;
-                    "
-                />
+                <picture>
+                    <source srcset="/images/dark/Teams.svg" media="(prefers-color-scheme: dark)" />
+                    <img
+                        src="/images/light/Teams.svg"
+                        alt="Teams"
+                        class="icon"
+                    />
+                </picture>
                 <span
+                    class="h2"
                     style="
-                        color: #171717;
-                        font-family: Geist, sans-serif;
-                        font-size: 35px;
-                        font-style: normal;
-                        font-weight: 600;
-                        line-height: 120%;
-                        letter-spacing: -0.7px;
                         display: flex;
                         justify-content: left;
                         align-items: left;
@@ -92,15 +67,8 @@ pub fn GovernanceTeams() -> impl IntoView {
             <div class="flex flex-row items-stretch" style="gap: 123px;">
                 <div class="flex flex-col items-start h-full" style="width: 320px; min-height: 350px; justify-content: flex-start;">
                     <span
+                        class="h3"
                         style="
-                            color: #171717;
-                            font-family: Geist, sans-serif;
-                            font-size: 35px;
-                            font-style: normal;
-                            font-weight: 600;
-                            line-height: 120%;
-                            letter-spacing: -0.7px;
-                            margin-bottom: 12px;
                             display: block;
                             text-align: left;
                         "
@@ -108,15 +76,8 @@ pub fn GovernanceTeams() -> impl IntoView {
                         {"Patina"}
                     </span>
                     <span
+                        class="p2"
                         style="
-                            color: #171717;
-                            font-family: Geist, sans-serif;
-                            font-size: 25px;
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: 130%;
-                            letter-spacing: -0.25px;
-                            margin-bottom: 24px;
                             display: block;
                             text-align: left;
                         "
@@ -126,20 +87,8 @@ pub fn GovernanceTeams() -> impl IntoView {
                     <div style="flex: 1 1 auto;"></div>
                     <a
                         href="/team-patina"
+                        class="odp-btn odp-btn-text"
                         style="
-                            border-radius: 10px;
-                            border: 2px solid #171717;
-                            background: #FFF;
-                            display: flex;
-                            padding: 25px 35px;
-                            justify-content: center;
-                            align-items: center;
-                            gap: 10px;
-                            font-family: Geist, sans-serif;
-                            font-size: 25px;
-                            font-weight: 500;
-                            color: #171717;
-                            cursor: pointer;
                             margin-top: auto;
                             text-decoration: none;
                         "
@@ -149,15 +98,8 @@ pub fn GovernanceTeams() -> impl IntoView {
                 </div>
                 <div class="flex flex-col items-start h-full" style="width: 320px; min-height: 350px; justify-content: flex-start;">
                     <span
+                        class="h3"
                         style="
-                            color: #171717;
-                            font-family: Geist, sans-serif;
-                            font-size: 35px;
-                            font-style: normal;
-                            font-weight: 600;
-                            line-height: 120%;
-                            letter-spacing: -0.7px;
-                            margin-bottom: 12px;
                             display: block;
                             text-align: left;
                         "
@@ -165,15 +107,8 @@ pub fn GovernanceTeams() -> impl IntoView {
                         {"Embedded Controller"}
                     </span>
                     <span
+                        class="p2"
                         style="
-                            color: #171717;
-                            font-family: Geist, sans-serif;
-                            font-size: 25px;
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: 130%;
-                            letter-spacing: -0.25px;
-                            margin-bottom: 24px;
                             display: block;
                             text-align: left;
                         "
@@ -183,20 +118,8 @@ pub fn GovernanceTeams() -> impl IntoView {
                     <div style="flex: 1 1 auto;"></div>
                     <a
                         href="/team-ec"
+                        class="odp-btn odp-btn-text"
                         style="
-                            border-radius: 10px;
-                            border: 2px solid #171717;
-                            background: #FFF;
-                            display: flex;
-                            padding: 25px 35px;
-                            justify-content: center;
-                            align-items: center;
-                            gap: 10px;
-                            font-family: Geist, sans-serif;
-                            font-size: 25px;
-                            font-weight: 500;
-                            color: #171717;
-                            cursor: pointer;
                             margin-top: auto;
                             text-decoration: none;
                         "
@@ -206,15 +129,8 @@ pub fn GovernanceTeams() -> impl IntoView {
                 </div>
                 <div class="flex flex-col items-start h-full" style="width: 320px; min-height: 350px; justify-content: flex-start;">
                     <span
+                        class="h3"
                         style="
-                            color: #171717;
-                            font-family: Geist, sans-serif;
-                            font-size: 35px;
-                            font-style: normal;
-                            font-weight: 600;
-                            line-height: 120%;
-                            letter-spacing: -0.7px;
-                            margin-bottom: 12px;
                             display: block;
                             text-align: left;
                         "
@@ -222,15 +138,8 @@ pub fn GovernanceTeams() -> impl IntoView {
                         {"EC Services"}
                     </span>
                     <span
+                        class="p2"
                         style="
-                            color: #171717;
-                            font-family: Geist, sans-serif;
-                            font-size: 25px;
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: 130%;
-                            letter-spacing: -0.25px;
-                            margin-bottom: 24px;
                             display: block;
                             text-align: left;
                         "
@@ -240,20 +149,8 @@ pub fn GovernanceTeams() -> impl IntoView {
                     <div style="flex: 1 1 auto;"></div>
                     <a
                         href="team-ec-services"
+                        class="odp-btn odp-btn-text"
                         style="
-                            border-radius: 10px;
-                            border: 2px solid #171717;
-                            background: #FFF;
-                            display: flex;
-                            padding: 25px 35px;
-                            justify-content: center;
-                            align-items: center;
-                            gap: 10px;
-                            font-family: Geist, sans-serif;
-                            font-size: 25px;
-                            font-weight: 500;
-                            color: #171717;
-                            cursor: pointer;
                             margin-top: auto;
                             text-decoration: none;
                         "

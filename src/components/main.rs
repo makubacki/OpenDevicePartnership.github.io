@@ -1,10 +1,9 @@
-use crate::components::documentation_training::{DocumentationTraining, DocLink};
 use leptos::prelude::*;
 
 #[component]
 pub fn Main() -> impl IntoView {
     view! {
-        <main class="bg-white">
+        <main class="background_primary">
             <div
                 class="mx-auto flex items-start justify-between w-full"
             >
@@ -25,7 +24,7 @@ pub fn Main() -> impl IntoView {
 
                 <div class="flex flex-col">
                     <button
-                        class="bg-[#F1F1F1] w-[478px] h-[176px] flex items-center justify-center px-[60px]"
+                        class="background_secondary w-[478px] h-[176px] flex items-center justify-center px-[60px]"
                         style="border: none;"
                         on:click=move |_| window().location().set_href("/getting-started").unwrap()
                     >
@@ -40,7 +39,7 @@ pub fn Main() -> impl IntoView {
                     </button>
 
                     <button
-                        class="bg-[#E2E2E2] w-[478px] h-[176px] flex items-center justify-center px-[60px]"
+                        class="background_tertiary w-[478px] h-[176px] flex items-center justify-center px-[60px]"
                         style="border: none;"
                         on:click=move |_| window().location().set_href("/projects").unwrap()
                     >
@@ -63,18 +62,21 @@ pub fn Main() -> impl IntoView {
                     style="padding-left: 120px;"
                 >
                     <div class="flex flex-col items-start w-[420px]">
-                        <img
-                            src="/images/video.svg"
-                            alt="Video Icon"
-                            style="
-                                width: 150px;
-                                height: 150px;
-                                padding: 0;
-                                object-fit: contain;
-                                display: block;
-                                margin-bottom: 16px;
-                            "
-                        />
+                        <picture>
+                            <source srcset="/images/dark/video.svg" media="(prefers-color-scheme: dark)" />
+                            <img
+                                src="/images/light/video.svg"
+                                alt="Video Icon"
+                                style="
+                                    width: 150px;
+                                    height: 150px;
+                                    padding: 0;
+                                    object-fit: contain;
+                                    display: block;
+                                    margin-bottom: 16px;
+                                "
+                            />
+                        </picture>
                         <span class="h2"
                               style="
                                   display: block;
