@@ -42,9 +42,9 @@ pub fn Footer() -> impl IntoView {
                         class="flex items-center justify-center px-[24px] py-[40px]"
                     >
                         <picture>
-                            <source srcset="/images/dark/zulip.png" media="(prefers-color-scheme: dark)" />
+                            <source srcset="/images/dark/zulip.svg" media="(prefers-color-scheme: dark)" />
                             <img
-                                src="/images/light/zulip.png"
+                                src="/images/light/zulip.svg"
                                 alt="Zulip"
                             />
                         </picture>
@@ -57,9 +57,9 @@ pub fn Footer() -> impl IntoView {
                         class="flex items-center justify-center px-[24px] py-[40px]"
                     >
                         <picture>
-                            <source srcset="/images/dark/discord.png" media="(prefers-color-scheme: dark)" />
+                            <source srcset="/images/dark/discord.svg" media="(prefers-color-scheme: dark)" />
                             <img
-                                src="/images/light/discord.png"
+                                src="/images/light/discord.svg"
                                 alt="Discord"
                             />
                         </picture>
