@@ -20,20 +20,51 @@ pub fn Footer() -> impl IntoView {
                     </p>
                 </div>
 
-                <a
-                    href="https://github.com/OpenDevicePartnership/OpenDevicePartnership.github.io"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center justify-center px-[41px] py-[40px]"
-                >
-                    <picture>
-                        <source srcset="/images/dark/github.svg" media="(prefers-color-scheme: dark)" />
-                        <img
-                            src="/images/light/github.svg"
-                            alt="GitHub"
-                        />
-                    </picture>
-                </a>
+                <div class="flex flex-row items-center">
+                    <a
+                        href="https://github.com/OpenDevicePartnership/OpenDevicePartnership.github.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center justify-center px-[24px] py-[40px]"
+                    >
+                        <picture>
+                            <source srcset="/images/dark/github.svg" media="(prefers-color-scheme: dark)" />
+                            <img
+                                src="/images/light/github.svg"
+                                alt="GitHub"
+                            />
+                        </picture>
+                    </a>
+                    <a
+                        href="https://opendevicepartnership.zulipchat.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center justify-center px-[24px] py-[40px]"
+                    >
+                        <picture>
+                            <source srcset="/images/dark/zulip.png" media="(prefers-color-scheme: dark)" />
+                            <img
+                                src="/images/light/zulip.png"
+                                alt="Zulip"
+                            />
+                        </picture>
+                    </a>
+
+                    <a
+                        href="https://discord.gg/a8cEfTDQN4"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center justify-center px-[24px] py-[40px]"
+                    >
+                        <picture>
+                            <source srcset="/images/dark/discord.png" media="(prefers-color-scheme: dark)" />
+                            <img
+                                src="/images/light/discord.png"
+                                alt="Discord"
+                            />
+                        </picture>
+                    </a>
+                </div>
             </div>
         </footer>
     }

@@ -55,13 +55,11 @@ pub fn Main() -> impl IntoView {
                 </div>                
             </div>
 
-            // Image and text box to the left of the iframe
-            <div class="flex flex-row justify-end pr-[120px] pt-10">
-                <div
-                    class="flex flex-col items-start h-[550px] justify-end"
-                    style="padding-left: 120px;"
-                >
-                    <div class="flex flex-col items-start w-[420px]">
+            {/* Training Videos Section */}
+            <div class="flex flex-col pt-10" style="padding-left: 120px; padding-right: 120px;">
+                {/* Top row: icon/text + main iframe */}
+                <div class="flex flex-row items-start w-full">
+                    <div class="flex flex-col items-start w-[420px] mr-[60px]">
                         <picture>
                             <source srcset="/images/dark/video.svg" media="(prefers-color-scheme: dark)" />
                             <img
@@ -93,44 +91,41 @@ pub fn Main() -> impl IntoView {
                             "Learn how ODP projects help build secure, modern devices"
                         </span>
                     </div>
+                    <iframe
+                        width="1200"
+                        height="690"
+                        style="border-radius: 10px; display: block;"
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                        title="YouTube Video of the Open Device Partnership"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                 </div>
-                <iframe
-                    width="1200"
-                    height="550"
-                    style="border-radius: 10px;"
-                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-                    title="YouTube Video of the Open Device Partnership"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
 
-            // Two more iframes below, side by side, with gap and padding
-            <div
-                class="flex flex-row justify-center items-start gap-[60px] pt-10"
-                style="padding-left: 120px; padding-right: 120px;"
-            >
-                <iframe
-                    width="800"
-                    height="450"
-                    style="border-radius: 10px;"
-                    src="https://www.youtube.com/embed/VIDEO_ID_1"
-                    title="Additional Training Video 1"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-                <iframe
-                    width="800"
-                    height="450"
-                    style="border-radius: 10px;"
-                    src="https://www.youtube.com/embed/VIDEO_ID_2"
-                    title="Additional Training Video 2"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+                {/* Bottom row: two iframes, aligned with above */}
+                <div class="flex flex-row items-start gap-[60px] pt-10 w-full">
+                    <iframe
+                        width="810"
+                        height="450"
+                        style="border-radius: 10px; flex-shrink: 0;"
+                        src="https://www.youtube.com/embed/VIDEO_ID_1"
+                        title="Additional Training Video 1"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                    <iframe
+                        width="810"
+                        height="450"
+                        style="border-radius: 10px; flex-shrink: 0;"
+                        src="https://www.youtube.com/embed/VIDEO_ID_2"
+                        title="Additional Training Video 2"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </main>
     }
