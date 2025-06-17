@@ -1,7 +1,7 @@
 pub mod home;
 pub mod not_found;
 
-pub mod gettingstarted;
+pub mod getting_started;
 pub mod projects;
 pub mod governance;
 pub mod team_ec;

@@ -1,6 +1,6 @@
 use crate::components::header::Header;
 use crate::components::footer::Footer;
-use crate::components::landingpage::LandingPage;
+use crate::components::landing_page::LandingPage;
 use crate::components::documentation_training::{DocLink, DocumentationTraining};
 
 
@@ -40,7 +40,6 @@ pub fn GettingStarted() -> impl IntoView {
             <div class="w-full min-h-screen" style="overflow-x: auto;">
                 <Header />
                 <LandingPage />
-                <DocumentationTraining links=links />
                 <Footer />
             </div>
         </ErrorBoundary>

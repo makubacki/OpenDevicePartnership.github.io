@@ -7,7 +7,7 @@ mod components;
 mod pages;
 
 // Top-Level pages
-use crate::pages::gettingstarted::GettingStarted;
+use crate::pages::getting_started::GettingStarted;
 use crate::pages::boot_firmware::BootFirmware;
 use crate::pages::embedded_controller::EmbeddedController;
 use crate::pages::home::Home;
