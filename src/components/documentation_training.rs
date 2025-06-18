@@ -16,7 +16,7 @@ pub fn DocumentationTraining(
             style="padding: 120px;"
         >
             {/* Left: Image and text box */}
-            <div class="flex flex-col items-start" style="min-width: 420px; align-items: flex-start;">
+            <div class="flex flex-col items-start" style="min-width: 663px; align-items: flex-start;">
                 <picture>
                     <source srcset="/images/dark/documentation.svg" media="(prefers-color-scheme: dark)" />
                     <img
@@ -38,7 +38,7 @@ pub fn DocumentationTraining(
                         display: block;
                     "
                 >
-                    "Documentation Training"
+                    "Documentation training"
                 </span>
                 <div style="height: 10px;"></div>
                 <span
@@ -56,7 +56,7 @@ pub fn DocumentationTraining(
             <div style="width: 200px;"></div>
 
             {/* Right: List of hyperlinks */}
-            <ul class="flex flex-col pt-4">
+            <ul class="flex flex-col pt-4" style="width: 760px;">
                 {links.into_iter().map(|link| view! {
                     <li>
                         <a href=link.href class="link_large">

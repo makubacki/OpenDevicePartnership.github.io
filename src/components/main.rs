@@ -30,7 +30,7 @@ pub fn Main() -> impl IntoView {
                     >
                         <div class="flex flex-row items-center justify-center gap-4">
                             <span class="h3">
-                                "Getting Started"
+                                "Getting started"
                             </span>
                             <span class="h3">
                                 r"→"
@@ -56,10 +56,10 @@ pub fn Main() -> impl IntoView {
             </div>
 
             {/* Training Videos Section */}
-            <div class="flex flex-col pt-10" style="padding-left: 120px; padding-right: 120px;">
+            <div class="flex flex-col pt-10" style="padding-left: 117px;">
                 {/* Top row: icon/text + main iframe */}
                 <div class="flex flex-row items-start w-full">
-                    <div class="flex flex-col items-start w-[420px] mr-[60px]">
+                    <div class="flex flex-col items-start w-[423px] mr-[60px]">
                         <picture>
                             <source srcset="/images/dark/video.svg" media="(prefers-color-scheme: dark)" />
                             <img
@@ -80,7 +80,7 @@ pub fn Main() -> impl IntoView {
                                   display: block;
                                   text-align: left;
                               ">
-                            "Training Videos"
+                            "Training videos"
                         </span>
                         <div style="height: 10px;"></div>
                         <span class="p1"

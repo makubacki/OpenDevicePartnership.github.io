@@ -12,7 +12,7 @@ pub fn Home() -> impl IntoView {
     let links = vec![
         DocLink { href: "https://docs.odp.example.com/getting-started", title: "Getting Started with ODP" },
         DocLink { href: "https://docs.odp.example.com/api", title: "ODP Firmware Development Guide" },
-        DocLink { href: "https://docs.odp.example.com/tutorials", title: "Embedded Controller Services Specifications" },
+        DocLink { href: "https://docs.odp.example.com/tutorials", title: "Embedded Controller Services Specification" },
         DocLink { href: "https://docs.odp.example.com/faq", title: "Contributing to ODP" },
     ];
 
