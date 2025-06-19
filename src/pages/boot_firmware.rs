@@ -17,8 +17,22 @@ pub fn BootFirmware() -> impl IntoView {
     ];
 
     let project_title = "Boot Firmware (Patina)";
-    let project_what = "Patina is ...";
-    let project_why = "Patina is important because ...";
+
+    let project_what = "Patina is a Rust-based boot firmware platform that rethinks the full UEFI boot flow as a modular system.
+
+It replaces the legacy UEFI dispatcher with a clear, dependency-injected structure that defines policy and behavior explicitly.
+
+Patina supports the same boot phases as UEFI, but with modern Rust interfaces, testable components, and reproducible builds making it ideal for secure and maintainable firmware.
+";
+
+    let project_why = "The world has changed - UEFI needs a reboot.
+
+Patina replaces brittle C-based firmware with a secure, modular Rust implementation designed for today’s threats.
+
+Embracing modern patterns and dependency injection, Patina simplifies audits, shrinks attack surfaces, and enables predictable firmware behavior.
+
+It’s time for firmware to act like real software — and Patina makes that possible.
+";
 
     view! {
         <ErrorBoundary fallback=|errors| {
