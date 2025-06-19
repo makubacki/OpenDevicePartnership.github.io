@@ -1,10 +1,25 @@
 use crate::components::header::Header;
+use crate::components::footer::Footer;
+use crate::components::project_introduction::ProjectIntroduction;
+use crate::components::documentation_training::{DocLink, DocumentationTraining};
 
 use leptos::prelude::*;
 
 /// Default Home Page
 #[component]
 pub fn BootFirmware() -> impl IntoView {
+
+    let links = vec![
+        DocLink { href: "https://docs.odp.example.com/getting-started", title: "Getting Started with ODP" },
+        DocLink { href: "https://docs.odp.example.com/api", title: "ODP Firmware Development Guide" },
+        DocLink { href: "https://docs.odp.example.com/tutorials", title: "Embedded Controller Services Specifications" },
+        DocLink { href: "https://docs.odp.example.com/faq", title: "Contributing to ODP" },
+    ];
+
+    let project_title = "Boot Firmware (Patina)";
+    let project_what = "Patina is ...";
+    let project_why = "Patina is important because ...";
+
     view! {
         <ErrorBoundary fallback=|errors| {
             view! {
@@ -25,14 +40,12 @@ pub fn BootFirmware() -> impl IntoView {
             }
         }>
 
-            <main>
+            <div class="w-full min-h-screen" style="overflow-x: auto;">
                 <Header />
-                <div class="bg-gradient-to-tl from-indigo-500 to-indigo-500 text-white font-mono flex flex-col min-h-screen">
-                    <div class="flex flex-row-reverse flex-wrap m-auto">
-                        <h1 class="text-9xl font-bold font-sans">Coming soon...</h1>
-                    </div>
-                </div>
-            </main>
+                <ProjectIntroduction project_title=project_title project_what=project_what project_why=project_why />
+                <DocumentationTraining links=links />
+                <Footer />
+            </div>
         </ErrorBoundary>
     }
 }
