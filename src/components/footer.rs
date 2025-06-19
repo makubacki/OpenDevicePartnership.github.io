@@ -22,7 +22,7 @@ pub fn Footer() -> impl IntoView {
 
                 <div class="flex flex-row items-center">
                     <a
-                        href="https://github.com/OpenDevicePartnership/OpenDevicePartnership.github.io"
+                        href="https://github.com/OpenDevicePartnership"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="flex items-center justify-center px-[24px] py-[40px]"
