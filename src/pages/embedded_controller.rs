@@ -21,15 +21,11 @@ pub fn EmbeddedController() -> impl IntoView {
 
 It provides modular subsystems for power sequencing, thermal policy, event routing, and more. 
 Components are defined by traits, composed into devices, and managed by a shared runtime that drives platform behavior.
-
 Built for portability and testability, it supports both std and no-std builds and integrates cleanly with real-time runtimes like Embassy.";
 
     let project_why = "Embedded Controllers do more than ever — yet many EC stacks are stuck in the past.
-
 The ODP EC firmware rethinks the EC as a secure, modular orchestrator for power, telemetry, and system policy. With clearly scoped components and Rust’s safety guarantees, it helps you move faster, catch bugs earlier, and support diverse platforms with confidence.
-
-It’s a modern foundation for building reliable, adaptable EC firmware — not just patching legacy code.
-";
+It’s a modern foundation for building reliable, adaptable EC firmware — not just patching legacy code.";
 
     view! {
         <ErrorBoundary fallback=|errors| {
