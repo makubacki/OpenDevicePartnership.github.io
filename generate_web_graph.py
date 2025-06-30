@@ -28,7 +28,7 @@ def csv_to_graph_data(csv_path):
     return nodes, links
 
 def generate_html(nodes, links, output_html_path):
-    with open(output_html_path, 'w') as f:
+    with open(output_html_path, 'w', encoding='utf-8') as f:
         f.write("""
 <!DOCTYPE html>
 <html>
@@ -37,12 +37,12 @@ def generate_html(nodes, links, output_html_path):
   <title>GitHub Repository Graph</title>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
-    body {{ font-family: sans-serif; }}
+    body {{ font-family: sans-serif; margin: 0; overflow: hidden; }}
     .node rect {{
         stroke: #333;
         fill: skyblue;
-        rx: 10px;
-        ry: 10px;
+        rx: 10;
+        ry: 10;
         cursor: pointer;
         stroke-width: 1.5px;
     }}
@@ -58,34 +58,57 @@ def generate_html(nodes, links, output_html_path):
         stroke-opacity: 0.6;
         stroke-width: 2px;
     }}
+    #zoom-controls {{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+        padding: 4px;
+        z-index: 10;
+    }}
+    #zoom-controls button {{
+        font-size: 18px;
+        width: 35px;
+        height: 30px;
+        margin: 2px;
+        cursor: pointer;
+    }}
   </style>
 </head>
 <body>
-<svg width="960" height="600"></svg>
+<div id="zoom-controls">
+  <button id="zoom-in">+</button>
+  <button id="zoom-out">-</button>
+  <button id="zoom-fit">[ ]</button>
+</div>
+<svg width="100%" height="100%" style="position:absolute;"></svg>
 <script>
   const nodes = {nodes_json};
   const links = {links_json};
 
-  const width = 960;
-  const height = 600;
+  const width = window.innerWidth;
+  const height = window.innerHeight;
 
   const svg = d3.select("svg")
     .attr("viewBox", [0, 0, width, height]);
+
+  const zoomLayer = svg.append("g").attr("class", "zoom-layer");
+
+  const link = zoomLayer.append("g")
+    .selectAll("line")
+    .data(links)
+    .join("line")
+    .attr("class", "link");
 
   const simulation = d3.forceSimulation(nodes)
       .force("link", d3.forceLink(links).id(d => d.id).distance(150))
       .force("charge", d3.forceManyBody().strength(-400))
       .force("center", d3.forceCenter(width / 2, height / 2));
 
-  const link = svg.append("g")
-      .attr("stroke", "#999")
-      .attr("stroke-opacity", 0.6)
-    .selectAll("line")
-    .data(links)
-    .join("line")
-      .attr("stroke-width", 2);
-
-  const node = svg.append("g")
+  const node = zoomLayer.append("g")
     .selectAll("g")
     .data(nodes)
     .join("g")
@@ -93,16 +116,16 @@ def generate_html(nodes, links, output_html_path):
     .call(drag(simulation));
 
   node.append("rect")
-      .attr("width", 140)
-      .attr("height", 40)
-      .attr("x", -70)
-      .attr("y", -20)
-      .on("click", (event, d) => window.open(d.url, '_blank'));
+    .attr("width", 140)
+    .attr("height", 40)
+    .attr("x", -70)
+    .attr("y", -20)
+    .on("click", (event, d) => window.open(d.url, '_blank'));
 
   node.append("text")
-      .attr("text-anchor", "middle")
-      .attr("dy", "0.35em")
-      .text(d => d.name);
+    .attr("text-anchor", "middle")
+    .attr("dy", "0.35em")
+    .text(d => d.name);
 
   simulation.on("tick", () => {{
     link
@@ -138,6 +161,51 @@ def generate_html(nodes, links, output_html_path):
         .on("drag", dragged)
         .on("end", dragended);
   }}
+
+  // Zoom control logic
+  let scale = 1;
+  const zoomStep = 0.1;
+  const zoomMin = 0.1;
+  const zoomMax = 3;
+  const baseTranslate = [0, 0];
+
+  function applyZoom() {{
+    zoomLayer.attr("transform", `translate(${{baseTranslate[0]}},${{baseTranslate[1]}}) scale(${{scale}})`);
+  }}
+
+  d3.select("#zoom-in").on("click", () => {{
+    scale = Math.min(scale + zoomStep, zoomMax);
+    applyZoom();
+  }});
+
+  d3.select("#zoom-out").on("click", () => {{
+    scale = Math.max(scale - zoomStep, zoomMin);
+    applyZoom();
+  }});
+
+  d3.select("#zoom-fit").on("click", () => {{
+    // Compute bounding box of all nodes
+    const xs = nodes.map(n => n.x);
+    const ys = nodes.map(n => n.y);
+    const minX = Math.min(...xs);
+    const maxX = Math.max(...xs);
+    const minY = Math.min(...ys);
+    const maxY = Math.max(...ys);
+
+    const boundsWidth = maxX - minX + 150;
+    const boundsHeight = maxY - minY + 150;
+
+    const scaleX = width / boundsWidth;
+    const scaleY = height / boundsHeight;
+    scale = Math.min(scaleX, scaleY, zoomMax);
+
+    const centerX = (minX + maxX) / 2;
+    const centerY = (minY + maxY) / 2;
+    baseTranslate[0] = width / 2 - scale * centerX;
+    baseTranslate[1] = height / 2 - scale * centerY;
+
+    applyZoom();
+  }});
 </script>
 </body>
 </html>
