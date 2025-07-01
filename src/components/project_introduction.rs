@@ -25,15 +25,6 @@ pub fn ProjectIntroduction(
                     >
                         {project_title}
                     </span>
-                    <span
-                        class="h2"
-                        style="
-                            display: block;
-                            text-align: left;
-                        "
-                    >
-                        {"TODO: bitmap will go here"}
-                    </span>
                 </div>
                 {/* Right Column */}
                 <div class="flex flex-col items-start" style="width: 600px;">

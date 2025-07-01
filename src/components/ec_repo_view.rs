@@ -182,30 +182,6 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {
                     window.open(d.url, "_blank");
                 }});
 
-            simulation.on("tick", () => {{
-                link.attr("d", d => {{
-                    const dx = d.target.x - d.source.x;
-                    const dy = d.target.y - d.source.y;
-                    const dr = Math.sqrt(dx * dx + dy * dy) * 1.5;
-                    return `M${{d.source.x}},${{d.source.y}} A${{dr}},${{dr}} 0 0,1 ${{d.target.x}},${{d.target.y}}`;
-                }});
-                node.attr("transform", d => `translate(${{ d.x }},${{ d.y }})`);
-            }});
-
-            function drag(simulation) {{
-                function dragstarted(event, d) {{
-                    if (!event.active) simulation.alphaTarget(0.3).restart();
-                }}
-                function dragged(event, d) {{
-                    d.fy = event.y;
-                }}
-                function dragended(event, d) {{
-                    if (!event.active) simulation.alphaTarget(0);
-                    d.fy = d.initialFy;
-                }}
-                return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
-            }}
-
             const zoomMin = 0.1;
             const zoomMax = 3;
 
@@ -228,23 +204,7 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {
                    .call(zoomBehavior.transform, currentTransform);
             }}
 
-            d3.select("#zoom-in").on("click", () => {{
-                const newScale = Math.min(currentTransform.k + 0.1, zoomMax);
-                currentTransform = d3.zoomIdentity
-                    .translate(currentTransform.x, currentTransform.y)
-                    .scale(newScale);
-                applyZoom();
-            }});
-
-            d3.select("#zoom-out").on("click", () => {{
-                const newScale = Math.max(currentTransform.k - 0.1, zoomMin);
-                currentTransform = d3.zoomIdentity
-                    .translate(currentTransform.x, currentTransform.y)
-                    .scale(newScale);
-                applyZoom();
-            }});
-
-            d3.select("#zoom-fit").on("click", () => {{
+            function fitToScreen() {{
                 const xs = nodes.map(n => n.x);
                 const ys = nodes.map(n => n.y);
                 const minX = Math.min(...xs);
@@ -266,6 +226,61 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {
                 const ty = height / 2 - scale * centerY;
 
                 currentTransform = d3.zoomIdentity.translate(tx, ty).scale(scale);
+                return currentTransform;
+            }}
+
+            // Track if initial fit has been applied
+            let initialFitApplied = false;
+
+            simulation.on("tick", () => {{
+                link.attr("d", d => {{
+                    const dx = d.target.x - d.source.x;
+                    const dy = d.target.y - d.source.y;
+                    const dr = Math.sqrt(dx * dx + dy * dy) * 1.5;
+                    return `M${{d.source.x}},${{d.source.y}} A${{dr}},${{dr}} 0 0,1 ${{d.target.x}},${{d.target.y}}`;
+                }});
+                node.attr("transform", d => `translate(${{ d.x }},${{ d.y }})`);
+                
+                // Apply initial fit after a few ticks when positions have stabilized
+                if (!initialFitApplied && simulation.alpha() < 0.5) {{
+                    initialFitApplied = true;
+                    currentTransform = fitToScreen();
+                    svg.call(zoomBehavior.transform, currentTransform);
+                }}
+            }});
+
+            function drag(simulation) {{
+                function dragstarted(event, d) {{
+                    if (!event.active) simulation.alphaTarget(0.3).restart();
+                }}
+                function dragged(event, d) {{
+                    d.fy = event.y;
+                }}
+                function dragended(event, d) {{
+                    if (!event.active) simulation.alphaTarget(0);
+                    d.fy = d.initialFy;
+                }}
+                return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
+            }}
+
+            d3.select("#zoom-in").on("click", () => {{
+                const newScale = Math.min(currentTransform.k + 0.1, zoomMax);
+                currentTransform = d3.zoomIdentity
+                    .translate(currentTransform.x, currentTransform.y)
+                    .scale(newScale);
+                applyZoom();
+            }});
+
+            d3.select("#zoom-out").on("click", () => {{
+                const newScale = Math.max(currentTransform.k - 0.1, zoomMin);
+                currentTransform = d3.zoomIdentity
+                    .translate(currentTransform.x, currentTransform.y)
+                    .scale(newScale);
+                applyZoom();
+            }});
+
+            d3.select("#zoom-fit").on("click", () => {{
+                currentTransform = fitToScreen();
                 applyZoom();
             }});
         }};

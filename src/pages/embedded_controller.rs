@@ -17,7 +17,7 @@ pub fn EmbeddedController() -> impl IntoView {
         DocLink { href: "https://docs.odp.example.com/faq", title: "Contributing to ODP" },
     ];
 
-    let project_title = "Secure Embedded Controller (EC)";
+    let project_title = "Secure Embedded Controller";
     let project_what = "Secure EC is ...";
     let project_why = "Secure EC is important because ...";
 
