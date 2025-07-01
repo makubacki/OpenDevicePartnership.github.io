@@ -36,7 +36,27 @@ pub fn GovernanceTeams() -> impl IntoView {
                             text-align: left;
                         "
                     >
-                        {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea  commodo consequat. Duis aute irure dolor in reprehenderit in voluptate  velit esse cillum dolore eu fugiat nulla pariatur."}
+
+                        {"The Open Device Partnership (ODP) is a collaborative open-source initiative designed to promote cooperative innovation in firmware development through contribution and transparency. "}
+                        <br/>
+                        <br/>
+                        {"To support this vision, ODP has adopted a lightweight yet formal governance model that clarifies how decisions are made, how contributions are recognized, and how the community remains focused on shared goals. "}
+                        <br/>
+                        <br/>
+                        {"Like most open-source communities, the ODP Governance model consists of a group of core maintainers that are responsible for guiding the technical direction of the project known as the \"Technical Steering Committee\" (TSC). Members are typically industry-experienced contributors nominated by the community members or its sponsors."}
+                        <br/>
+                        {"The model also provides for certain \"Working Groups\", which are task-focused teams that handle the development or specification within a particular area of concern (for example, Patina, EC Services)."}
+                        <br/>
+                        {"Decisions are made via public discussion followed by majority vote among TSC members. "}
+                        <br/>
+                        {"All official actions, roadmaps, and meeting notes are transparently published, and all project materials are hosted openly on GitHub. "}
+                        <br/>
+                        <br/>
+                        {"For more information, see the complete Governance policies at the "}
+                        <a href="https://github.com/OpenDevicePartnership/governance/README.md" target="_blank" style="text-decoration: underline;">{"ODP Governance Repository"}</a>
+                        {", or join the discussion on our public chat on "}
+                        <a href="https://opendevicepartnership.zulipchat.com/" target="_blank" style="text-decoration: underline;">{"Zulip"}</a>
+                        {"."}                    
                     </span>
                 </div>
             </div>
