@@ -28,6 +28,7 @@ def csv_to_graph_data(csv_path):
     return nodes, links
 
 def generate_html(nodes, links, output_html_path):
+    import json
     with open(output_html_path, 'w', encoding='utf-8') as f:
         f.write("""
 <!DOCTYPE html>
@@ -37,44 +38,40 @@ def generate_html(nodes, links, output_html_path):
   <title>GitHub Repository Graph</title>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
-    body {{ font-family: sans-serif; margin: 0; overflow: hidden; }}
-    .node rect {{
-        stroke: #333;
-        fill: skyblue;
-        rx: 10;
-        ry: 10;
-        cursor: pointer;
-        stroke-width: 1.5px;
-    }}
-    .node text {{
-        pointer-events: none;
-        font-size: 13px;
-        fill: #000;
-        font-weight: bold;
+    body {{
+      font-family: sans-serif;
+      margin: 0;
+      overflow: hidden;
     }}
     .link {{
-        fill: none;
-        stroke: #888;
-        stroke-opacity: 0.6;
-        stroke-width: 2px;
+      fill: none;
+      stroke: #888;
+      stroke-opacity: 0.6;
+      stroke-width: 2px;
+    }}
+    .node text {{
+      pointer-events: none;
+      font-size: 13px;
+      fill: #000;
+      font-weight: bold;
     }}
     #zoom-controls {{
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        background: white;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-        padding: 4px;
-        z-index: 10;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+      padding: 4px;
+      z-index: 10;
     }}
     #zoom-controls button {{
-        font-size: 18px;
-        width: 35px;
-        height: 30px;
-        margin: 2px;
-        cursor: pointer;
+      font-size: 18px;
+      width: 35px;
+      height: 30px;
+      margin: 2px;
+      cursor: pointer;
     }}
   </style>
 </head>
@@ -104,9 +101,9 @@ def generate_html(nodes, links, output_html_path):
     .attr("class", "link");
 
   const simulation = d3.forceSimulation(nodes)
-      .force("link", d3.forceLink(links).id(d => d.id).distance(150))
-      .force("charge", d3.forceManyBody().strength(-400))
-      .force("center", d3.forceCenter(width / 2, height / 2));
+    .force("link", d3.forceLink(links).id(d => d.id).distance(150))
+    .force("charge", d3.forceManyBody().strength(-400))
+    .force("center", d3.forceCenter(width / 2, height / 2));
 
   const node = zoomLayer.append("g")
     .selectAll("g")
@@ -115,27 +112,51 @@ def generate_html(nodes, links, output_html_path):
     .attr("class", "node")
     .call(drag(simulation));
 
-  node.append("rect")
-    .attr("width", 140)
-    .attr("height", 40)
-    .attr("x", -70)
-    .attr("y", -20)
-    .on("click", (event, d) => window.open(d.url, '_blank'));
-
   node.append("text")
     .attr("text-anchor", "middle")
     .attr("dy", "0.35em")
     .text(d => d.name);
 
+  node.each(function(d) {{
+    const textEl = d3.select(this).select("text").node();
+    const textWidth = textEl.getComputedTextLength();
+    d.boxWidth = textWidth + 20;
+
+    const g = d3.select(this);
+    const rect = g.insert("rect", "text")
+      .attr("x", -d.boxWidth / 2)
+      .attr("y", -20)
+      .attr("width", d.boxWidth)
+      .attr("height", 40)
+      .attr("rx", 10)
+      .attr("ry", 10)
+      .attr("fill", "white")
+      .attr("stroke", "#333")
+      .attr("stroke-width", 1.5);
+
+    d._rect = rect;
+  }});
+
+  node
+    .on("mouseover", function(event, d) {{
+      d._rect.attr("fill", "#9BFABE");
+    }})
+    .on("mouseout", function(event, d) {{
+      d._rect.attr("fill", "white");
+    }})
+    .on("click", function(event, d) {{
+      window.open(d.url, "_blank");
+    }});
+
   simulation.on("tick", () => {{
     link
-        .attr("x1", d => d.source.x)
-        .attr("y1", d => d.source.y)
-        .attr("x2", d => d.target.x)
-        .attr("y2", d => d.target.y);
+      .attr("x1", d => d.source.x)
+      .attr("y1", d => d.source.y)
+      .attr("x2", d => d.target.x)
+      .attr("y2", d => d.target.y);
 
     node
-        .attr("transform", d => `translate(${{d.x}},${{d.y}})`);
+      .attr("transform", d => `translate(${{d.x}},${{d.y}})`);
   }});
 
   function drag(simulation) {{
@@ -157,12 +178,11 @@ def generate_html(nodes, links, output_html_path):
     }}
 
     return d3.drag()
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended);
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended);
   }}
 
-  // Zoom control logic
   let scale = 1;
   const zoomStep = 0.1;
   const zoomMin = 0.1;
@@ -184,7 +204,6 @@ def generate_html(nodes, links, output_html_path):
   }});
 
   d3.select("#zoom-fit").on("click", () => {{
-    // Compute bounding box of all nodes
     const xs = nodes.map(n => n.x);
     const ys = nodes.map(n => n.y);
     const minX = Math.min(...xs);
