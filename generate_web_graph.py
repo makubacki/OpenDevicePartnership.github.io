@@ -80,8 +80,9 @@ def generate_html(nodes, links, output_html_path):
 <body>
 <div id="zoom-controls">
   <button id="zoom-in">+</button>
-  <button id="zoom-out">-</button>
-  <button id="zoom-fit">[ ]</button>
+  <button id="zoom-out">−</button>
+  <button id="zoom-fit">⊞</button>
+  <button id="open-new">⛶</button>
 </div>
 <svg width="100%" height="100%" style="position:absolute;"></svg>
 <script>
@@ -121,7 +122,9 @@ def generate_html(nodes, links, output_html_path):
 
   const headerGroup = zoomLayer.append("g").attr("class", "column-headers");
 
-  classifications.forEach(({{ classification, order }}) => {{
+  classifications.forEach(({{
+    classification, order
+  }}) => {{
     const x = order * spacing;
 
     headerGroup.append("line")
@@ -144,9 +147,9 @@ def generate_html(nodes, links, output_html_path):
   }});
 
   const link = zoomLayer.append("g")
-    .selectAll("line")
+    .selectAll("path")
     .data(links)
-    .join("line")
+    .join("path")
     .attr("class", "link");
 
   const simulation = d3.forceSimulation(nodes)
@@ -197,11 +200,12 @@ def generate_html(nodes, links, output_html_path):
     }});
 
   simulation.on("tick", () => {{
-    link
-      .attr("x1", d => d.source.x)
-      .attr("y1", d => d.source.y)
-      .attr("x2", d => d.target.x)
-      .attr("y2", d => d.target.y);
+    link.attr("d", d => {{
+      const dx = d.target.x - d.source.x;
+      const dy = d.target.y - d.source.y;
+      const dr = Math.sqrt(dx * dx + dy * dy) * 1.5;
+      return `M${{d.source.x}},${{d.source.y}} A${{dr}},${{dr}} 0 0,1 ${{d.target.x}},${{d.target.y}}`;
+    }});
 
     node.attr("transform", d => `translate(${{ d.x }},${{ d.y }})`);
   }});
@@ -229,6 +233,17 @@ def generate_html(nodes, links, output_html_path):
   function applyZoom() {{
     zoomLayer.attr("transform", `translate(${{ baseTranslate[0] }},${{ baseTranslate[1] }}) scale(${{ scale }})`);
   }}
+
+  svg.call(
+    d3.zoom()
+      .scaleExtent([zoomMin, zoomMax])
+      .on("zoom", (event) => {{
+        zoomLayer.attr("transform", event.transform);
+        scale = event.transform.k;
+        baseTranslate[0] = event.transform.x;
+        baseTranslate[1] = event.transform.y;
+      }})
+  );
 
   d3.select("#zoom-in").on("click", () => {{
     scale = Math.min(scale + zoomStep, zoomMax);
@@ -261,6 +276,10 @@ def generate_html(nodes, links, output_html_path):
     baseTranslate[1] = height / 2 - scale * centerY;
 
     applyZoom();
+  }});
+
+  d3.select("#open-new").on("click", () => {{
+    window.open("about:blank", "_blank");
   }});
 </script>
 </body>
