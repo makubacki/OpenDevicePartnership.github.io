@@ -2,6 +2,7 @@ use crate::components::header::Header;
 use crate::components::footer::Footer;
 use crate::components::project_introduction::ProjectIntroduction;
 use crate::components::documentation_training::{DocLink, DocumentationTraining};
+use crate::components::ec_repo_view::RepositoryGraph;
 
 use leptos::prelude::*;
 
@@ -43,6 +44,7 @@ pub fn EmbeddedController() -> impl IntoView {
             <div class="w-full min-h-screen" style="overflow-x: auto;">
                 <Header />
                 <ProjectIntroduction project_title=project_title project_what=project_what project_why=project_why />
+                <RepositoryGraph />
                 <DocumentationTraining links=links />
                 <Footer />
             </div>

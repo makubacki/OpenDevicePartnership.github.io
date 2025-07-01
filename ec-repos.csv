@@ -1,0 +1,21 @@
+repository_name,repository_url,child_repository_index,classification,classification_order
+soc-embedded-controller,https://github.com/OpenDevicePartnership/embedded-power-sequence,"[17,1]",platform,1
+embedded-services,https://github.com/OpenDevicePartnership/embedded-services,"[2,3,4,5,6,7,8]",services,2
+embedded-usb-pd,https://github.com/OpenDevicePartnership/embedded-usb-pd,"[9]",subsystem,3
+embedded-power-sequence,https://github.com/OpenDevicePartnership/embedded-power-sequence,"[]",subsystem,3
+embedded-batteries,https://github.com/OpenDevicePartnership/embedded-batteries,"[14,15,16]",subsystem,3
+embedded-cfu,https://github.com/OpenDevicePartnership/embedded-cfu,"[]",subsystem,3
+embedded-sensors,https://github.com/OpenDevicePartnership/embedded-sensors,"[10]",subsystem,3
+embedded-fans,https://github.com/OpenDevicePartnership/embedded-fans,"[]",subsystem,3
+embedded-keyboard-rs ,https://github.com/OpenDevicePartnership/embedded-keyboard-rs,"[]",subsystem,3
+tps6699x,https://github.com/OpenDevicePartnership/tps6699x,"[]",drivers,4
+tmp108,https://github.com/OpenDevicePartnership/tmp108,"[]",drivers,4
+is31fl3743b,https://github.com/OpenDevicePartnership/is31fl3743b,"[]",drivers,4
+pcal6416a,https://github.com/OpenDevicePartnership/pcal6416a,"[16]",drivers,4
+bq25773,https://github.com/OpenDevicePartnership/bq25773,"[]",drivers,4
+bq40z50,https://github.com/OpenDevicePartnership/bq40z50,"[]",drivers,4
+bq25770g,https://github.com/OpenDevicePartnership/bq25770g,"[]",drivers,4
+embedded-hal,https://github.com/rust-embedded/embedded-hal,"[18]",embedded HAL,5
+embassy-imxrt,https://github.com/OpenDevicePartnership/embassy-imxrt,"[19]",MCU core HALs,6
+mimxrt600-fcb,https://github.com/OpenDevicePartnership/mimxrt600-fcb,"[]",MCU PACs,7
+mimxrt633s-pac ,https://github.com/OpenDevicePartnership/mimxrt633s-pac,"[]",MCU PACs,7
