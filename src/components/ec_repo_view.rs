@@ -40,8 +40,7 @@ pub fn RepositoryGraph() -> impl IntoView {
             <div id="zoom-controls">
                 <button id="zoom-in">"+"</button>
                 <button id="zoom-out">"−"</button>
-                <button id="zoom-fit">"⊞"</button>
-                <button id="open-new">"⛶"</button>
+                <button id="zoom-fit">"⛶"</button>
             </div>
             <svg width="100%" height="100%" style="position:absolute;"></svg>
         </div>
@@ -214,6 +213,9 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {
 
             const zoomBehavior = d3.zoom()
                 .scaleExtent([zoomMin, zoomMax])
+                .filter((event) => {{
+                    return event.type !== 'wheel';
+                }})
                 .on("zoom", (event) => {{
                     currentTransform = event.transform;
                     zoomLayer.attr("transform", currentTransform);
@@ -265,10 +267,6 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {
 
                 currentTransform = d3.zoomIdentity.translate(tx, ty).scale(scale);
                 applyZoom();
-            }});
-
-            d3.select("#open-new").on("click", () => {{
-                window.open("about:blank", "_blank");
             }});
         }};
         
