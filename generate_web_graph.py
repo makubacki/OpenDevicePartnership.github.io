@@ -4,38 +4,40 @@ import json
 def csv_to_graph_data(csv_path):
     nodes = []
     links = []
+    classifications = {}
 
-    with open(csv_path, newline='') as csvfile:
+    with open(csv_path, newline='', encoding='utf-8') as csvfile:
         reader = list(csv.DictReader(csvfile))
-        for index, row in enumerate(reader):
+        for i, row in enumerate(reader):
+            classification = row["classification"]
+            order = int(row["classification_order"])
+            classifications[classification] = order
+
             nodes.append({
-                "id": index,
+                "id": i,
                 "name": row["repository_name"],
-                "url": row["repository_url"]
+                "url": row["repository_url"],
+                "classification": classification,
+                "order": order,
             })
 
-        for index, row in enumerate(reader):
-            try:
-                children = json.loads(row["child_repository_index"])
-                for child_index in children:
-                    links.append({
-                        "source": index,
-                        "target": child_index
-                    })
-            except Exception as e:
-                print(f"Error parsing children at line {index + 1}: {e}")
+        for i, row in enumerate(reader):
+            children = json.loads(row["child_repository_index"])
+            for child_index in children:
+                links.append({"source": i, "target": child_index})
 
     return nodes, links
 
 def generate_html(nodes, links, output_html_path):
-    import json
-    with open(output_html_path, 'w', encoding='utf-8') as f:
-        f.write("""
+    nodes_json = json.dumps(nodes)
+    links_json = json.dumps(links)
+
+    html_content = f'''
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>GitHub Repository Graph</title>
+  <title>Repository Graph</title>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
     body {{
@@ -88,11 +90,58 @@ def generate_html(nodes, links, output_html_path):
 
   const width = window.innerWidth;
   const height = window.innerHeight;
+  const spacing = 300;
 
-  const svg = d3.select("svg")
-    .attr("viewBox", [0, 0, width, height]);
-
+  const svg = d3.select("svg").attr("viewBox", [0, 0, width, height]);
   const zoomLayer = svg.append("g").attr("class", "zoom-layer");
+
+  const grouped = {{}};
+  const boxHeight = 60;
+  const verticalGap = 20;
+
+  nodes.forEach(d => {{
+    d.fx = d.order * spacing;
+    if (!grouped[d.order]) grouped[d.order] = [];
+    grouped[d.order].push(d);
+  }});
+
+  Object.values(grouped).forEach(group => {{
+    const totalHeight = group.length * (boxHeight + verticalGap);
+    const startY = (height - totalHeight) / 2;
+    group.forEach((node, i) => {{
+      node.fy = startY + i * (boxHeight + verticalGap);
+      node.initialFy = node.fy;
+    }});
+  }});
+
+  const classifications = Array.from(
+    new Set(nodes.map(d => JSON.stringify({{ classification: d.classification, order: d.order }})))
+  ).map(s => JSON.parse(s))
+   .sort((a, b) => a.order - b.order);
+
+  const headerGroup = zoomLayer.append("g").attr("class", "column-headers");
+
+  classifications.forEach(({{ classification, order }}) => {{
+    const x = order * spacing;
+
+    headerGroup.append("line")
+      .attr("x1", x)
+      .attr("y1", 0)
+      .attr("x2", x)
+      .attr("y2", height)
+      .attr("stroke", "#ccc")
+      .attr("stroke-width", 2)
+      .attr("stroke-dasharray", "4,4");
+
+    headerGroup.append("text")
+      .attr("x", x)
+      .attr("y", 30)
+      .attr("text-anchor", "middle")
+      .attr("fill", "#666")
+      .attr("font-size", "16px")
+      .attr("font-weight", "bold")
+      .text(classification);
+  }});
 
   const link = zoomLayer.append("g")
     .selectAll("line")
@@ -102,8 +151,7 @@ def generate_html(nodes, links, output_html_path):
 
   const simulation = d3.forceSimulation(nodes)
     .force("link", d3.forceLink(links).id(d => d.id).distance(150))
-    .force("charge", d3.forceManyBody().strength(-400))
-    .force("center", d3.forceCenter(width / 2, height / 2));
+    .force("charge", d3.forceManyBody().strength(-300));
 
   const node = zoomLayer.append("g")
     .selectAll("g")
@@ -155,32 +203,21 @@ def generate_html(nodes, links, output_html_path):
       .attr("x2", d => d.target.x)
       .attr("y2", d => d.target.y);
 
-    node
-      .attr("transform", d => `translate(${{d.x}},${{d.y}})`);
+    node.attr("transform", d => `translate(${{ d.x }},${{ d.y }})`);
   }});
 
   function drag(simulation) {{
     function dragstarted(event, d) {{
       if (!event.active) simulation.alphaTarget(0.3).restart();
-      d.fx = d.x;
-      d.fy = d.y;
     }}
-
     function dragged(event, d) {{
-      d.fx = event.x;
       d.fy = event.y;
     }}
-
     function dragended(event, d) {{
       if (!event.active) simulation.alphaTarget(0);
-      d.fx = null;
-      d.fy = null;
+      d.fy = d.initialFy;
     }}
-
-    return d3.drag()
-      .on("start", dragstarted)
-      .on("drag", dragged)
-      .on("end", dragended);
+    return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
   }}
 
   let scale = 1;
@@ -190,7 +227,7 @@ def generate_html(nodes, links, output_html_path):
   const baseTranslate = [0, 0];
 
   function applyZoom() {{
-    zoomLayer.attr("transform", `translate(${{baseTranslate[0]}},${{baseTranslate[1]}}) scale(${{scale}})`);
+    zoomLayer.attr("transform", `translate(${{ baseTranslate[0] }},${{ baseTranslate[1] }}) scale(${{ scale }})`);
   }}
 
   d3.select("#zoom-in").on("click", () => {{
@@ -211,8 +248,8 @@ def generate_html(nodes, links, output_html_path):
     const minY = Math.min(...ys);
     const maxY = Math.max(...ys);
 
-    const boundsWidth = maxX - minX + 150;
-    const boundsHeight = maxY - minY + 150;
+    const boundsWidth = maxX - minX + 200;
+    const boundsHeight = maxY - minY + 200;
 
     const scaleX = width / boundsWidth;
     const scaleY = height / boundsHeight;
@@ -228,14 +265,13 @@ def generate_html(nodes, links, output_html_path):
 </script>
 </body>
 </html>
-""".format(
-    nodes_json=json.dumps(nodes),
-    links_json=json.dumps(links)
-))
+'''
+
+    with open(output_html_path, 'w', encoding='utf-8') as f:
+        f.write(html_content)
 
 if __name__ == "__main__":
     input_csv = "repos.csv"
     output_html = "graph.html"
     nodes, links = csv_to_graph_data(input_csv)
     generate_html(nodes, links, output_html)
-    print(f"Graph generated in {output_html}")
