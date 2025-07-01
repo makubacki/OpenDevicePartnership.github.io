@@ -1,5 +1,6 @@
 import csv
 import json
+import sys
 
 def csv_to_graph_data(csv_path):
     nodes = []
@@ -206,7 +207,6 @@ def generate_html(nodes, links, output_html_path):
       const dr = Math.sqrt(dx * dx + dy * dy) * 1.5;
       return `M${{d.source.x}},${{d.source.y}} A${{dr}},${{dr}} 0 0,1 ${{d.target.x}},${{d.target.y}}`;
     }});
-
     node.attr("transform", d => `translate(${{ d.x }},${{ d.y }})`);
   }});
 
@@ -224,34 +224,38 @@ def generate_html(nodes, links, output_html_path):
     return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
   }}
 
-  let scale = 1;
-  const zoomStep = 0.1;
   const zoomMin = 0.1;
   const zoomMax = 3;
-  const baseTranslate = [0, 0];
+
+  let currentTransform = d3.zoomIdentity;
+
+  const zoomBehavior = d3.zoom()
+    .scaleExtent([zoomMin, zoomMax])
+    .on("zoom", (event) => {{
+      currentTransform = event.transform;
+      zoomLayer.attr("transform", currentTransform);
+    }});
+
+  svg.call(zoomBehavior);
 
   function applyZoom() {{
-    zoomLayer.attr("transform", `translate(${{ baseTranslate[0] }},${{ baseTranslate[1] }}) scale(${{ scale }})`);
+    svg.transition().duration(300)
+       .call(zoomBehavior.transform, currentTransform);
   }}
 
-  svg.call(
-    d3.zoom()
-      .scaleExtent([zoomMin, zoomMax])
-      .on("zoom", (event) => {{
-        zoomLayer.attr("transform", event.transform);
-        scale = event.transform.k;
-        baseTranslate[0] = event.transform.x;
-        baseTranslate[1] = event.transform.y;
-      }})
-  );
-
   d3.select("#zoom-in").on("click", () => {{
-    scale = Math.min(scale + zoomStep, zoomMax);
+    const newScale = Math.min(currentTransform.k + 0.1, zoomMax);
+    currentTransform = d3.zoomIdentity
+      .translate(currentTransform.x, currentTransform.y)
+      .scale(newScale);
     applyZoom();
   }});
 
   d3.select("#zoom-out").on("click", () => {{
-    scale = Math.max(scale - zoomStep, zoomMin);
+    const newScale = Math.max(currentTransform.k - 0.1, zoomMin);
+    currentTransform = d3.zoomIdentity
+      .translate(currentTransform.x, currentTransform.y)
+      .scale(newScale);
     applyZoom();
   }});
 
@@ -268,13 +272,15 @@ def generate_html(nodes, links, output_html_path):
 
     const scaleX = width / boundsWidth;
     const scaleY = height / boundsHeight;
-    scale = Math.min(scaleX, scaleY, zoomMax);
+    const scale = Math.min(scaleX, scaleY, zoomMax);
 
     const centerX = (minX + maxX) / 2;
     const centerY = (minY + maxY) / 2;
-    baseTranslate[0] = width / 2 - scale * centerX;
-    baseTranslate[1] = height / 2 - scale * centerY;
 
+    const tx = width / 2 - scale * centerX;
+    const ty = height / 2 - scale * centerY;
+
+    currentTransform = d3.zoomIdentity.translate(tx, ty).scale(scale);
     applyZoom();
   }});
 
@@ -290,7 +296,12 @@ def generate_html(nodes, links, output_html_path):
         f.write(html_content)
 
 if __name__ == "__main__":
-    input_csv = "repos.csv"
-    output_html = "graph.html"
+    if len(sys.argv) != 3:
+        print("Usage: python generate_web_graph.py input.csv output.html")
+        sys.exit(1)
+
+    input_csv = sys.argv[1]
+    output_html = sys.argv[2]
+
     nodes, links = csv_to_graph_data(input_csv)
     generate_html(nodes, links, output_html)
