@@ -35,26 +35,38 @@ def generate_leptos_component(nodes, links, output_rs_path):
 
     rust_content = f'''use leptos::*;
 use leptos::html::*;
+use leptos::prelude::*;
 use wasm_bindgen::prelude::*;
-use web_sys::{{console, window}};
+use web_sys::window;
 
 #[wasm_bindgen]
 extern "C" {{
-    #[wasm_bindgen(js_namespace = ["window", "d3"])]
-    static d3: JsValue;
+    #[wasm_bindgen(js_namespace = ["window", "d3"], thread_local_v2)]
+    static D3: JsValue;
 }}
 
 #[component]
 pub fn RepositoryGraph() -> impl IntoView {{
-    let (nodes_data, _) = create_signal(r#"{nodes_json}"#);
-    let (links_data, _) = create_signal(r#"{links_json}"#);
+    let (nodes_data, _) = signal(r#"{nodes_json}"#);
+    let (links_data, _) = signal(r#"{links_json}"#);
 
-    create_effect(move |_| {{
-        let nodes_str = nodes_data.get();
-        let links_str = links_data.get();
-        
-        // Initialize D3 graph when component mounts
-        init_d3_graph(nodes_str, links_str);
+    // Track initialization to prevent multiple runs
+    let (initialized, set_initialized) = signal(false);
+
+    // Use Effect::new for initialization
+    Effect::new(move |_| {{
+        if !initialized.get() {{
+            let nodes_str = nodes_data.get_untracked();
+            let links_str = links_data.get_untracked();
+            
+            // Initialize D3 graph when component mounts
+            init_d3_graph(nodes_str, links_str);
+            
+            // Inject CSS styles
+            inject_styles();
+            
+            set_initialized.set(true);
+        }}
     }});
 
     view! {{
@@ -62,12 +74,22 @@ pub fn RepositoryGraph() -> impl IntoView {{
             <div id="zoom-controls">
                 <button id="zoom-in">"+"</button>
                 <button id="zoom-out">"−"</button>
-                <button id="zoom-fit">"⊞"</button>
-                <button id="open-new">"⛶"</button>
+                <button id="zoom-fit">"⛶"</button>
             </div>
             <svg width="100%" height="100%" style="position:absolute;"></svg>
         </div>
     }}
+}}
+
+// Function to inject CSS styles
+fn inject_styles() {{
+    let window = window().unwrap();
+    let document = window.document().unwrap();
+    let head = document.head().unwrap();
+    
+    let style_element = document.create_element("style").unwrap();
+    style_element.set_inner_html(repository_graph_styles());
+    head.append_child(&style_element).unwrap();
 }}
 
 #[wasm_bindgen]
@@ -75,18 +97,12 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {{
     let window = window().unwrap();
     let document = window.document().unwrap();
     
-    // Inject D3.js if not already loaded
-    let script = document.create_element("script").unwrap();
-    script.set_attribute("src", "https://d3js.org/d3.v7.min.js").unwrap();
-    script.set_attribute("onload", "window.initGraph()").unwrap();
-    document.head().unwrap().append_child(&script).unwrap();
-    
     // Store data globally for D3 to access
-    let js_code = format!(r#"
+    let js_code = format!(r##"
         window.graphNodes = {{}};
         window.graphLinks = {{}};
         
-        window.initGraph = function() {{
+        window.initGraph = function() {{{{
             const nodes = window.graphNodes;
             const links = window.graphLinks;
 
@@ -97,35 +113,35 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {{
             const svg = d3.select("svg").attr("viewBox", [0, 0, width, height]);
             const zoomLayer = svg.append("g").attr("class", "zoom-layer");
 
-            const grouped = {{}};
+            const grouped = {{{{}}}};
             const boxHeight = 60;
             const verticalGap = 20;
 
-            nodes.forEach(d => {{
+            nodes.forEach(d => {{{{
                 d.fx = d.order * spacing;
                 if (!grouped[d.order]) grouped[d.order] = [];
                 grouped[d.order].push(d);
-            }});
+            }}}});
 
-            Object.values(grouped).forEach(group => {{
+            Object.values(grouped).forEach(group => {{{{
                 const totalHeight = group.length * (boxHeight + verticalGap);
                 const startY = (height - totalHeight) / 2;
-                group.forEach((node, i) => {{
+                group.forEach((node, i) => {{{{
                     node.fy = startY + i * (boxHeight + verticalGap);
                     node.initialFy = node.fy;
-                }});
-            }});
+                }}}});
+            }}}});
 
             const classifications = Array.from(
-                new Set(nodes.map(d => JSON.stringify({{ classification: d.classification, order: d.order }})))
+                new Set(nodes.map(d => JSON.stringify({{{{ classification: d.classification, order: d.order }}}})))
             ).map(s => JSON.parse(s))
              .sort((a, b) => a.order - b.order);
 
             const headerGroup = zoomLayer.append("g").attr("class", "column-headers");
 
-            classifications.forEach(({{
+            classifications.forEach(({{{{
                 classification, order
-            }}) => {{
+            }}}}) => {{{{
                 const x = order * spacing;
 
                 headerGroup.append("line")
@@ -145,7 +161,7 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {{
                     .attr("font-size", "16px")
                     .attr("font-weight", "bold")
                     .text(classification);
-            }});
+            }}}});
 
             const link = zoomLayer.append("g")
                 .selectAll("path")
@@ -169,7 +185,7 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {{
                 .attr("dy", "0.35em")
                 .text(d => d.name);
 
-            node.each(function(d) {{
+            node.each(function(d) {{{{
                 const textEl = d3.select(this).select("text").node();
                 const textWidth = textEl.getComputedTextLength();
                 d.boxWidth = textWidth + 20;
@@ -187,42 +203,18 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {{
                     .attr("stroke-width", 1.5);
 
                 d._rect = rect;
-            }});
+            }}}});
 
             node
-                .on("mouseover", function(event, d) {{
+                .on("mouseover", function(event, d) {{{{
                     d._rect.attr("fill", "#9BFABE");
-                }})
-                .on("mouseout", function(event, d) {{
+                }}}})
+                .on("mouseout", function(event, d) {{{{
                     d._rect.attr("fill", "white");
-                }})
-                .on("click", function(event, d) {{
+                }}}})
+                .on("click", function(event, d) {{{{
                     window.open(d.url, "_blank");
-                }});
-
-            simulation.on("tick", () => {{
-                link.attr("d", d => {{
-                    const dx = d.target.x - d.source.x;
-                    const dy = d.target.y - d.source.y;
-                    const dr = Math.sqrt(dx * dx + dy * dy) * 1.5;
-                    return `M${{d.source.x}},${{d.source.y}} A${{dr}},${{dr}} 0 0,1 ${{d.target.x}},${{d.target.y}}`;
-                }});
-                node.attr("transform", d => `translate(${{ d.x }},${{ d.y }})`);
-            }});
-
-            function drag(simulation) {{
-                function dragstarted(event, d) {{
-                    if (!event.active) simulation.alphaTarget(0.3).restart();
-                }}
-                function dragged(event, d) {{
-                    d.fy = event.y;
-                }}
-                function dragended(event, d) {{
-                    if (!event.active) simulation.alphaTarget(0);
-                    d.fy = d.initialFy;
-                }}
-                return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
-            }}
+                }}}});
 
             const zoomMin = 0.1;
             const zoomMax = 3;
@@ -231,35 +223,22 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {{
 
             const zoomBehavior = d3.zoom()
                 .scaleExtent([zoomMin, zoomMax])
-                .on("zoom", (event) => {{
+                .filter((event) => {{{{
+                    return event.type !== 'wheel';
+                }}}})
+                .on("zoom", (event) => {{{{
                     currentTransform = event.transform;
                     zoomLayer.attr("transform", currentTransform);
-                }});
+                }}}});
 
             svg.call(zoomBehavior);
 
-            function applyZoom() {{
+            function applyZoom() {{{{
                 svg.transition().duration(300)
                    .call(zoomBehavior.transform, currentTransform);
-            }}
+            }}}}
 
-            d3.select("#zoom-in").on("click", () => {{
-                const newScale = Math.min(currentTransform.k + 0.1, zoomMax);
-                currentTransform = d3.zoomIdentity
-                    .translate(currentTransform.x, currentTransform.y)
-                    .scale(newScale);
-                applyZoom();
-            }});
-
-            d3.select("#zoom-out").on("click", () => {{
-                const newScale = Math.max(currentTransform.k - 0.1, zoomMin);
-                currentTransform = d3.zoomIdentity
-                    .translate(currentTransform.x, currentTransform.y)
-                    .scale(newScale);
-                applyZoom();
-            }});
-
-            d3.select("#zoom-fit").on("click", () => {{
+            function fitToScreen() {{{{
                 const xs = nodes.map(n => n.x);
                 const ys = nodes.map(n => n.y);
                 const minX = Math.min(...xs);
@@ -281,64 +260,130 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {{
                 const ty = height / 2 - scale * centerY;
 
                 currentTransform = d3.zoomIdentity.translate(tx, ty).scale(scale);
-                applyZoom();
-            }});
+                return currentTransform;
+            }}}}
 
-            d3.select("#open-new").on("click", () => {{
-                window.open("about:blank", "_blank");
-            }});
-        }};
-    "#, nodes_json, links_json);
+            // Track if initial fit has been applied
+            let initialFitApplied = false;
+
+            simulation.on("tick", () => {{{{
+                link.attr("d", d => {{{{
+                    const dx = d.target.x - d.source.x;
+                    const dy = d.target.y - d.source.y;
+                    const dr = Math.sqrt(dx * dx + dy * dy) * 1.5;
+                    return `M${{{{d.source.x}}}},${{{{d.source.y}}}} A${{{{dr}}}},${{{{dr}}}} 0 0,1 ${{{{d.target.x}}}},${{{{d.target.y}}}}`;
+                }}}});
+                node.attr("transform", d => `translate(${{{{ d.x }}}},${{{{ d.y }}}})`);
+                
+                // Apply initial fit after a few ticks when positions have stabilized
+                if (!initialFitApplied && simulation.alpha() < 0.5) {{{{
+                    initialFitApplied = true;
+                    currentTransform = fitToScreen();
+                    svg.call(zoomBehavior.transform, currentTransform);
+                }}}}
+            }}}});
+
+            function drag(simulation) {{{{
+                function dragstarted(event, d) {{{{
+                    if (!event.active) simulation.alphaTarget(0.3).restart();
+                }}}}
+                function dragged(event, d) {{{{
+                    d.fy = event.y;
+                }}}}
+                function dragended(event, d) {{{{
+                    if (!event.active) simulation.alphaTarget(0);
+                    d.fy = d.initialFy;
+                }}}}
+                return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
+                }}}}
+
+            d3.select("#zoom-in").on("click", () => {{{{
+                const newScale = Math.min(currentTransform.k + 0.1, zoomMax);
+                currentTransform = d3.zoomIdentity
+                    .translate(currentTransform.x, currentTransform.y)
+                    .scale(newScale);
+                applyZoom();
+                }}}});
+
+            d3.select("#zoom-out").on("click", () => {{{{
+                const newScale = Math.max(currentTransform.k - 0.1, zoomMin);
+                currentTransform = d3.zoomIdentity
+                    .translate(currentTransform.x, currentTransform.y)
+                    .scale(newScale);
+                applyZoom();
+            }}}});
+
+            d3.select("#zoom-fit").on("click", () => {{{{
+                currentTransform = fitToScreen();
+                applyZoom();
+            }}}});
+        }}}};
+        
+        // Load D3 and initialize
+        if (typeof d3 === 'undefined') {{{{
+            const script = document.createElement('script');
+            script.src = 'https://d3js.org/d3.v7.min.js';
+            script.onload = () => window.initGraph();
+            document.head.appendChild(script);
+        }}}} else {{{{
+            window.initGraph();
+        }}}}
+    "##, nodes_json, links_json);
     
     let script_el = document.create_element("script").unwrap();
     script_el.set_inner_html(&js_code);
     document.head().unwrap().append_child(&script_el).unwrap();
 }}
 
-// CSS styles as a separate function
+// CSS styles function
 pub fn repository_graph_styles() -> &'static str {{
     r#"
-    .repository-graph {{
-        font-family: sans-serif;
-        margin: 0;
-        overflow: hidden;
+        .repository-graph {{
         position: relative;
-        width: 100vw;
+        width: 100%;
         height: 100vh;
-    }}
-    
-    .link {{
-        fill: none;
-        stroke: #888;
-        stroke-opacity: 0.6;
-        stroke-width: 2px;
-    }}
-    
-    .node text {{
-        pointer-events: none;
-        font-size: 13px;
-        fill: #000;
-        font-weight: bold;
+        background: #f8f9fa;
     }}
     
     #zoom-controls {{
         position: absolute;
-        top: 10px;
-        left: 10px;
-        background: white;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-        padding: 4px;
-        z-index: 10;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        display: flex;
+        gap: 5px;
     }}
     
     #zoom-controls button {{
-        font-size: 18px;
-        width: 35px;
-        height: 30px;
-        margin: 2px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         cursor: pointer;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }}
+    
+    #zoom-controls button:hover {{
+        background: #f0f0f0;
+    }}
+    
+    .node {{
+        cursor: pointer;
+    }}
+    
+    .link {{
+        fill: none;
+        stroke: #666;
+        stroke-width: 2;
+    }}
+    
+    .column-headers text {{
+        font-family: Arial, sans-serif;
     }}
     "#
 }}
