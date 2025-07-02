@@ -18,7 +18,7 @@ pub fn Header() -> impl IntoView {
             <nav class="flex [column-gap:25px]">
                 <NavButton href="/getting-started" label="Getting Started"/>
                 <NavButton href="/projects" label="Projects"/>
-                <NavButton href="/library" label="Library"/>
+                <NavButton href="https://opendevicepartnership.github.io/documentation/" label="Library"/>
                 <NavButton href="/governance" label="Governance"/>
                 <NavButton href="/home" label="Home"/>
             </nav>
