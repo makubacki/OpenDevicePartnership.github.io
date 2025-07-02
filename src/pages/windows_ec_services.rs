@@ -17,8 +17,15 @@ pub fn WindowsEcServices() -> impl IntoView {
     ];
 
     let project_title = "Unified Windows Embedded Controller (EC) Services";
-    let project_what = "Unified service interface is ...";
-    let project_why = "Unified service interface is important because ...";
+    let project_what = "The Unified Windows EC Service interface defines runtime coordination between firmware components using async message-passing. 
+    Each service manages a domain — like power, battery, or host communication — and exposes a structured protocol. 
+    Components register with services and receive commands for events, capabilities, and state changes. 
+    This model enables loosely coupled subsystems, observability, and test injection — without sacrificing platform coherence.";
+    let project_why = "Without a common interface, EC firmware becomes tangled and brittle. 
+    Unified EC Services -- designed for Windows Platforms -- bring structure and predictability by defining how components interact at runtime. 
+    With async protocols and policy-aware lifecycles, they support clean separation of concerns and cross-subsystem coordination. 
+    Whether debugging power flows or integrating a new device, these services provide the glue, guardrails, and visibility you need.";
+
 
     view! {
         <ErrorBoundary fallback=|errors| {
