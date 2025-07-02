@@ -33,6 +33,10 @@ def generate_leptos_component(nodes, links, output_rs_path):
     nodes_json = json.dumps(nodes)
     links_json = json.dumps(links)
 
+    print(f"nodes: r#\"{nodes_json}\"#")
+    print("")
+    print(f"links: r#\"{links_json}\"#")
+
     rust_content = f'''use leptos::*;
 use leptos::html::*;
 use leptos::prelude::*;

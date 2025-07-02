@@ -2,6 +2,7 @@ use crate::components::header::Header;
 use crate::components::footer::Footer;
 use crate::components::project_introduction::ProjectIntroduction;
 use crate::components::documentation_training::{DocLink, DocumentationTraining};
+use crate::components::repo_view::RepositoryGraph;
 
 use leptos::prelude::*;
 
@@ -27,6 +28,8 @@ pub fn WindowsEcServices() -> impl IntoView {
     With async protocols and policy-aware lifecycles, they support clean separation of concerns and cross-subsystem coordination. 
     Whether debugging power flows or integrating a new device, these services provide the glue, guardrails, and visibility you need.";
 
+    let nodes_data = r#"[{"id": 0, "name": "ec-test-app", "url": "https://github.com/OpenDevicePartnership/ec-test-app", "classification": "app & driver", "order": 1}, {"id": 1, "name": "haf-ec-service", "url": "https://github.com/OpenDevicePartnership/haf-ec-service", "classification": "secure partition", "order": 2}, {"id": 2, "name": "ffa", "url": "https://github.com/OpenDevicePartnership/ffa", "classification": "ff-a", "order": 3}]"#;
+    let links_data = r#"[{"source": 0, "target": 1}, {"source": 1, "target": 2}]"#;
 
     view! {
         <ErrorBoundary fallback=|errors| {
@@ -51,6 +54,7 @@ pub fn WindowsEcServices() -> impl IntoView {
             <div class="w-full min-h-screen" style="overflow-x: auto;">
                 <Header />
                 <ProjectIntroduction project_title=project_title project_summary=project_summary project_what=project_what project_why=project_why />
+                <RepositoryGraph nodes=nodes_data links=links_data/>
                 <DocumentationTraining links=links />
                 <Footer />
             </div>

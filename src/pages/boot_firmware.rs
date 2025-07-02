@@ -2,6 +2,7 @@ use crate::components::header::Header;
 use crate::components::footer::Footer;
 use crate::components::project_introduction::ProjectIntroduction;
 use crate::components::documentation_training::{DocLink, DocumentationTraining};
+use crate::components::repo_view::RepositoryGraph;
 
 use leptos::prelude::*;
 
@@ -28,6 +29,9 @@ Patina replaces brittle C-based firmware with a secure, modular Rust implementat
 Embracing modern patterns and dependency injection, Patina simplifies audits, shrinks attack surfaces, and enables predictable firmware behavior.
 It’s time for firmware to act like real software — and Patina makes that possible.";
 
+    let nodes_data = r#"[{"id": 0, "name": "patina-qemu", "url": "https://github.com/OpenDevicePartnership/patina-qemu", "classification": "platform", "order": 1}, {"id": 1, "name": "patina-dxe-core-qemu", "url": "https://github.com/OpenDevicePartnership/patina-dxe-core-qemu", "classification": "driver", "order": 2}, {"id": 2, "name": "patina", "url": "https://github.com/OpenDevicePartnership/patina", "classification": "core", "order": 3}, {"id": 3, "name": "patina-readiness-tool", "url": "https://github.com/OpenDevicePartnership/patina-readiness-tool", "classification": "utilities", "order": 4}]"#; 
+    let links_data = r#"[{"source": 0, "target": 1}, {"source": 0, "target": 3}, {"source": 1, "target": 2}]"#;
+
     view! {
         <ErrorBoundary fallback=|errors| {
             view! {
@@ -51,6 +55,7 @@ It’s time for firmware to act like real software — and Patina makes that pos
             <div class="w-full min-h-screen" style="overflow-x: auto;">
                 <Header />
                 <ProjectIntroduction project_title=project_title project_summary=project_summary project_what=project_what project_why=project_why />
+                <RepositoryGraph nodes=nodes_data links=links_data/>
                 <DocumentationTraining links=links />
                 <Footer />
             </div>

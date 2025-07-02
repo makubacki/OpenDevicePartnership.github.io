@@ -1,0 +1,5 @@
+repository_name,repository_url,child_repository_index,classification,classification_order
+patina-qemu,https://github.com/OpenDevicePartnership/patina-qemu,"[1,3]",platform,1
+patina-dxe-core-qemu,https://github.com/OpenDevicePartnership/patina-dxe-core-qemu,"[2]",driver,2
+patina,https://github.com/OpenDevicePartnership/patina,"[]",core,3
+patina-readiness-tool,https://github.com/OpenDevicePartnership/patina-readiness-tool,"[]",utilities,4
