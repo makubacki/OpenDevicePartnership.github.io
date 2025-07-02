@@ -18,6 +18,7 @@ pub fn EmbeddedController() -> impl IntoView {
     ];
 
     let project_title = "Secure Embedded Controller";
+    let project_summary = "A hardened firmware platform for modern embedded controllers";
     let project_what = "The ODP Secure EC stack is a Rust-based firmware platform for modern embedded controllers, supporting both discrete and integrated ECs.
 
 It provides modular subsystems for power sequencing, thermal policy, event routing, and more. 
@@ -50,7 +51,7 @@ It’s a modern foundation for building reliable, adaptable EC firmware — not 
 
             <div class="w-full min-h-screen" style="overflow-x: auto;">
                 <Header />
-                <ProjectIntroduction project_title=project_title project_what=project_what project_why=project_why />
+                <ProjectIntroduction project_title=project_title project_summary=project_summary project_what=project_what project_why=project_why />
                 <RepositoryGraph />
                 <DocumentationTraining links=links />
                 <Footer />

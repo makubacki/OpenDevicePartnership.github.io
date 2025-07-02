@@ -16,7 +16,8 @@ pub fn WindowsEcServices() -> impl IntoView {
         DocLink { href: "https://docs.odp.example.com/faq", title: "Contributing to ODP" },
     ];
 
-    let project_title = "Unified Windows Embedded Controller (EC) Services";
+    let project_title = "Unified Embedded Controller Interface";
+    let project_summary = "";
     let project_what = "The Unified Windows EC Service interface defines runtime coordination between firmware components using async message-passing. 
     Each service manages a domain — like power, battery, or host communication — and exposes a structured protocol. 
     Components register with services and receive commands for events, capabilities, and state changes. 
@@ -49,7 +50,7 @@ pub fn WindowsEcServices() -> impl IntoView {
 
             <div class="w-full min-h-screen" style="overflow-x: auto;">
                 <Header />
-                <ProjectIntroduction project_title=project_title project_what=project_what project_why=project_why />
+                <ProjectIntroduction project_title=project_title project_summary=project_summary project_what=project_what project_why=project_why />
                 <DocumentationTraining links=links />
                 <Footer />
             </div>

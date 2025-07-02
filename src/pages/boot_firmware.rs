@@ -17,6 +17,7 @@ pub fn BootFirmware() -> impl IntoView {
     ];
 
     let project_title = "Boot Firmware (Patina)";
+    let project_summary = "A secure and efficient boot firmware for Windows devices";
 
     let project_what = "Patina is a Rust-based boot firmware platform that rethinks the full UEFI boot flow as a modular system.
 It replaces the legacy UEFI dispatcher with a clear, dependency-injected structure that defines policy and behavior explicitly.
@@ -49,7 +50,7 @@ It’s time for firmware to act like real software — and Patina makes that pos
 
             <div class="w-full min-h-screen" style="overflow-x: auto;">
                 <Header />
-                <ProjectIntroduction project_title=project_title project_what=project_what project_why=project_why />
+                <ProjectIntroduction project_title=project_title project_summary=project_summary project_what=project_what project_why=project_why />
                 <DocumentationTraining links=links />
                 <Footer />
             </div>
