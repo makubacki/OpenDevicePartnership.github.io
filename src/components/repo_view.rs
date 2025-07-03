@@ -22,18 +22,26 @@ pub fn RepositoryGraph(
     // Track initialization to prevent multiple runs
     let (initialized, set_initialized) = signal(false);
 
-    // Use Effect::new for initialization
     Effect::new(move |_| {
         if !initialized.get() {
             let nodes_str = nodes_data.get_untracked();
             let links_str = links_data.get_untracked();
-            
-            // Initialize D3 graph when component mounts
-            init_d3_graph(&nodes_str, &links_str);
-            
-            // Inject CSS styles
-            inject_styles();
-            
+    
+            // Delay execution to next microtask tick to ensure DOM is ready
+            let closure = Closure::once_into_js(move || {
+                init_d3_graph(&nodes_str, &links_str);
+                inject_styles();
+            });
+    
+            // Schedule init_d3_graph after rendering
+            window()
+                .unwrap()
+                .set_timeout_with_callback_and_timeout_and_arguments_0(
+                    closure.as_ref().unchecked_ref(),
+                    0,
+                )
+                .unwrap();
+    
             set_initialized.set(true);
         }
     });
@@ -65,7 +73,7 @@ fn inject_styles() {
 pub fn init_d3_graph(nodes_json: &str, links_json: &str) {
     let window = window().unwrap();
     let document = window.document().unwrap();
-    
+
     // Store data globally for D3 to access
     let js_code = format!(r##"
         window.graphNodes = {};
@@ -298,8 +306,16 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {
             window.initGraph();
         }}
     "##, nodes_json, links_json);
-    
+
+    let script_id = "d3-graph-script";
+
+    // Remove old script if it exists
+    if let Some(old_script) = document.get_element_by_id(script_id) {
+        old_script.remove();
+    }
+
     let script_el = document.create_element("script").unwrap();
+    script_el.set_attribute("id", script_id).unwrap();
     script_el.set_inner_html(&js_code);
     document.head().unwrap().append_child(&script_el).unwrap();
 }
