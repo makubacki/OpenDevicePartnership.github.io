@@ -4,18 +4,65 @@ use crate::components::team_grid::{TeamMember, TeamGrid};
 
 use leptos::prelude::*;
 
-/// Default Home Page
+
+fn create_team() -> Vec<TeamMember> {
+
+    vec![
+        TeamMember {
+            first_name: "Jerry",
+            last_name: "Xie",
+            role: "Team leader",
+            github_username: "jerrysxie",
+            github_url: "https://github.com/jerrysxie",
+            image_url: "https://github.com/jerrysxie.png?size=200",
+        },
+        TeamMember {
+            first_name: "Felipe",
+            last_name: "Balbi",
+            role: "Team leader",
+            github_username: "felipebalbi",
+            github_url: "https://github.com/felipebalbi",
+            image_url: "https://github.com/felipebalbi.png?size=200",
+        },
+        TeamMember {
+            first_name: "Robert",
+            last_name: "Zieba",
+            role: "",
+            github_username: "RobertZ2011",
+            github_url: "https://github.com/RobertZ2011",
+            image_url: "https://github.com/RobertZ2011.png?size=200",
+        },
+        TeamMember {
+            first_name: "Matteo",
+            last_name: "Tullo",
+            role: "",
+            github_username: "tullom",
+            github_url: "https://github.com/tullom",
+            image_url: "https://github.com/tullom.png?size=200",
+        },
+        TeamMember {
+            first_name: "Kurtis",
+            last_name: "Dinelle",
+            role: "",
+            github_username: "kurtjd",
+            github_url: "https://github.com/kurtjd",
+            image_url: "https://github.com/kurtjd.png?size=200",
+        },
+        TeamMember {
+            first_name: "Billy",
+            last_name: "Price",
+            role: "",
+            github_username: "williampMSFT",
+            github_url: "https://github.com/williampMSFT",
+            image_url: "https://github.com/williampMSFT.png?size=200",
+        },
+    ]
+}
+
 #[component]
 pub fn TeamEC() -> impl IntoView {
 
-    let team = vec![
-        TeamMember { first_name: "Jerry", last_name: "Xie", role: "Team leader", github_username: "jerrysxie" },
-        TeamMember { first_name: "Felipe", last_name: "Balbi", role: "Team leader", github_username: "felipebalbi" },
-        TeamMember { first_name: "Robert", last_name: "Zieba", role: "", github_username: "RobertZ2011" },
-        TeamMember { first_name: "Matteo", last_name: "Tullo", role: "", github_username: "tullom" },
-        TeamMember { first_name: "Kurtis", last_name: "Dinelle", role: "", github_username: "kurtjd" },
-        TeamMember { first_name: "Billy", last_name: "Price", role: "", github_username: "williampMSFT" },
-    ];
+    let team = create_team();
 
     view! {
         <ErrorBoundary fallback=|errors| {
