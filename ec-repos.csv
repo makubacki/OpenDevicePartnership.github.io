@@ -1,21 +1,45 @@
 repository_name,repository_url,child_repository_index,classification,classification_order
-soc-embedded-controller,https://github.com/OpenDevicePartnership/embedded-power-sequence,"[17,1]",platform,1
-embedded-services,https://github.com/OpenDevicePartnership/embedded-services,"[2,3,4,5,6,7,8]",services,2
-embedded-usb-pd,https://github.com/OpenDevicePartnership/embedded-usb-pd,"[9]",subsystem,3
-embedded-power-sequence,https://github.com/OpenDevicePartnership/embedded-power-sequence,"[]",subsystem,3
-embedded-batteries,https://github.com/OpenDevicePartnership/embedded-batteries,"[14,15,16]",subsystem,3
-embedded-cfu,https://github.com/OpenDevicePartnership/embedded-cfu,"[]",subsystem,3
-embedded-sensors,https://github.com/OpenDevicePartnership/embedded-sensors,"[10]",subsystem,3
-embedded-fans,https://github.com/OpenDevicePartnership/embedded-fans,"[]",subsystem,3
-embedded-keyboard-rs ,https://github.com/OpenDevicePartnership/embedded-keyboard-rs,"[]",subsystem,3
-tps6699x,https://github.com/OpenDevicePartnership/tps6699x,"[]",drivers,4
-tmp108,https://github.com/OpenDevicePartnership/tmp108,"[]",drivers,4
-is31fl3743b,https://github.com/OpenDevicePartnership/is31fl3743b,"[]",drivers,4
-pcal6416a,https://github.com/OpenDevicePartnership/pcal6416a,"[16]",drivers,4
-bq25773,https://github.com/OpenDevicePartnership/bq25773,"[]",drivers,4
-bq40z50,https://github.com/OpenDevicePartnership/bq40z50,"[]",drivers,4
-bq25770g,https://github.com/OpenDevicePartnership/bq25770g,"[]",drivers,4
-embedded-hal,https://github.com/rust-embedded/embedded-hal,"[18]",embedded HAL,5
-embassy-imxrt,https://github.com/OpenDevicePartnership/embassy-imxrt,"[19]",MCU core HALs,6
-mimxrt600-fcb,https://github.com/OpenDevicePartnership/mimxrt600-fcb,"[]",MCU PACs,7
-mimxrt633s-pac ,https://github.com/OpenDevicePartnership/mimxrt633s-pac,"[]",MCU PACs,7
+embedded-services,https://github.com/OpenDevicePartnership/embedded-services,"[2, 4, 5, 6, 11, 12, 13, 19, 20, 23]",EC Services,2
+pcal6416a,https://github.com/OpenDevicePartnership/pcal6416a,"[4]",Driver, 4
+embedded-cfu,https://github.com/OpenDevicePartnership/embedded-cfu,"[43]",EC Subsystem, 3
+embassy-imxrt,https://github.com/OpenDevicePartnership/embassy-imxrt,"[17,18]",MCU HAL, 6
+embedded-hal,https://github.com/rust-embedded/embedded-hal,"[3,26,36]",HAL Abstractions, 5
+embedded-mcu,https://github.com/OpenDevicePartnership/embedded-mcu,"[3,26,36]",HAL Abstractions, 5
+embedded-fans,https://github.com/OpenDevicePartnership/embedded-fans,"[4]",EC Subsystem, 3
+lis2dw12-i2c,https://github.com/OpenDevicePartnership/lis2dw12-i2c,"[4]",Driver, 4
+tps6699x,https://github.com/OpenDevicePartnership/tps6699x,"[4]",Driver, 4
+tmp108,https://github.com/OpenDevicePartnership/tmp108,"[4]",Driver, 4
+npcx490m-pac,https://github.com/OpenDevicePartnership/npcx490m-pac,"[]",MCU PAC, 7
+embedded-usb-pd,https://github.com/OpenDevicePartnership/embedded-usb-pd,"[8, 39]",EC Subsystem, 3
+embedded-power-sequence,https://github.com/OpenDevicePartnership/embedded-power-sequence,"[4, 19]",EC Subsystem, 3
+embedded-batteries,https://github.com/OpenDevicePartnership/embedded-batteries,"[14,15,21,28,29,40,42]",EC Subsystem, 3
+bq25773,https://github.com/OpenDevicePartnership/bq25773,"[4]",Driver, 4
+bq40z50,https://github.com/OpenDevicePartnership/bq40z50,"[4]",Driver, 4
+ec-slimloader,https://github.com/OpenDevicePartnership/ec-slimloader,"[22]",Bootloader, 8
+mimxrt633s-pac,https://github.com/OpenDevicePartnership/mimxrt633s-pac,"[]",MCU PAC, 7
+mimxrt685s-pac,https://github.com/OpenDevicePartnership/mimxrt685s-pac,"[]",MCU PAC, 7
+embedded-regulator,https://github.com/OpenDevicePartnership/embedded-regulator,"[]",EC Subsystem, 3
+embedded-keyboard-rs,https://github.com/OpenDevicePartnership/embedded-keyboard-rs,"[4]",EC Subsystem, 3
+bq25770g,https://github.com/OpenDevicePartnership/bq25770g,"[4]",Driver, 4
+ec-slimloader-descriptors,https://github.com/OpenDevicePartnership/ec-slimloader-descriptors,"[]",Bootloader, 8
+embedded-sensors,https://github.com/OpenDevicePartnership/embedded-sensors,"[9]",EC Subsystem, 3
+mimxrt600-fcb,https://github.com/OpenDevicePartnership/mimxrt600-fcb,"[]",Tools, 9
+soc-embedded-controller,https://github.com/OpenDevicePartnership/soc-embedded-controller,"[0]",EC Platform,1
+embassy-npcx,https://github.com/OpenDevicePartnership/embassy-npcx,"[10]",MCU HAL, 6
+systemview-tracing,https://github.com/OpenDevicePartnership/systemview-tracing,"[]",Tools, 9
+bq25723,https://github.com/OpenDevicePartnership/bq25723,"[4]",Driver, 4
+bq25713,https://github.com/OpenDevicePartnership/bq25713,"[4]",Driver, 4
+MX25U1632FZUI02,https://github.com/OpenDevicePartnership/MX25U1632FZUI02,"[5]",Driver, 4
+W25Q16JWXHIM,https://github.com/OpenDevicePartnership/W25Q16JWXHIM,"[5]",Driver, 4
+mec17xx-pac,https://github.com/OpenDevicePartnership/mec17xx-pac,"[]",MCU PAC, 7
+is31fl3743b,https://github.com/OpenDevicePartnership/is31fl3743b,"[4]",Driver, 4
+npcx490m-examples,https://github.com/OpenDevicePartnership/npcx490m-examples,"[]",Tools, 9
+mimxrt685s-examples,https://github.com/OpenDevicePartnership/mimxrt685s-examples,"[]",Tools, 9
+embassy-microchip,https://github.com/OpenDevicePartnership/embassy-microchip,"[32, 37]",MCU HAL, 6
+cec17-data,https://github.com/OpenDevicePartnership/cec17-data,"[]",MCU PAC, 7
+nxp-header,https://github.com/OpenDevicePartnership/nxp-header,"[]",Tools, 9
+tps65994ae,https://github.com/OpenDevicePartnership/tps65994ae,"[4]",Driver, 4
+bq24773,https://github.com/OpenDevicePartnership/bq24773,"[4]",Driver, 4
+rt4531,https://github.com/OpenDevicePartnership/rt4531,"[4]",Driver, 4
+bq25730,https://github.com/OpenDevicePartnership/bq25730,"[4]",Driver, 4
+embedded-storage,https://github.com/rust-embedded-community/embedded-storage,"[30,31]", EC Subsystem, 3
