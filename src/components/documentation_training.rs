@@ -38,7 +38,7 @@ pub fn DocumentationTraining(
                         display: block;
                     "
                 >
-                    "Documentation training"
+                    "Documentation"
                 </span>
                 <div style="height: 10px;"></div>
                 <span
@@ -48,7 +48,7 @@ pub fn DocumentationTraining(
                         display: block;
                     "
                 >
-                    "Start Developing with ODP Standards"
+                    "Start developing with ODP"
                 </span>
             </div>
 
@@ -59,8 +59,9 @@ pub fn DocumentationTraining(
             <ul class="flex flex-col pt-4" style="width: 760px;">
                 {links.into_iter().map(|link| view! {
                     <li>
-                        <a href=link.href class="link_large">
-                            {format!("→ {}", link.title)}
+                        <a href=link.href class="link_large" style="text-decoration: none;">
+                            <span style="text-decoration: none;">{"→ "}</span>
+                            <span style="text-decoration: underline;">{link.title}</span>
                         </a>
                     </li>
                 }).collect_view()}

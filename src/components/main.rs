@@ -80,7 +80,7 @@ pub fn Main() -> impl IntoView {
                                   display: block;
                                   text-align: left;
                               ">
-                            "Training videos"
+                            "Welcome"
                         </span>
                         <div style="height: 10px;"></div>
                         <span class="p1"
@@ -97,30 +97,6 @@ pub fn Main() -> impl IntoView {
                         style="border-radius: 10px; display: block;"
                         src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
                         title="YouTube Video of the Open Device Partnership"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                {/* Bottom row: two iframes, aligned with above */}
-                <div class="flex flex-row items-start gap-[60px] pt-10 w-full">
-                    <iframe
-                        width="810"
-                        height="450"
-                        style="border-radius: 10px; flex-shrink: 0;"
-                        src="https://www.youtube.com/embed/VIDEO_ID_1"
-                        title="Additional Training Video 1"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                    <iframe
-                        width="810"
-                        height="450"
-                        style="border-radius: 10px; flex-shrink: 0;"
-                        src="https://www.youtube.com/embed/VIDEO_ID_2"
-                        title="Additional Training Video 2"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
