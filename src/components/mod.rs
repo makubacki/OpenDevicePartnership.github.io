@@ -8,3 +8,4 @@ pub mod image_button;
 pub mod governance_teams;
 pub mod project_introduction;
 pub mod repo_view;
+pub mod team_grid;

@@ -93,7 +93,7 @@ pub fn GovernanceTeams() -> impl IntoView {
                             text-align: left;
                         "
                     >
-                        {"Patina"}
+                        {"Boot Firmware (Patina)"}
                     </span>
                     <span
                         class="p2"
@@ -102,7 +102,7 @@ pub fn GovernanceTeams() -> impl IntoView {
                             text-align: left;
                         "
                     >
-                        {"Team in charge of Patina."}
+                        {"Developing and managing development of a new modern UEFI"}
                     </span>
                     <div style="flex: 1 1 auto;"></div>
                     <a
@@ -124,7 +124,7 @@ pub fn GovernanceTeams() -> impl IntoView {
                             text-align: left;
                         "
                     >
-                        {"Embedded Controller"}
+                        {"Secure Embedded Controller"}
                     </span>
                     <span
                         class="p2"
@@ -133,7 +133,7 @@ pub fn GovernanceTeams() -> impl IntoView {
                             text-align: left;
                         "
                     >
-                        {"Team in charge of Embedded Controller."}
+                        {"Developing and managing secure EC internals"}
                     </span>
                     <div style="flex: 1 1 auto;"></div>
                     <a
@@ -155,7 +155,7 @@ pub fn GovernanceTeams() -> impl IntoView {
                             text-align: left;
                         "
                     >
-                        {"EC Services"}
+                        {"Unified EC Services"}
                     </span>
                     <span
                         class="p2"
@@ -164,7 +164,7 @@ pub fn GovernanceTeams() -> impl IntoView {
                             text-align: left;
                         "
                     >
-                        {"Team in charge of Windows EC Services."}
+                        {"Designing and managing implementation of a unified EC Services interface"}
                     </span>
                     <div style="flex: 1 1 auto;"></div>
                     <a

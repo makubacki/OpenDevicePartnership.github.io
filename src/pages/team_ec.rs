@@ -1,11 +1,22 @@
 use crate::components::header::Header;
 use crate::components::footer::Footer;
+use crate::components::team_grid::{TeamMember, TeamGrid};
 
 use leptos::prelude::*;
 
 /// Default Home Page
 #[component]
 pub fn TeamEC() -> impl IntoView {
+
+    let team = vec![
+        TeamMember { first_name: "Jerry", last_name: "Xie", role: "Team leader", github_username: "jerrysxie" },
+        TeamMember { first_name: "Felipe", last_name: "Balbi", role: "Team leader", github_username: "felipebalbi" },
+        TeamMember { first_name: "Robert", last_name: "Zieba", role: "", github_username: "RobertZ2011" },
+        TeamMember { first_name: "Matteo", last_name: "Tullo", role: "", github_username: "tullom" },
+        TeamMember { first_name: "Kurtis", last_name: "Dinelle", role: "", github_username: "kurtjd" },
+        TeamMember { first_name: "Billy", last_name: "Price", role: "", github_username: "williampMSFT" },
+    ];
+
     view! {
         <ErrorBoundary fallback=|errors| {
             view! {
@@ -66,17 +77,27 @@ pub fn TeamEC() -> impl IntoView {
                         <div class="flex flex-col items-start" style="width: 600px;">
                             {/* Team Introduction */}
                             <span
-                                class="mono"
+                            class="mono"
+                            style="
+                                display: block;
+                                text-align: left;
+                            "
+                            >
+                                {"Secure EC team"}
+                            </span>
+                            <span
+                                class="p1"
                                 style="
                                     display: block;
                                     text-align: left;
                                 "
                             >
-                                {"The Secure EC team ..."}
+                                {"Developing and managing secure EC internals"}
                             </span>
                         </div>
                     </div>
                 </section>
+                <TeamGrid members=team />
                 <Footer />
             </div>
             
