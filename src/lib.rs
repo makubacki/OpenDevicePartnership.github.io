@@ -11,7 +11,7 @@ use crate::pages::getting_started::GettingStarted;
 use crate::pages::boot_firmware::BootFirmware;
 use crate::pages::embedded_controller::EmbeddedController;
 use crate::pages::home::Home;
-use crate::pages::windows_ec_services::WindowsEcServices;
+use crate::pages::unified_ec_services::WindowsEcServices;
 use crate::pages::projects::Projects;
 use crate::pages::governance::Governance;
 use crate::pages::team_ec::TeamEC;

@@ -10,5 +10,4 @@ pub mod team_ec_services;
 
 pub mod boot_firmware;
 pub mod embedded_controller;
-pub mod windows_ec_services;
-
+pub mod unified_ec_services;
