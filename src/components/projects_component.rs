@@ -123,24 +123,20 @@ pub fn ProjectsComponent() -> impl IntoView {
                         </span>
                         <div class="flex flex-col gap-[8px]">
                             <a
-                                href="https://docs.odp.example.com/boot-firmware"
+                                href="https://opendevicepartnership.github.io/documentation/intro/concepts/patina.html"
                                 class="link"
-                                style="
-                                    display: block;
-                                "
-                                target="_blank"
+                                style="text-decoration: none;"
                             >
-                                {"→ Read the Boot Firmware Guide"}
+                                <span style="text-decoration: none;">{"→ "}</span>
+                                <span style="text-decoration: underline;">{"Read the Boot Firmware Guide"}</span>
                             </a>
                             <a
-                                href="https://github.com/microsoft/patina"
+                                href="https://github.com/OpenDevicePartnership/patina"
                                 class="link"
-                                style="
-                                    display: block;
-                                "
-                                target="_blank"
+                                style="text-decoration: none;"
                             >
-                                {"→ View Patina on GitHub"}
+                                <span style="text-decoration: none;">{"→ "}</span>
+                                <span style="text-decoration: underline;">{"View Patina on GitHub"}</span>
                             </a>
                         </div>
                     </div>
@@ -158,7 +154,7 @@ pub fn ProjectsComponent() -> impl IntoView {
                                 text-align: left;
                             "
                         >
-                            {"Embedded Controller"}
+                            {"Secure Embedded Controller"}
                         </span>
                         <span
                             class="p1"
@@ -167,7 +163,7 @@ pub fn ProjectsComponent() -> impl IntoView {
                                 text-align: left;
                             "
                         >
-                            {"A secure Rust-based EC implementation"}
+                            {"A Secure end-to-end Rust-based EC implementation"}
                         </span>
                         <span
                             class="p2"
@@ -180,24 +176,20 @@ pub fn ProjectsComponent() -> impl IntoView {
                         </span>
                         <div class="flex flex-col gap-[8px]">
                             <a
-                                href="https://docs.odp.example.com/embedded-controller"
+                                href="https://opendevicepartnership.github.io/documentation/intro/concepts/Embedded_controller.html"
                                 class="link"
-                                style="
-                                    display: block;
-                                "
-                                target="_blank"
+                                style="text-decoration: none;"
                             >
-                                {"→ Read the EC Guide"}
+                                <span style="text-decoration: none;">{"→ "}</span>
+                                <span style="text-decoration: underline;">{"Read the Secure EC Guide"}</span>
                             </a>
                             <a
-                                href="https://github.com/microsoft/ec"
+                                href="https://github.com/OpenDevicePartnership/embedded-services"
                                 class="link"
-                                style="
-                                    display: block;
-                                "
-                                target="_blank"
+                                style="text-decoration: none;"
                             >
-                                {"→ View EC on GitHub"}
+                                <span style="text-decoration: none;">{"→ "}</span>
+                                <span style="text-decoration: underline;">{"View Secure EC (core) on GitHub"}</span>
                             </a>
                         </div>
                     </div>
@@ -215,7 +207,7 @@ pub fn ProjectsComponent() -> impl IntoView {
                                 text-align: left;
                             "
                         >
-                            {"Windows EC Services"}
+                            {"Unified Embedded Controller Services"}
                         </span>
                         <span
                             class="p1"
@@ -224,7 +216,7 @@ pub fn ProjectsComponent() -> impl IntoView {
                                 text-align: left;
                             "
                         >
-                            {"A secure Rust-based EC services implementation"}
+                            {"A standard and secure cross-architecture EC services implementation"}
                         </span>
                         <span
                             class="p2"
@@ -237,24 +229,20 @@ pub fn ProjectsComponent() -> impl IntoView {
                         </span>
                         <div class="flex flex-col gap-[8px]">
                             <a
-                                href="https://docs.odp.example.com/windows-ec-services"
+                                href="https://opendevicepartnership.github.io/documentation/intro/concepts/EC_Services.html"
                                 class="link"
-                                style="
-                                    display: block;
-                                "
-                                target="_blank"
+                                style="text-decoration: none;"
                             >
-                                {"→ Read the EC Services Guide"}
+                                <span style="text-decoration: none;">{"→ "}</span>
+                                <span style="text-decoration: underline;">{"Read the EC Services Guide"}</span>
                             </a>
                             <a
-                                href="https://github.com/microsoft/ecservices"
+                                href="https://github.com/OpenDevicePartnership/haf-ec-service"
                                 class="link"
-                                style="
-                                    display: block;
-                                "
-                                target="_blank"
+                                style="text-decoration: none;"
                             >
-                                {"→ View EC Services on GitHub"}
+                                <span style="text-decoration: none;">{"→ "}</span>
+                                <span style="text-decoration: underline;">{"View EC Services on GitHub"}</span>
                             </a>
                         </div>
                     </div>

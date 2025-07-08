@@ -10,10 +10,11 @@ use leptos::prelude::*;
 pub fn Home() -> impl IntoView {
     // Documentation links for the DocumentationTraining section
     let links = vec![
-        DocLink { href: "https://docs.odp.example.com/getting-started", title: "Getting Started with ODP" },
-        DocLink { href: "https://docs.odp.example.com/api", title: "ODP Firmware Development Guide" },
-        DocLink { href: "https://docs.odp.example.com/tutorials", title: "Embedded Controller Services Specification" },
-        DocLink { href: "https://docs.odp.example.com/faq", title: "Contributing to ODP" },
+        DocLink { href: "https://opendevicepartnership.github.io/documentation/why/why.html", title: "Why ODP?" },
+        DocLink { href: "https://opendevicepartnership.github.io/documentation/intro/welcome.html", title: "Getting Started with ODP" },
+        DocLink { href: "https://opendevicepartnership.github.io/documentation/intro/tutorial/tutorial.html", title: "Tutorials" },
+        DocLink { href: "https://opendevicepartnership.github.io/documentation/specs/specifications.html", title: "Specifications" },
+        DocLink { href: "/governance", title: "Contributing to ODP" },
     ];
 
     view! {

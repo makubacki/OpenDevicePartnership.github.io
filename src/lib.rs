@@ -11,13 +11,12 @@ use crate::pages::getting_started::GettingStarted;
 use crate::pages::boot_firmware::BootFirmware;
 use crate::pages::embedded_controller::EmbeddedController;
 use crate::pages::home::Home;
-use crate::pages::windows_ec_services::WindowsEcServices;
+use crate::pages::unified_ec_services::WindowsEcServices;
 use crate::pages::projects::Projects;
 use crate::pages::governance::Governance;
 use crate::pages::team_ec::TeamEC;
 use crate::pages::team_patina::TeamPatina;
 use crate::pages::team_ec_services::TeamECServices;
-use crate::pages::library::Library;
 
 /// An app router which renders the homepage and handles 404's
 #[component]
@@ -46,7 +45,6 @@ pub fn App() -> impl IntoView {
                 <Route path=path!("/embedded-controller") view=EmbeddedController />
                 <Route path=path!("/windows-ec-services") view=WindowsEcServices />
                 <Route path=path!("/projects") view=Projects />
-                <Route path=path!("/library") view=Library />
                 <Route path=path!("/") view=Home />
                 <Route path=path!("/team-ec-services") view=TeamECServices />
             </Routes>

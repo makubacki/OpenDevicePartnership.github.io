@@ -3,6 +3,7 @@ use leptos::prelude::*;
 #[component]
 pub fn ProjectIntroduction(
     #[prop(into)] project_title: String,
+    #[prop(into)] project_summary: String,
     #[prop(into)] project_what: String,
     #[prop(into)] project_why: String,
 ) -> impl IntoView {
@@ -10,30 +11,57 @@ pub fn ProjectIntroduction(
         <section
             class="background_primary"
             style="
-                padding: 120px;
+                padding: 120px 120px 120px 0;
             "
         >
             <div class="flex flex-row gap-[80px]">
                 {/* Left Column */}
-                <div class="flex flex-col items-start" style="width: 700px;">
-                    <span
-                        class="h1"
+                <div class="flex flex-col items-start" style="width: 1035px; height: 930px; position: relative; margin-left: 0; padding-left: 0;">
+                    <div
                         style="
-                            display: block;
-                            text-align: left;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            z-index: 10;
+                            text-align: center;
                         "
                     >
-                        {project_title}
-                    </span>
-                    <span
-                        class="h2"
-                        style="
-                            display: block;
-                            text-align: left;
-                        "
-                    >
-                        {"TODO: bitmap will go here"}
-                    </span>
+                        <span
+                            class="h1"
+                            style="
+                                display: block;
+                                color: white;
+                                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+                                margin-bottom: 10px;
+                            "
+                        >
+                            {project_title}
+                        </span>
+                        <span
+                            class="p1"
+                            style="
+                                display: block;
+                                color: white;
+                                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+                            "
+                        >
+                            {project_summary}
+                        </span>
+                    </div>
+                    <picture style="width: 100%; height: 100%;">
+                        <source srcset="/images/Patina_Header.svg" />
+                        <img
+                            src="/images/Patina_Header.svg"
+                            alt="Patina Project"
+                            class="icon"
+                            style="
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            "
+                        />
+                    </picture>
                 </div>
                 {/* Right Column */}
                 <div class="flex flex-col items-start" style="width: 600px;">

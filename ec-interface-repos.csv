@@ -1,0 +1,4 @@
+repository_name,repository_url,child_repository_index,classification,classification_order
+ec-test-app,https://github.com/OpenDevicePartnership/ec-test-app,"[1]",app & driver,1
+haf-ec-service,https://github.com/OpenDevicePartnership/haf-ec-service,"[2]",secure partition,2
+ffa,https://github.com/OpenDevicePartnership/ffa,"[]",ff-a,3
