@@ -19,7 +19,7 @@ fn create_team() -> Vec<TeamMember> {
         TeamMember {
             first_name: "Felipe",
             last_name: "Balbi",
-            role: "Team leader",
+            role: "",
             github_username: "felipebalbi",
             github_url: "https://github.com/felipebalbi",
             image_url: "https://github.com/felipebalbi.png?size=200",
@@ -47,6 +47,22 @@ fn create_team() -> Vec<TeamMember> {
             github_username: "kurtjd",
             github_url: "https://github.com/kurtjd",
             image_url: "https://github.com/kurtjd.png?size=200",
+        },
+        TeamMember {
+            first_name: "Jimi",
+            last_name: "Huard",
+            role: "",
+            github_username: "JamesHuard",
+            github_url: "https://github.com/JamesHuard",
+            image_url: "https://github.com/JamesHuard.png?size=200",
+        },
+        TeamMember {
+            first_name: "Adam",
+            last_name: "Sasine",
+            role: "",
+            github_username: "asasine",
+            github_url: "https://github.com/asasine",
+            image_url: "https://github.com/asasine.png?size=200",
         },
         TeamMember {
             first_name: "Billy",
