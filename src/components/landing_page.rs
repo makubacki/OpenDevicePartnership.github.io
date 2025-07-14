@@ -37,7 +37,10 @@ pub fn LandingPage() -> impl IntoView {
                         text-align: center;
                     "
                 >
-                    Photo Placeholder
+                <img 
+                    src="/images/laptop.jpg" 
+                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" 
+                />
                 </div>
                 <div
                     class="p1"

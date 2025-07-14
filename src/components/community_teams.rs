@@ -37,19 +37,19 @@ pub fn CommunityTeams() -> impl IntoView {
                         "
                     >
 
-                        {"The Open Device Partnership (ODP) is a collaborative open-source initiative designed to promote cooperative innovation in firmware development through contribution and transparency. "}
+                        {"The Open Device Partnership (ODP) is a collaborative open-source initiative designed to promote cooperative innovation in firmware development through contribution and transparency."}
                         <br/>
                         <br/>
-                        {"To support this vision, ODP has adopted a lightweight yet formal governance model that clarifies how decisions are made, how contributions are recognized, and how the community remains focused on shared goals. "}
+                        {"To support this vision, ODP has adopted a lightweight yet formal governance model that clarifies how decisions are made, how contributions are recognized, and how the community remains focused on shared goals."}
                         <br/>
                         <br/>
                         {"Like most open-source communities, the ODP governance model consists of a group of core maintainers that are responsible for guiding the technical direction of the project known as the \"Technical Steering Committee\" (TSC). Members are typically industry-experienced contributors nominated by the community members or its sponsors."}
                         <br/>
                         {"The model also provides for certain \"Working Groups\", which are task-focused teams that handle the development or specification within a particular area of concern (for example, Patina, EC Services)."}
                         <br/>
-                        {"Decisions are made via public discussion followed by majority vote among TSC members. "}
+                        {"Decisions are made via public discussion followed by majority vote among TSC members."}
                         <br/>
-                        {"All official actions, roadmaps, and meeting notes are transparently published, and all project materials are hosted openly on GitHub. "}
+                        {"All official actions, road maps, and meeting notes are transparently published, and all project materials are hosted openly on GitHub."}
                         <br/>
                         <br/>
                         {"For more information, see the complete governance policies at the "}
