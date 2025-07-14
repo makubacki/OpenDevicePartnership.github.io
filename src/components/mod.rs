@@ -5,7 +5,7 @@ pub mod projects_component;
 pub mod landing_page;
 pub mod documentation_training;
 pub mod image_button;
-pub mod governance_teams;
+pub mod community_teams;
 pub mod project_introduction;
 pub mod repo_view;
 pub mod team_grid;

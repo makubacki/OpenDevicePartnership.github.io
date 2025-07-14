@@ -1,12 +1,12 @@
 use crate::components::header::Header;
 use crate::components::footer::Footer;
-use crate::components::governance_teams::GovernanceTeams;
+use crate::components::community_teams::CommunityTeams;
 
 use leptos::prelude::*;
 
 /// Default Home Page
 #[component]
-pub fn Governance() -> impl IntoView {
+pub fn Community() -> impl IntoView {
     view! {
         <ErrorBoundary fallback=|errors| {
             view! {
@@ -29,7 +29,7 @@ pub fn Governance() -> impl IntoView {
         
             <div class="w-full min-h-screen overflow-x-hidden">
                 <Header />
-                <GovernanceTeams />
+                <CommunityTeams />
                 <Footer />
             </div>
             
