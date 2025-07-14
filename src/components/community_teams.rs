@@ -1,7 +1,7 @@
 use leptos::prelude::*;
 
 #[component]
-pub fn GovernanceTeams() -> impl IntoView {
+pub fn CommunityTeams() -> impl IntoView {
     view! {
         <section
             class="background_primary"
@@ -17,7 +17,7 @@ pub fn GovernanceTeams() -> impl IntoView {
                         display: block;
                     "
                 >
-                    {"GOVERNANCE"}
+                    {"COMMUNITY"}
                 </span>
             </div>
 
@@ -43,7 +43,7 @@ pub fn GovernanceTeams() -> impl IntoView {
                         {"To support this vision, ODP has adopted a lightweight yet formal governance model that clarifies how decisions are made, how contributions are recognized, and how the community remains focused on shared goals. "}
                         <br/>
                         <br/>
-                        {"Like most open-source communities, the ODP Governance model consists of a group of core maintainers that are responsible for guiding the technical direction of the project known as the \"Technical Steering Committee\" (TSC). Members are typically industry-experienced contributors nominated by the community members or its sponsors."}
+                        {"Like most open-source communities, the ODP governance model consists of a group of core maintainers that are responsible for guiding the technical direction of the project known as the \"Technical Steering Committee\" (TSC). Members are typically industry-experienced contributors nominated by the community members or its sponsors."}
                         <br/>
                         {"The model also provides for certain \"Working Groups\", which are task-focused teams that handle the development or specification within a particular area of concern (for example, Patina, EC Services)."}
                         <br/>
@@ -52,8 +52,8 @@ pub fn GovernanceTeams() -> impl IntoView {
                         {"All official actions, roadmaps, and meeting notes are transparently published, and all project materials are hosted openly on GitHub. "}
                         <br/>
                         <br/>
-                        {"For more information, see the complete Governance policies at the "}
-                        <a href="https://github.com/OpenDevicePartnership/governance/README.md" target="_blank" style="text-decoration: underline;">{"ODP Governance Repository"}</a>
+                        {"For more information, see the complete governance policies at the "}
+                        <a href="https://github.com/OpenDevicePartnership/governance/blob/main/README.md" target="_blank" style="text-decoration: underline;">{"ODP Governance Repository"}</a>
                         {", or join the discussion on our public chat on "}
                         <a href="https://opendevicepartnership.zulipchat.com/" target="_blank" style="text-decoration: underline;">{"Zulip"}</a>
                         {"."}                    

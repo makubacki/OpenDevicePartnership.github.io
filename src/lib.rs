@@ -13,7 +13,7 @@ use crate::pages::embedded_controller::EmbeddedController;
 use crate::pages::home::Home;
 use crate::pages::unified_ec_services::WindowsEcServices;
 use crate::pages::projects::Projects;
-use crate::pages::governance::Governance;
+use crate::pages::community::Community;
 use crate::pages::team_ec::TeamEC;
 use crate::pages::team_patina::TeamPatina;
 use crate::pages::team_ec_services::TeamECServices;
@@ -39,7 +39,7 @@ pub fn App() -> impl IntoView {
                 <Route path=path!("/home") view=Home />
                 <Route path=path!("/getting-started") view=GettingStarted />
                 <Route path=path!("/boot-firmware") view=BootFirmware />
-                <Route path=path!("/governance") view=Governance />
+                <Route path=path!("/community") view=Community />
                 <Route path=path!("/team-ec") view=TeamEC />
                 <Route path=path!("/team-patina") view=TeamPatina />
                 <Route path=path!("/embedded-controller") view=EmbeddedController />

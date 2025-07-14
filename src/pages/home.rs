@@ -14,7 +14,7 @@ pub fn Home() -> impl IntoView {
         DocLink { href: "https://opendevicepartnership.github.io/documentation/intro/welcome.html", title: "Getting Started with ODP" },
         DocLink { href: "https://opendevicepartnership.github.io/documentation/intro/tutorial/tutorial.html", title: "Tutorials" },
         DocLink { href: "https://opendevicepartnership.github.io/documentation/specs/specifications.html", title: "Specifications" },
-        DocLink { href: "/governance", title: "Contributing to ODP" },
+        DocLink { href: "/community", title: "Contributing to ODP" },
     ];
 
     view! {

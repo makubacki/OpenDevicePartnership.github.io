@@ -3,7 +3,7 @@ pub mod not_found;
 
 pub mod getting_started;
 pub mod projects;
-pub mod governance;
+pub mod community;
 pub mod team_ec;
 pub mod team_patina;
 pub mod team_ec_services;

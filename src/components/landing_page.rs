@@ -186,7 +186,6 @@ pub fn LandingPage() -> impl IntoView {
                 >
                     {"While ODP’s first projects focus on boot firmware and embedded controller software, the partnership welcomes new ideas aligned with our core goals: security, efficiency, and broad reusability."}
                     <br /><br />
-                    {"More information about project governance and contribution opportunities will be shared soon. In the meantime, questions and ideas are welcome — contact the ODP administrators!"}
                 </p>
             </div>
         </section>
