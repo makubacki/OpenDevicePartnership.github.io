@@ -24,8 +24,8 @@ pub fn LandingPage() -> impl IntoView {
             <div class="flex flex-row justify-center items-center mt-[80px] gap-[80px]">
                 <div
                     style="
-                        width: 840px;
-                        height: 420px;
+                        width: 660px;
+                        height: 690;
                         background: #E5E7EB;
                         border-radius: 24px;
                         display: flex;
@@ -38,7 +38,7 @@ pub fn LandingPage() -> impl IntoView {
                     "
                 >
                 <img 
-                    src="/images/laptops.png" 
+                    src="/images/laptop.png" 
                     style="width: 100%; height: 100%; object-fit: cover;"
                 />
                 </div>
