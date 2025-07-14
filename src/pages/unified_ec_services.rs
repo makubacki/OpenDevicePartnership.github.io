@@ -26,7 +26,7 @@ pub fn WindowsEcServices() -> impl IntoView {
     This model enables loosely coupled subsystems, observability, and test injection — without sacrificing platform coherence.";
     let project_why = "Without a common interface, EC firmware becomes tangled and brittle. 
     Unified EC Services -- designed for Windows Platforms -- bring structure and predictability by defining how components interact at runtime. 
-    With async protocols and policy-aware lifecycles, they support clean separation of concerns and cross-subsystem coordination. 
+    With async protocols and policy-aware life cycles, they support clean separation of concerns and cross-subsystem coordination. 
     Whether debugging power flows or integrating a new device, these services provide the glue, guardrails, and visibility you need.";
 
     let nodes_data = r#"[{"id": 0, "name": "ec-test-app", "url": "https://github.com/OpenDevicePartnership/ec-test-app", "classification": "app & driver", "order": 1}, {"id": 1, "name": "haf-ec-service", "url": "https://github.com/OpenDevicePartnership/haf-ec-service", "classification": "secure partition", "order": 2}, {"id": 2, "name": "ffa", "url": "https://github.com/OpenDevicePartnership/ffa", "classification": "ff-a", "order": 3}]"#;
