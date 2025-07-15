@@ -1,12 +1,10 @@
-use crate::components::header::Header;
 use crate::components::footer::Footer;
-use crate::components::team_grid::{TeamMember, TeamGrid};
+use crate::components::header::Header;
+use crate::components::team_grid::{TeamGrid, TeamMember};
 
 use leptos::prelude::*;
 
-
 fn create_team() -> Vec<TeamMember> {
-
     vec![
         TeamMember {
             first_name: "Jerry",
@@ -77,7 +75,6 @@ fn create_team() -> Vec<TeamMember> {
 
 #[component]
 pub fn TeamEC() -> impl IntoView {
-
     let team = create_team();
 
     view! {
@@ -99,7 +96,7 @@ pub fn TeamEC() -> impl IntoView {
                 </ul>
             }
         }>
-        
+
             <div class="w-full min-h-screen overflow-x-hidden">
                 <Header />
                 <a
@@ -163,7 +160,7 @@ pub fn TeamEC() -> impl IntoView {
                 <TeamGrid members=team />
                 <Footer />
             </div>
-            
+
         </ErrorBoundary>
     }
 }

@@ -1,6 +1,6 @@
-use leptos::*;
 use leptos::html::*;
 use leptos::prelude::*;
+use leptos::*;
 use wasm_bindgen::prelude::*;
 use web_sys::window;
 
@@ -12,10 +12,7 @@ extern "C" {
 }
 
 #[component]
-pub fn RepositoryGraph(
-    #[prop(into)] nodes: String,
-    #[prop(into)] links: String,
-) -> impl IntoView {
+pub fn RepositoryGraph(#[prop(into)] nodes: String, #[prop(into)] links: String) -> impl IntoView {
     let (nodes_data, _) = signal(nodes);
     let (links_data, _) = signal(links);
 
@@ -26,22 +23,19 @@ pub fn RepositoryGraph(
         if !initialized.get() {
             let nodes_str = nodes_data.get_untracked();
             let links_str = links_data.get_untracked();
-    
+
             // Delay execution to next microtask tick to ensure DOM is ready
             let closure = Closure::once_into_js(move || {
                 init_d3_graph(&nodes_str, &links_str);
                 inject_styles();
             });
-    
+
             // Schedule init_d3_graph after rendering
             window()
                 .unwrap()
-                .set_timeout_with_callback_and_timeout_and_arguments_0(
-                    closure.as_ref().unchecked_ref(),
-                    0,
-                )
+                .set_timeout_with_callback_and_timeout_and_arguments_0(closure.as_ref().unchecked_ref(), 0)
                 .unwrap();
-    
+
             set_initialized.set(true);
         }
     });
@@ -63,7 +57,7 @@ fn inject_styles() {
     let window = window().unwrap();
     let document = window.document().unwrap();
     let head = document.head().unwrap();
-    
+
     let style_element = document.create_element("style").unwrap();
     style_element.set_inner_html(repository_graph_styles());
     head.append_child(&style_element).unwrap();
@@ -75,9 +69,10 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {
     let document = window.document().unwrap();
 
     // Store data globally for D3 to access
-    let js_code = format!(r##"
-        window.graphNodes = {};
-        window.graphLinks = {};
+    let js_code = format!(
+        r##"
+        window.graphNodes = {nodes_json};
+        window.graphLinks = {links_json};
         
         window.initGraph = function() {{
             const nodes = window.graphNodes;
@@ -305,7 +300,8 @@ pub fn init_d3_graph(nodes_json: &str, links_json: &str) {
         }} else {{
             window.initGraph();
         }}
-    "##, nodes_json, links_json);
+    "##
+    );
 
     let script_id = "d3-graph-script";
 

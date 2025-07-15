@@ -1,6 +1,6 @@
-use crate::components::header::Header;
-use crate::components::footer::Footer;
 use crate::components::community_teams::CommunityTeams;
+use crate::components::footer::Footer;
+use crate::components::header::Header;
 
 use leptos::prelude::*;
 
@@ -26,13 +26,13 @@ pub fn Community() -> impl IntoView {
                 </ul>
             }
         }>
-        
+
             <div class="w-full min-h-screen overflow-x-hidden">
                 <Header />
                 <CommunityTeams />
                 <Footer />
             </div>
-            
+
         </ErrorBoundary>
     }
 }

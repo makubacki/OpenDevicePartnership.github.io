@@ -1,4 +1,3 @@
-use leptos::*;
 use leptos::html::*;
 use leptos::prelude::*;
 
@@ -13,9 +12,7 @@ pub struct TeamMember {
 }
 
 #[component]
-pub fn TeamGrid(
-    #[prop(into)] members: Vec<TeamMember>,
-) -> impl IntoView {
+pub fn TeamGrid(#[prop(into)] members: Vec<TeamMember>) -> impl IntoView {
     view! {
         <style>
             {r#"
