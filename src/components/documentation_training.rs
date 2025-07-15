@@ -7,9 +7,7 @@ pub struct DocLink {
 }
 
 #[component]
-pub fn DocumentationTraining(
-    #[prop(default = vec![])] links: Vec<DocLink>
-) -> impl IntoView {
+pub fn DocumentationTraining(#[prop(default = vec![])] links: Vec<DocLink>) -> impl IntoView {
     view! {
         <section
             class="flex flex-row items-start background_primary"

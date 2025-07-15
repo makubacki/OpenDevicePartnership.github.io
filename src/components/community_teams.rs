@@ -56,7 +56,7 @@ pub fn CommunityTeams() -> impl IntoView {
                         <a href="https://github.com/OpenDevicePartnership/governance/blob/main/README.md" target="_blank" style="text-decoration: underline;">{"ODP Governance Repository"}</a>
                         {", or join the discussion on our public chat on "}
                         <a href="https://opendevicepartnership.zulipchat.com/" target="_blank" style="text-decoration: underline;">{"Zulip"}</a>
-                        {"."}                    
+                        {"."}
                     </span>
                 </div>
             </div>

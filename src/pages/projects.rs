@@ -1,8 +1,7 @@
-use crate::components::header::Header;
-use crate::components::footer::Footer;
-use crate::components::projects_component::ProjectsComponent;
 use crate::components::documentation_training::{DocLink, DocumentationTraining};
-
+use crate::components::footer::Footer;
+use crate::components::header::Header;
+use crate::components::projects_component::ProjectsComponent;
 
 use leptos::prelude::*;
 
@@ -10,11 +9,26 @@ use leptos::prelude::*;
 #[component]
 pub fn Projects() -> impl IntoView {
     let links = vec![
-        DocLink { href: "https://opendevicepartnership.github.io/documentation/why/why.html", title: "Why ODP?" },
-        DocLink { href: "https://opendevicepartnership.github.io/documentation/intro/welcome.html", title: "Getting Started with ODP" },
-        DocLink { href: "https://opendevicepartnership.github.io/documentation/intro/tutorial/tutorial.html", title: "Tutorials" },
-        DocLink { href: "https://opendevicepartnership.github.io/documentation/specs/specifications.html", title: "Specifications" },
-        DocLink { href: "/community", title: "Contributing to ODP" },
+        DocLink {
+            href: "https://opendevicepartnership.github.io/documentation/why/why.html",
+            title: "Why ODP?",
+        },
+        DocLink {
+            href: "https://opendevicepartnership.github.io/documentation/intro/welcome.html",
+            title: "Getting Started with ODP",
+        },
+        DocLink {
+            href: "https://opendevicepartnership.github.io/documentation/intro/tutorial/tutorial.html",
+            title: "Tutorials",
+        },
+        DocLink {
+            href: "https://opendevicepartnership.github.io/documentation/specs/specifications.html",
+            title: "Specifications",
+        },
+        DocLink {
+            href: "/community",
+            title: "Contributing to ODP",
+        },
     ];
 
     view! {

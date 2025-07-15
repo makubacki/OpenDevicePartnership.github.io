@@ -1,5 +1,5 @@
-use leptos::prelude::*;
 use crate::components::image_button::ImageButton;
+use leptos::prelude::*;
 
 #[component]
 pub fn ProjectsComponent() -> impl IntoView {
@@ -130,14 +130,14 @@ pub fn ProjectsComponent() -> impl IntoView {
                                 <span style="text-decoration: none;">{"→ "}</span>
                                 <span style="text-decoration: underline;">{"Read the Boot Firmware Guide"}</span>
                             </a>
-                            <a
-                                href="https://github.com/OpenDevicePartnership/patina"
-                                class="link"
-                                style="text-decoration: none;"
-                            >
-                                <span style="text-decoration: none;">{"→ "}</span>
-                                <span style="text-decoration: underline;">{"View Patina on GitHub"}</span>
-                            </a>
+                            // <a
+                            //     href="https://github.com/OpenDevicePartnership/patina"
+                            //     class="link"
+                            //     style="text-decoration: none;"
+                            // >
+                            //     <span style="text-decoration: none;">{"→ "}</span>
+                            //     <span style="text-decoration: underline;">{"View Patina on GitHub"}</span>
+                            // </a>
                         </div>
                     </div>
                 </div>

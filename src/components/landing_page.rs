@@ -1,5 +1,5 @@
-use leptos::prelude::*;
 use crate::components::image_button::ImageButton;
+use leptos::prelude::*;
 
 #[component]
 pub fn LandingPage() -> impl IntoView {
@@ -37,8 +37,8 @@ pub fn LandingPage() -> impl IntoView {
                         text-align: center;
                     "
                 >
-                <img 
-                    src="/images/laptop.png" 
+                <img
+                    src="/images/laptop.png"
                     style="width: 100%; height: 100%; object-fit: cover;"
                 />
                 </div>

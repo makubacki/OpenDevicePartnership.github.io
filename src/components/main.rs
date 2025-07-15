@@ -52,7 +52,7 @@ pub fn Main() -> impl IntoView {
                             </span>
                         </div>
                     </button>
-                </div>                
+                </div>
             </div>
 
             {/* Training Videos Section */}

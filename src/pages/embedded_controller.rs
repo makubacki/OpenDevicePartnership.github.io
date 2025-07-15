@@ -1,7 +1,7 @@
-use crate::components::header::Header;
-use crate::components::footer::Footer;
-use crate::components::project_introduction::ProjectIntroduction;
 use crate::components::documentation_training::{DocLink, DocumentationTraining};
+use crate::components::footer::Footer;
+use crate::components::header::Header;
+use crate::components::project_introduction::ProjectIntroduction;
 use crate::components::repo_view::RepositoryGraph;
 
 use leptos::prelude::*;
@@ -9,13 +9,27 @@ use leptos::prelude::*;
 /// Default Home Page
 #[component]
 pub fn EmbeddedController() -> impl IntoView {
-
     let links = vec![
-        DocLink { href: "https://opendevicepartnership.github.io/documentation/why/why.html", title: "Why ODP?" },
-        DocLink { href: "https://opendevicepartnership.github.io/documentation/intro/welcome.html", title: "Getting Started with ODP" },
-        DocLink { href: "https://opendevicepartnership.github.io/documentation/intro/tutorial/tutorial.html", title: "Tutorials" },
-        DocLink { href: "https://opendevicepartnership.github.io/documentation/specs/specifications.html", title: "Specifications" },
-        DocLink { href: "/community", title: "Contributing to ODP" },
+        DocLink {
+            href: "https://opendevicepartnership.github.io/documentation/why/why.html",
+            title: "Why ODP?",
+        },
+        DocLink {
+            href: "https://opendevicepartnership.github.io/documentation/intro/welcome.html",
+            title: "Getting Started with ODP",
+        },
+        DocLink {
+            href: "https://opendevicepartnership.github.io/documentation/intro/tutorial/tutorial.html",
+            title: "Tutorials",
+        },
+        DocLink {
+            href: "https://opendevicepartnership.github.io/documentation/specs/specifications.html",
+            title: "Specifications",
+        },
+        DocLink {
+            href: "/community",
+            title: "Contributing to ODP",
+        },
     ];
 
     let project_title = "Secure Embedded Controller";
