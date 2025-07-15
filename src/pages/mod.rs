@@ -1,10 +1,13 @@
 pub mod home;
 pub mod not_found;
 
-pub mod about;
-pub mod contact;
-pub mod documentation;
+pub mod getting_started;
+pub mod projects;
+pub mod community;
+pub mod team_ec;
+pub mod team_patina;
+pub mod team_ec_services;
 
 pub mod boot_firmware;
 pub mod embedded_controller;
-pub mod windows_ec_services;
+pub mod unified_ec_services;

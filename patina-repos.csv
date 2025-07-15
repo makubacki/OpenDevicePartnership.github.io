@@ -1,0 +1,11 @@
+repository_name,repository_url,child_repository_index,classification,classification_order
+patina-readiness-tool,https://github.com/OpenDevicePartnership/patina-readiness-tool,"[5,7]",tooling,1
+patina-fw-patcher,https://github.com/OpenDevicePartnership/patina-fw-patcher,[],tooling,1
+patina-qemu,https://github.com/OpenDevicePartnership/patina-qemu,[],platform firmware (uefi rom),2
+patina-dxe-core-qemu,https://github.com/OpenDevicePartnership/patina-dxe-core-qemu,"[4,5,6,7]",qemu patina dxe core (binary),3
+patina (patina_dxe_core),https://github.com/OpenDevicePartnership/patina,"[5,6,7,8,9]",patina dxe core (library),4
+patina (core),https://github.com/OpenDevicePartnership/patina,"[6,7,9]",core (library),5
+patina (components),https://github.com/OpenDevicePartnership/patina,[7],components (library),6
+patina (sdk),https://github.com/OpenDevicePartnership/patina,[],sdk (library),7
+patina-mtrr,https://github.com/OpenDevicePartnership/patina-mtrr,[],general purpose (library),8
+patina-paging,https://github.com/OpenDevicePartnership/patina-paging,[],general purpose (library),8

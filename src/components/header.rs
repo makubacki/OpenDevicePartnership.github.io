@@ -1,30 +1,49 @@
 use leptos::prelude::*;
 
 #[component]
-pub fn Navbar() -> impl IntoView {
+pub fn Header() -> impl IntoView {
     view! {
-        <nav class="fixed w-screen custom-bg-white shadow-md z-50">
-            <div class="flex flex-col md:flex-row justify-between items-center p-4 border-b-4 border-gray-300">
-                <a class="flex items-center mb-4 md:mb-0" href="/">
-                    <img src="/images/odplogo.png" class="h-14 w-14" alt="ODP Logo" />
-                    <p class="text-2xl md:text-3xl custom-text-gray-800 pl-4">Open Device Partnership</p>
-                </a>
-                <div class="flex-grow md:hidden"></div>
-                <div class="flex space-x-8 ml-4 mr-4">
-                    <a href="/about" class="custom-text-gray-800 hover:custom-text-blue-600 transition duration-300">
-                        About
-                    </a>
-                    <a href="/documentation" class="custom-text-gray-800 hover:custom-text-blue-600 transition duration-300">
-                        Documentation
-                    </a>
-                    <a href="https://github.com/OpenDevicePartnership" class="custom-text-gray-800 hover:custom-text-blue-600 transition duration-300">
-                        Repositories
-                    </a>
-                    <a href="/contact" class="custom-text-gray-800 hover:custom-text-blue-600 transition duration-300">
-                        Contact
-                    </a>
-                </div>
+        <header class="w-full h-[160px] px-[120px] bg-white dark:bg-black flex items-center justify-between">
+            <div class="flex items-center space-x-6">
+                <picture>
+                    <source srcset="/images/dark/odplogo.svg" media="(prefers-color-scheme: dark)" />
+                    <img
+                        src="/images/light/odplogo.svg"
+                        alt="ODP Logo"
+                        class="w-[149px] h-[51.43px] object-contain"
+                    />
+                </picture>
             </div>
-        </nav>
+
+            <nav class="flex [column-gap:25px]">
+                <NavButton href="/getting-started" label="Getting Started"/>
+                <NavButton href="/projects" label="Projects"/>
+                <NavButton href="https://opendevicepartnership.github.io/documentation/" label="Library"/>
+                <NavButton href="/community" label="Community"/>
+                <NavButton href="/home" label="Home"/>
+            </nav>
+        </header>
+    }
+}
+
+#[component]
+fn NavButton(href: &'static str, label: &'static str) -> impl IntoView {
+    let location = leptos_router::hooks::use_location();
+    let is_active = move || location.pathname.get().starts_with(href);
+
+    view! {
+        <a
+            href=href
+            class=move || {
+                let base = "odp-header-btn odp-header-btn-text";
+                if is_active() {
+                    format!("{base} odp-header-btn-active odp-header-btn-active-text")
+                } else {
+                    format!("{base} ")
+                }
+            }
+        >
+            {label}
+        </a>
     }
 }

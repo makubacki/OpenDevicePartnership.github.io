@@ -2,39 +2,204 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --font-sans: "Segoe UI", "sans-serif";
-  }
-}
 
 @layer components {
-  .btn-custom {
-    @apply bg-blue-500 text-white font-bold py-4 px-4 rounded-lg shadow-md relative z-10 transition duration-300 ease-in-out transform hover:bg-blue-600 hover:scale-105 dark:bg-blue-700 dark:hover:bg-blue-800;
-  }
-  .nav-container {
-    @apply flex flex-col md:flex-row justify-between items-center p-4 border-b-4 border-gray-300;
-  }
-  .nav-link {
-    @apply custom-text-gray-800 hover:custom-text-blue-600 transition duration-300;
-  }
+  
+  
+
 }
 
 @layer utilities {
-  .custom-bg-white {
-    @apply bg-white dark:bg-gray-900;
+  .background_primary {
+    @apply bg-white dark:bg-black;
   }
-  .custom-text-gray-800 {
-    @apply text-gray-800 dark:text-gray-200;
+   
+  .background_secondary {
+    @apply bg-[#F1F1F1] dark:bg-[#3B3B3B];
   }
-  .custom-bg-gray-100 {
-    @apply bg-gray-100 dark:bg-gray-800;
+
+  .background_tertiary {
+    @apply bg-[#E2E2E2] dark:bg-[#595959];
   }
-  .custom-text-gray-400 {
-    @apply text-gray-800 dark:text-gray-300;
+  
+  .h1 {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 140px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 95%;
+    letter-spacing: -2.8px;
+    margin-bottom: 12px;
   }
-  .custom-text-blue-600 {
-    @apply text-blue-600 dark:text-blue-400;
+
+  .h2 {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%; /* 66px */
+    letter-spacing: -1.2px;
+    margin-bottom: 12px;
+  }
+
+  .h3 {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 42px */
+    letter-spacing: -0.7px;
+    margin-bottom: 12px;
+  }
+
+  .p {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 26px */
+  }
+
+  .p1 {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 49px */
+    letter-spacing: -0.7px;
+    margin-bottom: 12px;
+  }
+
+  .p2 {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.25px;
+    margin-bottom: 12px;
+  }
+
+  .p_mono {
+    @apply text-black dark:text-white;
+    font-family: "Geist Mono", monospace;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%; /* 66px */
+    letter-spacing: 4.8px;
+    text-transform: uppercase;
+  }
+
+  .mono {
+    @apply text-black dark:text-white;
+    font-family: "Geist Mono", monospace;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 26px */
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .link {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.25px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+  }
+
+  .link_large {
+    @apply text-black dark:text-white;
+    font-family: Geist, sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%; /* 45.5px */
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+  }
+
+  .icon {
+    display: flex;
+    width: 150px;
+    height: 150px;
+    padding: 12.5px 18.75px;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    margin-bottom: 12px;
+  }
+
+  .odp-btn-text {
+    @apply text-black dark:text-white;
+    text-align: center;
+    font-family: Geist, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  
+  .odp-btn {
+    @apply bg-white dark:bg-black border-black dark:border-white;
+    border-radius: 10px;
+    border: 2px solid;
+    display: flex;
+    padding: 25px 35px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .odp-header-btn-text {
+    @apply text-black dark:text-white;
+    text-align: center;
+    font-family: Geist, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 24px */
+  }
+
+  .odp-header-btn-active-text {
+    @apply text-white dark:text-black;
+  }
+
+  .odp-header-btn {
+    @apply bg-white dark:bg-black border-black dark:border-white;
+    border-radius: 10px;
+    border: 2px solid;
+    display: flex;
+    height: 62px;
+    padding: 19px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .odp-header-btn-active {
+    @apply bg-black dark:bg-white border-white dark:border-black;
   }
 }
 

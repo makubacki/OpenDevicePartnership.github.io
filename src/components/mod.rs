@@ -1,6 +1,11 @@
 pub mod footer;
 pub mod header;
-pub mod intro_message;
 pub mod main;
-pub mod projects;
-pub mod welcome;
+pub mod projects_component;
+pub mod landing_page;
+pub mod documentation_training;
+pub mod image_button;
+pub mod community_teams;
+pub mod project_introduction;
+pub mod repo_view;
+pub mod team_grid;
